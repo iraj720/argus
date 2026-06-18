@@ -1,0 +1,6 @@
+runtime_manifest_test 9 0.00107505
+packet_adapter_test 9 0.000812505
+side_by_side_frame_test 5 0.00668651
+clip_tokenizer_test 3 0.0787302
+model_path_test 2 0.174725
+---

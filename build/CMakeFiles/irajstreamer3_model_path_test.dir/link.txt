@@ -1,0 +1,1 @@
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/irajstreamer3_model_path_test.dir/core/tests/model_path_test.cpp.o CMakeFiles/irajstreamer3_model_path_test.dir/core/compose/clip_prompt/model_path.cpp.o -o irajstreamer3_model_path_test

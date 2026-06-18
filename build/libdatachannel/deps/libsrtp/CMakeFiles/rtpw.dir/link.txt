@@ -1,0 +1,1 @@
+/usr/bin/cc -g -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/rtpw.dir/test/rtpw.c.o CMakeFiles/rtpw.dir/test/rtp.c.o CMakeFiles/rtpw.dir/test/util.c.o CMakeFiles/rtpw.dir/test/getopt_s.c.o -o rtpw  libsrtp2.a /opt/homebrew/Cellar/openssl@3/3.6.2/lib/libcrypto.dylib

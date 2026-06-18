@@ -1,0 +1,1 @@
+/usr/bin/cc -g -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cipher_driver.dir/crypto/test/cipher_driver.c.o CMakeFiles/cipher_driver.dir/test/getopt_s.c.o -o cipher_driver  libsrtp2.a /opt/homebrew/Cellar/openssl@3/3.6.2/lib/libcrypto.dylib

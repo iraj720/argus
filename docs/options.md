@@ -1,0 +1,6 @@
+- gpac
+- libobs
+- MLT
+- MediaMTX
+- FFMPEG
+- gst

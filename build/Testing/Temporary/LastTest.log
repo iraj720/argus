@@ -1,0 +1,83 @@
+Start testing: Jun 17 13:00 +0330
+----------------------------------------------------------
+1/5 Testing: runtime_manifest_test
+1/5 Test: runtime_manifest_test
+Command: "/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/irajstreamer3_runtime_manifest_test"
+Directory: /Users/nimarafieimehr/gibical/cgo/irajstreamer3/build
+"runtime_manifest_test" start time: Jun 17 13:00 +0330
+Output:
+----------------------------------------------------------
+runtime_manifest_test passed
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"runtime_manifest_test" end time: Jun 17 13:00 +0330
+"runtime_manifest_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/5 Testing: packet_adapter_test
+2/5 Test: packet_adapter_test
+Command: "/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/irajstreamer3_packet_adapter_test"
+Directory: /Users/nimarafieimehr/gibical/cgo/irajstreamer3/build
+"packet_adapter_test" start time: Jun 17 13:00 +0330
+Output:
+----------------------------------------------------------
+packet_adapter_test passed
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"packet_adapter_test" end time: Jun 17 13:00 +0330
+"packet_adapter_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/5 Testing: model_path_test
+3/5 Test: model_path_test
+Command: "/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/irajstreamer3_model_path_test"
+Directory: /Users/nimarafieimehr/gibical/cgo/irajstreamer3/..
+"model_path_test" start time: Jun 17 13:00 +0330
+Output:
+----------------------------------------------------------
+model_path_test passed resolved=/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/../models/mobileclip2_s2
+<end of output>
+Test time =   0.35 sec
+----------------------------------------------------------
+Test Passed.
+"model_path_test" end time: Jun 17 13:00 +0330
+"model_path_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/5 Testing: clip_tokenizer_test
+4/5 Test: clip_tokenizer_test
+Command: "/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/irajstreamer3_clip_tokenizer_test"
+Directory: /Users/nimarafieimehr/gibical/cgo/irajstreamer3
+"clip_tokenizer_test" start time: Jun 17 13:00 +0330
+Output:
+----------------------------------------------------------
+clip_tokenizer_test passed
+<end of output>
+Test time =   0.24 sec
+----------------------------------------------------------
+Test Passed.
+"clip_tokenizer_test" end time: Jun 17 13:00 +0330
+"clip_tokenizer_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/5 Testing: side_by_side_frame_test
+5/5 Test: side_by_side_frame_test
+Command: "/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/irajstreamer3_side_by_side_frame_test"
+Directory: /Users/nimarafieimehr/gibical/cgo/irajstreamer3
+"side_by_side_frame_test" start time: Jun 17 13:00 +0330
+Output:
+----------------------------------------------------------
+side_by_side_frame_test passed
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"side_by_side_frame_test" end time: Jun 17 13:00 +0330
+"side_by_side_frame_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jun 17 13:00 +0330

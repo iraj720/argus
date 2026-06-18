@@ -1,0 +1,120 @@
+version: 1
+
+runtime:
+  timezone: Asia/Tehran
+  reload:
+    debounce_ms: 250
+    atomic_swap: true
+    keep_last_good: true
+    require_output_continuity: true
+
+sources:
+  - id: cam_a
+    uri: rtmp://localhost:1938/live/cam_a
+    kind: av
+  - id: cam_b
+    uri: https://example.com/live/stream.m3u8
+    kind: av
+
+nodes:
+  - id: program_switch
+    type: switch
+    mode: scene
+    inputs:
+      - cam_a_full
+      - split_view
+      - cam_b_full
+    default_input: cam_a_full
+
+scenes:
+  - id: cam_a_full
+    kind: compose
+    canvas:
+      width: 1280
+      height: 720
+      fps: 30
+    layers:
+      - source: cam_a
+        x: 0
+        y: 0
+        width: 1280
+        height: 720
+        z: 0
+        audio:
+          mode: direct
+
+  - id: split_view
+    kind: compose
+    canvas:
+      width: 1280
+      height: 720
+      fps: 30
+    layers:
+      - source: cam_a
+        x: 0
+        y: 0
+        width: 640
+        height: 720
+        z: 0
+        audio:
+          mode: direct
+      - source: cam_b
+        x: 640
+        y: 0
+        width: 640
+        height: 720
+        z: 1
+        audio:
+          mode: mute
+
+  - id: cam_b_full
+    kind: compose
+    canvas:
+      width: 1280
+      height: 720
+      fps: 30
+    layers:
+      - source: cam_b
+        x: 0
+        y: 0
+        width: 1280
+        height: 720
+        z: 0
+        audio:
+          mode: direct
+
+programs:
+  - id: main_program
+    root: program_switch
+
+outputs:
+  - id: live_output
+    program: main_program
+    contract:
+      video:
+        codec: h264
+        width: 1280
+        height: 720
+        fps: 30
+        pixel_format: I420
+        bitrate_kbps: 4000
+        profile: high
+        preset: veryfast
+        background: black
+      audio:
+        codec: aac
+        sample_rate: 48000
+        channels: 2
+        layout: stereo
+        bitrate_kbps: 128
+      session:
+        protocol: rtmp
+        container: flv
+        uri: rtmp://localhost:1938/live/out
+    sinks:
+      - id: live_rtmp
+        type: rtmp
+        uri: rtmp://localhost:1938/live/out
+      - id: live_hls
+        type: hls
+        path: ./record/stream.m3u8

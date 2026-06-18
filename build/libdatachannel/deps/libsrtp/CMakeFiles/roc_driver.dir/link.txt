@@ -1,0 +1,1 @@
+/usr/bin/cc -g -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/roc_driver.dir/test/roc_driver.c.o CMakeFiles/roc_driver.dir/test/ut_sim.c.o -o roc_driver  libsrtp2.a /opt/homebrew/Cellar/openssl@3/3.6.2/lib/libcrypto.dylib
