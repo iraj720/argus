@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/test/getopt_s.c" "libdatachannel/deps/libsrtp/CMakeFiles/srtp_driver.dir/test/getopt_s.c.o" "gcc" "libdatachannel/deps/libsrtp/CMakeFiles/srtp_driver.dir/test/getopt_s.c.o.d"
-  "/Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/test/srtp_driver.c" "libdatachannel/deps/libsrtp/CMakeFiles/srtp_driver.dir/test/srtp_driver.c.o" "gcc" "libdatachannel/deps/libsrtp/CMakeFiles/srtp_driver.dir/test/srtp_driver.c.o.d"
-  "/Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/test/util.c" "libdatachannel/deps/libsrtp/CMakeFiles/srtp_driver.dir/test/util.c.o" "gcc" "libdatachannel/deps/libsrtp/CMakeFiles/srtp_driver.dir/test/util.c.o.d"
+  "/Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/test/getopt_s.c" "libdatachannel/deps/libsrtp/CMakeFiles/srtp_driver.dir/test/getopt_s.c.o" "gcc" "libdatachannel/deps/libsrtp/CMakeFiles/srtp_driver.dir/test/getopt_s.c.o.d"
+  "/Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/test/srtp_driver.c" "libdatachannel/deps/libsrtp/CMakeFiles/srtp_driver.dir/test/srtp_driver.c.o" "gcc" "libdatachannel/deps/libsrtp/CMakeFiles/srtp_driver.dir/test/srtp_driver.c.o.d"
+  "/Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/test/util.c" "libdatachannel/deps/libsrtp/CMakeFiles/srtp_driver.dir/test/util.c.o" "gcc" "libdatachannel/deps/libsrtp/CMakeFiles/srtp_driver.dir/test/util.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

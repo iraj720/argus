@@ -1,0 +1,1 @@
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/argus_packet_adapter_test.dir/core/tests/packet_adapter_test.cpp.o CMakeFiles/argus_packet_adapter_test.dir/core/decoder/packet_adapter.cpp.o -o argus_packet_adapter_test

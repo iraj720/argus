@@ -1,6 +1,8 @@
 #include "core/servers/webrtc/webrtc_server.h"
 
 #include "core/sources/buffered_source.h"
+#include "core/sources/packet_timeline.h"
+#include "core/sources/packet_typing.h"
 #include "core/sources/source_queue.h"
 
 extern "C" {
@@ -76,15 +78,16 @@ struct SelectedTrack {
     uint64_t last_extended_timestamp = 0;
     uint64_t wrap_count = 0;
     bool seen_first_frame = false;
+    bool has_timeline_origin_ms = false;
+    std::int64_t timeline_origin_ms = 0;
     std::shared_ptr<rtc::Track> track;
     std::vector<uint8_t> extradata;
 };
 
 struct PendingPacket {
     size_t track_index = 0;
-    int64_t pts = 0;
-    int64_t dts = 0;
-    int64_t duration = 0;
+    std::uint32_t timestamp_ms = 0;
+    std::int64_t duration_ms = 0;
     int key_frame = 0;
     std::vector<uint8_t> payload;
 };
@@ -112,6 +115,10 @@ public:
         return source_->Subscribe();
     }
 
+    irs3::SourceSubscriptionPtr Subscribe(const irs3::SubscriptionFilter &filter) override {
+        return source_->Subscribe(filter);
+    }
+
     void SetFormat(irs3::SourceFormat format) {
         source_->SetFormat(std::move(format));
     }
@@ -120,12 +127,18 @@ public:
         irs3::SourcePacket source_packet;
         source_packet.stream_index = packet.track_index;
         source_packet.track_kind = track_kind;
-        source_packet.pts = packet.pts;
-        source_packet.dts = packet.dts;
-        source_packet.duration = packet.duration;
+        source_packet.timestamp_ms = packet.timestamp_ms;
+        source_packet.pts = static_cast<std::int64_t>(packet.timestamp_ms);
+        source_packet.dts = source_packet.pts;
+        source_packet.duration = packet.duration_ms;
         source_packet.key_frame = packet.key_frame != 0;
         source_packet.gop_start = source_packet.track_kind == irs3::SourceTrackKind::kVideo && source_packet.key_frame;
         source_packet.payload = std::make_shared<std::vector<std::uint8_t>>(std::move(packet.payload));
+        if (track_kind == irs3::SourceTrackKind::kVideo) {
+            irs3::AssignWhipVideoPacketTyping(&source_packet);
+        } else if (track_kind == irs3::SourceTrackKind::kAudio) {
+            irs3::AssignWhipVoicePacketTyping(&source_packet, true);
+        }
         return source_->PublishPacket(std::move(source_packet));
     }
 
@@ -800,9 +813,22 @@ public:
             });
             pc_->onStateChange([this](rtc::PeerConnection::State state) {
                 if (state == rtc::PeerConnection::State::Closed ||
-                    state == rtc::PeerConnection::State::Failed ||
-                    state == rtc::PeerConnection::State::Disconnected) {
+                    state == rtc::PeerConnection::State::Failed) {
+                    std::fprintf(stderr,
+                        "argus: WHIP session closed app=%s stream=%s session=%s pc_state=%d\n",
+                        path_info_.app.c_str(),
+                        path_info_.stream.c_str(),
+                        session_id_.c_str(),
+                        static_cast<int>(state));
                     close();
+                    return;
+                }
+                if (state == rtc::PeerConnection::State::Disconnected) {
+                    std::fprintf(stderr,
+                        "argus: WHIP peer disconnected (keeping session) app=%s stream=%s session=%s\n",
+                        path_info_.app.c_str(),
+                        path_info_.stream.c_str(),
+                        session_id_.c_str());
                 }
             });
 
@@ -1005,19 +1031,27 @@ private:
             track.seen_first_frame = true;
         }
 
-        int64_t pts = static_cast<int64_t>(extended_timestamp);
-        int64_t duration = 0;
+        int64_t pts_ticks = static_cast<int64_t>(extended_timestamp);
+        std::int64_t duration_ticks = 0;
         if (track.last_extended_timestamp != 0 && extended_timestamp >= track.last_extended_timestamp) {
-            duration = pts - static_cast<int64_t>(track.last_extended_timestamp);
+            duration_ticks = pts_ticks - static_cast<int64_t>(track.last_extended_timestamp);
         }
         track.last_rtp = info.timestamp;
         track.last_extended_timestamp = extended_timestamp;
 
+        const int clock_rate = track.clock_rate > 0 ? track.clock_rate : 90000;
+        const std::int64_t raw_ms = irs3::rtp_ticks_to_ms(pts_ticks, clock_rate);
+        if (!track.has_timeline_origin_ms) {
+            track.timeline_origin_ms = raw_ms;
+            track.has_timeline_origin_ms = true;
+        }
+        const std::int64_t timestamp_ms = raw_ms - track.timeline_origin_ms;
+        const std::int64_t duration_ms = irs3::rtp_ticks_delta_to_ms(duration_ticks, clock_rate);
+
         PendingPacket packet;
         packet.track_index = track_index;
-        packet.pts = pts;
-        packet.dts = pts;
-        packet.duration = duration;
+        packet.timestamp_ms = static_cast<std::uint32_t>(timestamp_ms);
+        packet.duration_ms = duration_ms;
 
         std::vector<uint8_t> payload = bytes_to_uint8(data);
         int key_frame = 0;
@@ -1043,7 +1077,12 @@ private:
             source_->SetFormat(build_source_format());
         }
         if (!source_->PublishPacket(std::move(packet), track.kind)) {
-            close();
+            std::fprintf(stderr,
+                "argus: WHIP publish dropped app=%s stream=%s session=%s track=%zu\n",
+                path_info_.app.c_str(),
+                path_info_.stream.c_str(),
+                session_id_.c_str(),
+                track_index);
         }
     }
 

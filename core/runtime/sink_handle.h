@@ -1,17 +1,17 @@
 #ifndef ARGUS_CORE_RUNTIME_SINK_HANDLE_H
 #define ARGUS_CORE_RUNTIME_SINK_HANDLE_H
 
-#include "core/sources/isource.h"
 #include "core/runtime/runtime_manifest.h"
-#include "core/sinks/hls_sink_runner.h"
+#include "core/sinks/remux_sink_runner.h"
 
 #include <memory>
+#include <vector>
 
 namespace irs3 {
 
 class SinkHandle {
 public:
-    SinkHandle(SourcePtr source, SourceSubscriptionPtr subscription, RuntimeSinkSpec spec);
+    SinkHandle(RuntimeSinkSpec spec, std::vector<RemuxSinkInput> inputs);
     ~SinkHandle();
 
     SinkHandle(const SinkHandle &) = delete;
@@ -22,7 +22,7 @@ public:
 
 private:
     RuntimeSinkSpec spec_;
-    std::unique_ptr<HlsSinkRunner> runner_;
+    std::unique_ptr<RemuxSinkRunner> runner_;
     bool closed_ = false;
 };
 

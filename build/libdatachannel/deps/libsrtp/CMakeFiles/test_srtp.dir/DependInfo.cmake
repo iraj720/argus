@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/test/test_srtp.c" "libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/test/test_srtp.c.o" "gcc" "libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/test/test_srtp.c.o.d"
+  "/Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/test/test_srtp.c" "libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/test/test_srtp.c.o" "gcc" "libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/test/test_srtp.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

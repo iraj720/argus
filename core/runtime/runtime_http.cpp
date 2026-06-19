@@ -209,8 +209,6 @@ bool parse_manifest_json(const std::string &body, RuntimeManifest *manifest, std
 
         auto sources_it = root.find("sources");
         auto sinks_it = root.find("sinks");
-        auto decoders_it = root.find("decoders");
-        auto composes_it = root.find("composes");
         if (sources_it == root.end() || !sources_it->is_array()) {
             *error = "manifest.sources must be an array";
             return false;
@@ -219,16 +217,24 @@ bool parse_manifest_json(const std::string &body, RuntimeManifest *manifest, std
             *error = "manifest.sinks must be an array";
             return false;
         }
-        if (decoders_it != root.end() && !decoders_it->is_array()) {
-            *error = "manifest.decoders must be an array when present";
-            return false;
-        }
-        if (composes_it != root.end() && !composes_it->is_array()) {
-            *error = "manifest.composes must be an array when present";
+        if (root.contains("decoders") || root.contains("composes")) {
+            *error = "manifest_version 2 does not support decoders or composes";
             return false;
         }
 
         RuntimeManifest parsed;
+        parsed.manifest_version = kRuntimeManifestVersion;
+        if (root.contains("manifest_version")) {
+            if (!root["manifest_version"].is_number_integer()) {
+                *error = "manifest_version must be an integer";
+                return false;
+            }
+            parsed.manifest_version = root["manifest_version"].get<int>();
+        }
+        if (parsed.manifest_version != kRuntimeManifestVersion) {
+            *error = "manifest_version must be 2";
+            return false;
+        }
         for (const auto &source_json : *sources_it) {
             if (!source_json.is_object() || !source_json.contains("source_id") ||
                 !source_json["source_id"].is_string()) {
@@ -248,104 +254,54 @@ bool parse_manifest_json(const std::string &body, RuntimeManifest *manifest, std
                 *error = "each sink must contain string sink_id";
                 return false;
             }
-            if (!sink_json.contains("source_id") || !sink_json["source_id"].is_string()) {
-                *error = "each sink must contain string source_id";
-                return false;
-            }
             if (!sink_json.contains("output_root") || !sink_json["output_root"].is_string()) {
                 *error = "each sink must contain string output_root";
+                return false;
+            }
+            if (!sink_json.contains("inputs") || !sink_json["inputs"].is_array() || sink_json["inputs"].empty()) {
+                *error = "each sink must contain non-empty inputs array";
                 return false;
             }
 
             RuntimeSinkSpec sink;
             sink.sink_id = sink_json["sink_id"].get<std::string>();
-            sink.source_id = sink_json["source_id"].get<std::string>();
             sink.output_root = sink_json["output_root"].get<std::string>();
             sink.output_mode = IRS3_HLS_SINK_OUTPUT_RECORD;
             if (sink_json.contains("mode") && !parse_mode(sink_json["mode"], &sink.output_mode)) {
                 *error = "sink mode must be \"record\" or \"live\"";
                 return false;
             }
+
+            for (const auto &input_json : sink_json["inputs"]) {
+                if (!input_json.is_object()) {
+                    *error = "each sink input must be an object";
+                    return false;
+                }
+                RuntimeSinkInputSpec input;
+                input.kind = input_json.value("kind", "source");
+                if (!input_json.contains("id") || !input_json["id"].is_string()) {
+                    *error = "each sink input must contain string id";
+                    return false;
+                }
+                if (!input_json.contains("stream_type") || !input_json["stream_type"].is_string()) {
+                    *error = "each sink input must contain string stream_type";
+                    return false;
+                }
+                if (!input_json.contains("packet_type") || !input_json["packet_type"].is_string()) {
+                    *error = "each sink input must contain string packet_type";
+                    return false;
+                }
+                if (!input_json.contains("stream_id") || !input_json["stream_id"].is_string()) {
+                    *error = "each sink input must contain string stream_id";
+                    return false;
+                }
+                input.id = input_json["id"].get<std::string>();
+                input.stream_type = input_json["stream_type"].get<std::string>();
+                input.packet_type = input_json["packet_type"].get<std::string>();
+                input.stream_id = input_json["stream_id"].get<std::string>();
+                sink.inputs.push_back(std::move(input));
+            }
             parsed.sinks.push_back(std::move(sink));
-        }
-
-        if (decoders_it != root.end()) {
-            for (const auto &decoder_json : *decoders_it) {
-                if (!decoder_json.is_object()) {
-                    *error = "each decoder must be an object";
-                    return false;
-                }
-                if (!decoder_json.contains("decoder_id") || !decoder_json["decoder_id"].is_string()) {
-                    *error = "each decoder must contain string decoder_id";
-                    return false;
-                }
-                if (!decoder_json.contains("source_id") || !decoder_json["source_id"].is_string()) {
-                    *error = "each decoder must contain string source_id";
-                    return false;
-                }
-
-                RuntimeDecoderSpec decoder;
-                decoder.decoder_id = decoder_json["decoder_id"].get<std::string>();
-                decoder.source_id = decoder_json["source_id"].get<std::string>();
-                parsed.decoders.push_back(std::move(decoder));
-            }
-        }
-
-        if (composes_it != root.end()) {
-            for (const auto &compose_json : *composes_it) {
-                if (!compose_json.is_object()) {
-                    *error = "each compose must be an object";
-                    return false;
-                }
-                if (!compose_json.contains("compose_id") || !compose_json["compose_id"].is_string()) {
-                    *error = "each compose must contain string compose_id";
-                    return false;
-                }
-                if (!compose_json.contains("decoder_id") || !compose_json["decoder_id"].is_string()) {
-                    *error = "each compose must contain string decoder_id";
-                    return false;
-                }
-                if (!compose_json.contains("output_root") || !compose_json["output_root"].is_string()) {
-                    *error = "each compose must contain string output_root";
-                    return false;
-                }
-
-                RuntimeComposeSpec compose;
-                compose.compose_id = compose_json["compose_id"].get<std::string>();
-                compose.decoder_id = compose_json["decoder_id"].get<std::string>();
-                compose.output_root = compose_json["output_root"].get<std::string>();
-                compose.compose_type = kComposeTypeJpgSnapshot;
-                if (compose_json.contains("compose_type")) {
-                    if (!compose_json["compose_type"].is_string()) {
-                        *error = "compose compose_type must be a string";
-                        return false;
-                    }
-                    compose.compose_type = compose_json["compose_type"].get<std::string>();
-                }
-                compose.snapshot_interval = 50;
-                if (compose_json.contains("snapshot_interval")) {
-                    if (!compose_json["snapshot_interval"].is_number_unsigned()) {
-                        *error = "compose snapshot_interval must be a positive integer";
-                        return false;
-                    }
-                    compose.snapshot_interval = compose_json["snapshot_interval"].get<std::size_t>();
-                }
-                if (compose_json.contains("prompt")) {
-                    if (!compose_json["prompt"].is_string()) {
-                        *error = "compose prompt must be a string";
-                        return false;
-                    }
-                    compose.prompt = compose_json["prompt"].get<std::string>();
-                }
-                if (compose_json.contains("model_root")) {
-                    if (!compose_json["model_root"].is_string()) {
-                        *error = "compose model_root must be a string";
-                        return false;
-                    }
-                    compose.model_root = compose_json["model_root"].get<std::string>();
-                }
-                parsed.composes.push_back(std::move(compose));
-            }
         }
 
         *manifest = std::move(parsed);

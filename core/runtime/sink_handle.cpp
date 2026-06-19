@@ -4,14 +4,9 @@
 
 namespace irs3 {
 
-SinkHandle::SinkHandle(SourcePtr source, SourceSubscriptionPtr subscription, RuntimeSinkSpec spec)
+SinkHandle::SinkHandle(RuntimeSinkSpec spec, std::vector<RemuxSinkInput> inputs)
     : spec_(std::move(spec)),
-      runner_(std::make_unique<HlsSinkRunner>(
-          std::move(source),
-          std::move(subscription),
-          spec_.output_root,
-          spec_.output_mode
-      )) {
+      runner_(std::make_unique<RemuxSinkRunner>(spec_, std::move(inputs))) {
 }
 
 SinkHandle::~SinkHandle() {

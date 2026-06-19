@@ -1,6 +1,7 @@
 #include "core/servers/rtmp/rtmp_server.h"
 
 #include "core/sources/buffered_source.h"
+#include "core/sources/packet_typing.h"
 #include "core/sources/source_queue.h"
 
 #include <arpa/inet.h>
@@ -54,6 +55,10 @@ public:
         return source_->Subscribe();
     }
 
+    irs3::SourceSubscriptionPtr Subscribe(const irs3::SubscriptionFilter &filter) override {
+        return source_->Subscribe(filter);
+    }
+
     void SetStreamPath(const char *app, const char *stream_name) {
         descriptor_.app = app != nullptr ? app : "";
         descriptor_.stream = stream_name != nullptr ? stream_name : "";
@@ -68,19 +73,18 @@ public:
         packet.timestamp_ms = timestamp_ms;
         packet.track_kind = irs3::SourceTrackKind::kData;
         packet.payload = std::make_shared<std::vector<std::uint8_t>>(payload, payload + payload_len);
+        irs3::AssignRtmpFlvPacketTyping(&packet, type_id);
 
         if (type_id == 8) {
-            packet.track_kind = irs3::SourceTrackKind::kAudio;
             if (is_audio_config_tag(payload, payload_len)) {
                 audio_config_packet_ = packet;
-                update_resume_prefix();
+                update_resume_prefix(packet.stream_id);
                 return 0;
             }
         } else if (type_id == 9) {
-            packet.track_kind = irs3::SourceTrackKind::kVideo;
             if (is_video_config_tag(payload, payload_len)) {
                 video_config_packet_ = packet;
-                update_resume_prefix();
+                update_resume_prefix(packet.stream_id);
                 update_video_format(payload, payload_len);
                 return 0;
             }
@@ -88,7 +92,7 @@ public:
             packet.gop_start = packet.key_frame;
         } else if (type_id == 18) {
             metadata_packet_ = packet;
-            update_resume_prefix();
+            update_resume_prefix(packet.stream_id);
             return 0;
         }
 
@@ -121,18 +125,20 @@ private:
         return payload != nullptr && payload_len >= 2 && ((payload[0] >> 4) == 10) && payload[1] == 0;
     }
 
-    void update_resume_prefix() {
+    void update_resume_prefix(const std::string &stream_id) {
         std::vector<irs3::SourcePacket> prefix_packets;
-        if (metadata_packet_.has_value()) {
+        if (stream_id == "text/metadata" && metadata_packet_.has_value()) {
             prefix_packets.push_back(*metadata_packet_);
         }
-        if (audio_config_packet_.has_value()) {
+        if (stream_id == "voice/main" && audio_config_packet_.has_value()) {
             prefix_packets.push_back(*audio_config_packet_);
         }
-        if (video_config_packet_.has_value()) {
+        if (stream_id == "video/main" && video_config_packet_.has_value()) {
             prefix_packets.push_back(*video_config_packet_);
         }
-        source_->SetResumePrefixPackets(std::move(prefix_packets));
+        if (!prefix_packets.empty()) {
+            source_->SetResumePrefixPackets(stream_id, std::move(prefix_packets));
+        }
     }
 
     void update_video_format(const std::uint8_t *payload, size_t payload_len) {

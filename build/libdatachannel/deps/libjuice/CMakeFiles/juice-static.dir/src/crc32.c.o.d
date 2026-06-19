@@ -1,7 +1,7 @@
 libdatachannel/deps/libjuice/CMakeFiles/juice-static.dir/src/crc32.c.o: \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/crc32.c \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/crc32.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/include/juice/juice.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/crc32.c \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/crc32.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/include/juice/juice.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdbool.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stddef_header_macro.h \

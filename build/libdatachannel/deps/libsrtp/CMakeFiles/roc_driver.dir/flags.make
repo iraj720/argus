@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = -DHAVE_CONFIG_H
 
-C_INCLUDES = -I/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/libsrtp -I/Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/test -I/Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include -I/Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/include -isystem /opt/homebrew/Cellar/openssl@3/3.6.2/include
+C_INCLUDES = -I/Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/libsrtp -I/Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/test -I/Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include -I/Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/include -isystem /opt/homebrew/Cellar/openssl@3/3.6.2/include
 
 C_FLAGSarm64 = -g -std=gnu99 -arch arm64 -fPIE -Wall -Wextra -Wshadow -Wpedantic -Wunused -Wnull-dereference -Wdouble-promotion -Wcast-qual -Werror
 

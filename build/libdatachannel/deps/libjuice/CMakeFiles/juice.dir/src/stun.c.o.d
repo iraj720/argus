@@ -1,7 +1,7 @@
 libdatachannel/deps/libjuice/CMakeFiles/juice.dir/src/stun.c.o: \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/stun.c \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/stun.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/include/juice/juice.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/stun.c \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/stun.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/include/juice/juice.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdbool.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stddef_header_macro.h \
@@ -32,8 +32,8 @@ libdatachannel/deps/libjuice/CMakeFiles/juice.dir/src/stun.c.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_uintptr_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_uintmax_t.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/addr.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/socket.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/addr.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/socket.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/arpa/inet.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/machine/endian.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/arm/endian.h \
@@ -159,7 +159,7 @@ libdatachannel/deps/libjuice/CMakeFiles/juice.dir/src/stun.c.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/gethostuuid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/ifaddrs.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/os/availability.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/hash.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/hash.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdlib.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_stdlib.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/wait.h \
@@ -181,11 +181,11 @@ libdatachannel/deps/libjuice/CMakeFiles/juice.dir/src/stun.c.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/malloc/_malloc_type.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/malloc/_ptrcheck.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_abort.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/hmac.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/base64.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/const_time.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/crc32.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/log.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/hmac.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/base64.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/const_time.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/crc32.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/log.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdarg.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg_header_macro.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg___gnuc_va_list.h \
@@ -193,7 +193,7 @@ libdatachannel/deps/libjuice/CMakeFiles/juice.dir/src/stun.c.o: \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg_va_arg.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg___va_copy.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg_va_copy.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/udp.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/udp.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/assert.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_assert.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_static_assert.h \

@@ -1,8 +1,8 @@
 libdatachannel/deps/libsrtp/CMakeFiles/srtp2.dir/crypto/hash/auth.c.o: \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/hash/auth.c \
-  /Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/libsrtp/config.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/auth.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/include/srtp.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/hash/auth.c \
+  /Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/libsrtp/config.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/auth.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/include/srtp.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdint.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdint.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_int8_t.h \
@@ -24,8 +24,8 @@ libdatachannel/deps/libsrtp/CMakeFiles/srtp2.dir/crypto/hash/auth.c.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_uintptr_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_uintmax_t.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/crypto_types.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/err.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/crypto_types.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/err.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdio.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_stdio.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -57,8 +57,8 @@ libdatachannel/deps/libsrtp/CMakeFiles/srtp2.dir/crypto/hash/auth.c.o: \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg_va_arg.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg___va_copy.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg_va_copy.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/datatypes.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/integers.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/datatypes.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/integers.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdlib.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_stdlib.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/wait.h \
@@ -138,7 +138,7 @@ libdatachannel/deps/libsrtp/CMakeFiles/srtp2.dir/crypto/hash/auth.c.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_key_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_fsblkcnt_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_fsfilcnt_t.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/alloc.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/alloc.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/string.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_string.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_strings.h \

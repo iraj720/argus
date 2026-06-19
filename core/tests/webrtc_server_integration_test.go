@@ -31,7 +31,14 @@ func TestWebRTCServerPublishesToHLS(t *testing.T) {
 	outputRoot := t.TempDir()
 	port := reservePort(t)
 
-	serverCmd := exec.Command(binary, "--server", "webrtc", "--host", "127.0.0.1", "--port", port, "--source", "live/test", "--sink", outputRoot)
+	serverCmd := exec.Command(
+		binary,
+		"--server", "webrtc",
+		"--host", "127.0.0.1",
+		"--webrtc-port", port,
+		"--source", "live/test",
+		"--sink", outputRoot,
+	)
 	var serverLog bytes.Buffer
 	serverCmd.Stdout = &serverLog
 	serverCmd.Stderr = &serverLog

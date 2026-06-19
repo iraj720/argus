@@ -1,10 +1,10 @@
 libdatachannel/CMakeFiles/datachannel.dir/src/description.cpp.o: \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/src/description.cpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/description.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/candidate.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/common.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/rtc.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/version.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/src/description.cpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/description.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/candidate.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/common.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/rtc.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/version.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/stdbool.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config_site \
@@ -31,7 +31,7 @@ libdatachannel/CMakeFiles/datachannel.dir/src/description.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_uintptr_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_uintmax_t.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/utils.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/utils.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/algorithm \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assertion_handler \
@@ -934,7 +934,7 @@ libdatachannel/CMakeFiles/datachannel.dir/src/description.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/pointer_to_binary_function.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/pointer_to_unary_function.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/unary_negate.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/rtp.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/rtp.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/istream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/ostream \
@@ -966,13 +966,13 @@ libdatachannel/CMakeFiles/datachannel.dir/src/description.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/unistd.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/map \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__tree \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/src/impl/internals.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/plog/include/plog/Log.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/plog/include/plog/Logger.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/plog/include/plog/Appenders/IAppender.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/plog/include/plog/Record.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/plog/include/plog/Severity.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/plog/include/plog/Util.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/src/impl/internals.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/plog/include/plog/Log.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/plog/include/plog/Logger.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/plog/include/plog/Appenders/IAppender.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/plog/include/plog/Record.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/plog/include/plog/Severity.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/plog/include/plog/Util.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cassert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/assert.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_assert.h \
@@ -993,7 +993,7 @@ libdatachannel/CMakeFiles/datachannel.dir/src/description.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/gethostuuid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_timeval64.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/src/impl/utils.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/src/impl/utils.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/random \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/bernoulli_distribution.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/uniform_real_distribution.h \

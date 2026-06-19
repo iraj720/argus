@@ -1,8 +1,8 @@
 libdatachannel/deps/libjuice/CMakeFiles/juice-static.dir/src/udp.c.o: \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/udp.c \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/udp.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/addr.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/socket.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/udp.c \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/udp.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/addr.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/socket.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/arpa/inet.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_symbol_aliasing.h \
@@ -150,8 +150,8 @@ libdatachannel/deps/libjuice/CMakeFiles/juice-static.dir/src/udp.c.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/ifaddrs.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/os/availability.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdbool.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/log.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/include/juice/juice.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/log.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/include/juice/juice.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stddef_header_macro.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stddef_ptrdiff_t.h \
@@ -167,7 +167,7 @@ libdatachannel/deps/libjuice/CMakeFiles/juice-static.dir/src/udp.c.o: \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg_va_arg.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg___va_copy.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg_va_copy.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/random.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/random.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdlib.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_stdlib.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/wait.h \
@@ -189,7 +189,7 @@ libdatachannel/deps/libjuice/CMakeFiles/juice-static.dir/src/udp.c.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/malloc/_malloc_type.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/malloc/_ptrcheck.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_abort.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/thread.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/thread.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/pthread.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/pthread/sched.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/pthread/pthread_impl.h \

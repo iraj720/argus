@@ -1,5 +1,5 @@
 libdatachannel/deps/usrsctp/usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_callout.c.o: \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_callout.c \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_callout.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/appleapiopts.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h \
@@ -144,7 +144,7 @@ libdatachannel/deps/usrsctp/usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_callo
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/secure/_stdio.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/errno.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/errno.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib/user_atomic.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib/user_atomic.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libkern/OSAtomic.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libkern/OSAtomicDeprecated.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/TargetConditionals.h \
@@ -159,9 +159,9 @@ libdatachannel/deps/usrsctp/usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_callo
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdbool.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libkern/OSSpinLockDeprecated.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libkern/OSAtomicQueue.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_sysctl.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_os.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_os_userspace.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_sysctl.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_os.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_os_userspace.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/socket.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/constrained_ctypes.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/machine/_param.h \
@@ -171,12 +171,12 @@ libdatachannel/deps/usrsctp/usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_callo
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_socklen_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_iovec_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/queue.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib/user_malloc.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib/user_malloc.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/strings.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib/user_socketvar.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib/user_socketvar.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/uio.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib/user_environment.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib/user_mbuf.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib/user_environment.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib/user_mbuf.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/limits.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/limits.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/machine/limits.h \
@@ -193,22 +193,22 @@ libdatachannel/deps/usrsctp/usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_callo
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/netinet/in_systm.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/netinet/ip.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/netinet/ip_icmp.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib/user_inpcb.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib/user_route.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib/user_inpcb.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib/user_route.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/ioctl.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/ttycom.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/ioccom.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/filio.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/sockio.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_sha1.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_constants.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_callout.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib/user_recv_thread.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_uio.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_pcb.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_structs.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_header.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_auth.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_process_lock.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctputil.h
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_sha1.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_constants.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_callout.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib/user_recv_thread.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_uio.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_pcb.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_structs.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_header.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_auth.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_process_lock.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctputil.h

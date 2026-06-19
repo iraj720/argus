@@ -1,8 +1,8 @@
 libdatachannel/deps/libsrtp/CMakeFiles/srtp2.dir/srtp/srtp.c.o: \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/srtp/srtp.c \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/include/srtp_priv.h \
-  /Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/libsrtp/config.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/include/srtp.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/srtp/srtp.c \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/include/srtp_priv.h \
+  /Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/libsrtp/config.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/include/srtp.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdint.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdint.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_int8_t.h \
@@ -24,9 +24,9 @@ libdatachannel/deps/libsrtp/CMakeFiles/srtp2.dir/srtp/srtp.c.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_uintptr_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_uintmax_t.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/rdbx.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/datatypes.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/integers.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/rdbx.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/datatypes.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/integers.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdlib.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_stdlib.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -121,7 +121,7 @@ libdatachannel/deps/libsrtp/CMakeFiles/srtp2.dir/srtp/srtp.c.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_pthread/_pthread_key_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_fsblkcnt_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_fsfilcnt_t.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/alloc.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/alloc.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdarg.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg_header_macro.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg___gnuc_va_list.h \
@@ -160,16 +160,16 @@ libdatachannel/deps/libsrtp/CMakeFiles/srtp2.dir/srtp/srtp.c.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libkern/arm/OSByteOrder.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_os_inline.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/arm/arch.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/err.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/rdb.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/cipher.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/crypto_types.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/auth.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/aes.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/crypto_kernel.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/key.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/include/stream_list_priv.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/aes_gcm.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/err.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/rdb.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/cipher.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/crypto_types.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/auth.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/aes.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/crypto_kernel.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/key.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/include/stream_list_priv.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/aes_gcm.h \
   /opt/homebrew/Cellar/openssl@3/3.6.2/include/openssl/evp.h \
   /opt/homebrew/Cellar/openssl@3/3.6.2/include/openssl/macros.h \
   /opt/homebrew/Cellar/openssl@3/3.6.2/include/openssl/opensslconf.h \

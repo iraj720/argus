@@ -1,6 +1,6 @@
 libdatachannel/deps/libjuice/CMakeFiles/juice.dir/src/hmac.c.o: \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/hmac.c \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/hmac.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/hmac.c \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/hmac.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdint.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdint.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_int8_t.h \
@@ -73,7 +73,7 @@ libdatachannel/deps/libjuice/CMakeFiles/juice.dir/src/hmac.c.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_abort.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_dev_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_mode_t.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/picohash.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/picohash.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/assert.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_assert.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_static_assert.h \

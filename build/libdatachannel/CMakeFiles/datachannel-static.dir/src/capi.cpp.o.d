@@ -1,7 +1,7 @@
 libdatachannel/CMakeFiles/datachannel-static.dir/src/capi.cpp.o: \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/src/capi.cpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/rtc.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/version.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/src/capi.cpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/rtc.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/version.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/stdbool.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config_site \
@@ -28,9 +28,9 @@ libdatachannel/CMakeFiles/datachannel-static.dir/src/capi.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_uintptr_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_uintmax_t.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/rtc.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/common.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/utils.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/rtc.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/common.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/utils.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/algorithm \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assertion_handler \
@@ -933,7 +933,7 @@ libdatachannel/CMakeFiles/datachannel-static.dir/src/capi.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/pointer_to_binary_function.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/pointer_to_unary_function.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/unary_negate.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/global.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/global.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/chrono \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__chrono/calendar.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__chrono/convert_to_tm.h \
@@ -993,57 +993,57 @@ libdatachannel/CMakeFiles/datachannel-static.dir/src/capi.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/unistd.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__thread/this_thread.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/datachannel.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/channel.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/reliability.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/iceudpmuxlistener.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/peerconnection.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/candidate.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/configuration.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/description.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/rtp.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/datachannel.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/channel.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/reliability.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/iceudpmuxlistener.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/peerconnection.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/candidate.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/configuration.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/description.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/rtp.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/map \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__tree \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/track.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/mediahandler.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/message.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/frameinfo.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/websocket.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/websocketserver.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/av1rtppacketizer.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/nalunit.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/track.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/mediahandler.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/message.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/frameinfo.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/websocket.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/websocketserver.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/av1rtppacketizer.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/nalunit.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cassert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/assert.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_assert.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_static_assert.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/rtppacketizer.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/rtppacketizationconfig.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/dependencydescriptor.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/rtpdepacketizer.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/rtppacketizer.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/rtppacketizationconfig.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/dependencydescriptor.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/rtpdepacketizer.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/set \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/h264rtppacketizer.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/h264rtpdepacketizer.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/h265rtppacketizer.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/h265nalunit.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/h265rtpdepacketizer.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/vp8rtppacketizer.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/vp8rtpdepacketizer.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/vp9rtppacketizer.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/vp9rtpdepacketizer.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/rtcpapphandler.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/plihandler.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/rembhandler.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/pacinghandler.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/rtcpnackresponder.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/rtcpreceivingsession.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/rtcpsrreporter.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/src/impl/internals.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/plog/include/plog/Log.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/plog/include/plog/Logger.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/plog/include/plog/Appenders/IAppender.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/plog/include/plog/Record.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/plog/include/plog/Severity.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/plog/include/plog/Util.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/h264rtppacketizer.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/h264rtpdepacketizer.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/h265rtppacketizer.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/h265nalunit.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/h265rtpdepacketizer.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/vp8rtppacketizer.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/vp8rtpdepacketizer.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/vp9rtppacketizer.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/vp9rtpdepacketizer.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/rtcpapphandler.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/plihandler.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/rembhandler.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/pacinghandler.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/rtcpnackresponder.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/rtcpreceivingsession.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/rtcpsrreporter.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/src/impl/internals.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/plog/include/plog/Log.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/plog/include/plog/Logger.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/plog/include/plog/Appenders/IAppender.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/plog/include/plog/Record.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/plog/include/plog/Severity.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/plog/include/plog/Util.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/fcntl.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/fcntl.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_o_sync.h \

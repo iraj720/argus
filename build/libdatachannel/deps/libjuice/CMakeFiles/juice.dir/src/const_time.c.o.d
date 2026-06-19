@@ -1,6 +1,6 @@
 libdatachannel/deps/libjuice/CMakeFiles/juice.dir/src/const_time.c.o: \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/const_time.c \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/const_time.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/const_time.c \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/const_time.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdint.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdint.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_int8_t.h \

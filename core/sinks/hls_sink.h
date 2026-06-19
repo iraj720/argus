@@ -108,6 +108,12 @@ int irs3_hls_sink_init_with_options(
     const irs3_hls_sink_options *options
 );
 
+int irs3_hls_sink_init_at_dir_with_options(
+    irs3_hls_sink *sink,
+    const char *output_dir,
+    const irs3_hls_sink_options *options
+);
+
 int irs3_hls_sink_init(
     irs3_hls_sink *sink,
     const char *output_root,
@@ -140,6 +146,14 @@ int irs3_hls_sink_init_packet_mode_with_options(
     const char *app,
     const char *stream_name,
     unsigned long session_id,
+    const irs3_hls_sink_options *options,
+    const irs3_hls_sink_stream_config *streams,
+    size_t stream_count
+);
+
+int irs3_hls_sink_init_packet_mode_at_dir_with_options(
+    irs3_hls_sink *sink,
+    const char *output_dir,
     const irs3_hls_sink_options *options,
     const irs3_hls_sink_stream_config *streams,
     size_t stream_count

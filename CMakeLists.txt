@@ -16,6 +16,9 @@ pkg_check_modules(ONNXRUNTIME REQUIRED IMPORTED_TARGET libonnxruntime)
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
 set(NO_EXAMPLES ON CACHE BOOL "" FORCE)
 set(NO_TESTS ON CACHE BOOL "" FORCE)
+# FFmpeg WHIP sends RFC 7675 consent checks; libjuice expires the ICE pair after 30s unless
+# consent freshness is disabled (see webrtc_server.cpp and docs/v2.md).
+set(DISABLE_CONSENT_FRESHNESS ON CACHE BOOL "" FORCE)
 
 set(ARGUS_LOCAL_LIBDATACHANNEL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/third_party/libdatachannel")
 set(ARGUS_PARENT_LIBDATACHANNEL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../libdatachannel")
@@ -51,21 +54,7 @@ endif()
 
 add_executable(argus
     cmd/argus/main.cpp
-    core/compose/compose_handle.cpp
-    core/compose/compose_type.cpp
-    core/compose/common/jpg_writer.cpp
-    core/compose/jpg_snapshot/jpg_snapshot_compose.cpp
-    core/compose/side_by_side/side_by_side_compose.cpp
-    core/compose/side_by_side/side_by_side_frame.cpp
-    core/compose/clip_prompt/clip_prompt_compose.cpp
-    core/compose/clip_prompt/clip_tokenizer.cpp
-    core/compose/clip_prompt/model_path.cpp
-    core/compose/clip_prompt/mobileclip2_s2_engine.cpp
-    core/decoder/decoder_handle.cpp
-    core/decoder/decoder_runner.cpp
-    core/decoder/video_frame_utils.cpp
-    core/decoder/h264_decoder.cpp
-    core/decoder/packet_adapter.cpp
+    core/mux/remux_muxer.cpp
     core/runtime/runtime_http.cpp
     core/runtime/runtime_manifest.cpp
     core/runtime/runtime.cpp
@@ -77,13 +66,21 @@ add_executable(argus
     core/servers/rtmp/rtmp_session.cpp
     core/servers/webrtc/webrtc_server.cpp
     core/sinks/hls_sink.cpp
-    core/sinks/hls_sink_runner.cpp
+    core/sinks/remux_sink_runner.cpp
+    core/sources/buffered_source.cpp
+    core/sources/packet_typing.cpp
+    core/sources/subscription_packet_reader.cpp
 )
 
 add_executable(argus_runtime_manifest_test
     core/tests/runtime_manifest_test.cpp
-    core/compose/compose_type.cpp
     core/runtime/runtime_manifest.cpp
+    core/sources/packet_typing.cpp
+)
+
+add_executable(argus_remux_muxer_test
+    core/tests/remux_muxer_test.cpp
+    core/mux/remux_muxer.cpp
 )
 
 add_executable(argus_model_path_test
@@ -116,6 +113,10 @@ target_include_directories(argus_runtime_manifest_test PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
+target_include_directories(argus_remux_muxer_test PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
 target_include_directories(argus_packet_adapter_test PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
@@ -136,6 +137,7 @@ target_include_directories(argus_side_by_side_frame_test PRIVATE
 if(CMAKE_C_COMPILER_ID MATCHES "Clang|GNU")
     target_compile_options(argus PRIVATE -Wall -Wextra -Wpedantic)
     target_compile_options(argus_runtime_manifest_test PRIVATE -Wall -Wextra -Wpedantic)
+    target_compile_options(argus_remux_muxer_test PRIVATE -Wall -Wextra -Wpedantic)
     target_compile_options(argus_packet_adapter_test PRIVATE -Wall -Wextra -Wpedantic)
     target_compile_options(argus_model_path_test PRIVATE -Wall -Wextra -Wpedantic)
     target_compile_options(argus_clip_tokenizer_test PRIVATE -Wall -Wextra -Wpedantic)
@@ -145,7 +147,6 @@ endif()
 find_package(Threads REQUIRED)
 target_link_libraries(argus PRIVATE
     PkgConfig::FFMPEG
-    PkgConfig::ONNXRUNTIME
     LibDataChannel::LibDataChannelStatic
     Threads::Threads
 )
@@ -171,8 +172,13 @@ target_link_libraries(argus_side_by_side_frame_test PRIVATE
     Threads::Threads
 )
 
+target_link_libraries(argus_remux_muxer_test PRIVATE
+    Threads::Threads
+)
+
 enable_testing()
 add_test(NAME runtime_manifest_test COMMAND argus_runtime_manifest_test)
+add_test(NAME remux_muxer_test COMMAND argus_remux_muxer_test)
 add_test(NAME packet_adapter_test COMMAND argus_packet_adapter_test)
 add_test(NAME model_path_test COMMAND argus_model_path_test)
 set_tests_properties(model_path_test PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/..)

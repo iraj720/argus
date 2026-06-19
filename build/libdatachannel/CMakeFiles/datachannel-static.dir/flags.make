@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DJUICE_STATIC -DRTC_ENABLE_MEDIA=1 -DRTC_ENABLE_WEBSOCKET=1 -DRTC_EXPORTS -DRTC_STATIC -DRTC_SYSTEM_JUICE=0 -DRTC_SYSTEM_SRTP=0 -DUSE_GNUTLS=0 -DUSE_NICE=0
 
-CXX_INCLUDES = -I/Users/nimarafieimehr/gibical/cgo/libdatachannel/include -I/Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc -I/Users/nimarafieimehr/gibical/cgo/libdatachannel/src -I/Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib -I/Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/plog/include -I/Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include -I/Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/include -I/Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/include -isystem /opt/homebrew/Cellar/openssl@3/3.6.2/include
+CXX_INCLUDES = -I/Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include -I/Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc -I/Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/src -I/Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib -I/Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/plog/include -I/Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include -I/Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/include -I/Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/include -isystem /opt/homebrew/Cellar/openssl@3/3.6.2/include
 
 CXX_FLAGSarm64 = -std=c++17 -arch arm64 -fPIC -Wall -Wextra
 

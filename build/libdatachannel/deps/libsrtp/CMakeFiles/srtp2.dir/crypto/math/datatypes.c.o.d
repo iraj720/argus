@@ -1,6 +1,6 @@
 libdatachannel/deps/libsrtp/CMakeFiles/srtp2.dir/crypto/math/datatypes.c.o: \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/math/datatypes.c \
-  /Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/libsrtp/config.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/math/datatypes.c \
+  /Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/libsrtp/config.h \
   /opt/homebrew/Cellar/openssl@3/3.6.2/include/openssl/crypto.h \
   /opt/homebrew/Cellar/openssl@3/3.6.2/include/openssl/macros.h \
   /opt/homebrew/Cellar/openssl@3/3.6.2/include/openssl/opensslconf.h \
@@ -161,9 +161,9 @@ libdatachannel/deps/libsrtp/CMakeFiles/srtp2.dir/crypto/math/datatypes.c.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/pthread/qos.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/qos.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_mach_port_t.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/datatypes.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/integers.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/alloc.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/datatypes.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/integers.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/alloc.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdarg.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg_header_macro.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg___gnuc_va_list.h \

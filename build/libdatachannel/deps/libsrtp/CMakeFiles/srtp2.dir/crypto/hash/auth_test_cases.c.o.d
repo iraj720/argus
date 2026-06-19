@@ -1,9 +1,9 @@
 libdatachannel/deps/libsrtp/CMakeFiles/srtp2.dir/crypto/hash/auth_test_cases.c.o: \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/hash/auth_test_cases.c \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/hash/auth_test_cases.h \
-  /Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/libsrtp/config.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/auth.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/include/srtp.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/hash/auth_test_cases.c \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/hash/auth_test_cases.h \
+  /Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/libsrtp/config.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/auth.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/include/srtp.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdint.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdint.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_int8_t.h \
@@ -25,7 +25,7 @@ libdatachannel/deps/libsrtp/CMakeFiles/srtp2.dir/crypto/hash/auth_test_cases.c.o
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_uintptr_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_uintmax_t.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/crypto_types.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/crypto_types.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stddef_header_macro.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stddef_ptrdiff_t.h \

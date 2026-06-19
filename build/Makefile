@@ -57,10 +57,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/nimarafieimehr/gibical/cgo/irajstreamer3
+CMAKE_SOURCE_DIR = /Users/nimarafieimehr/gibical/argus
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/nimarafieimehr/gibical/cgo/irajstreamer3/build
+CMAKE_BINARY_DIR = /Users/nimarafieimehr/gibical/argus/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -142,9 +142,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/CMakeFiles /Users/nimarafieimehr/gibical/cgo/irajstreamer3/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nimarafieimehr/gibical/argus/build/CMakeFiles /Users/nimarafieimehr/gibical/argus/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/nimarafieimehr/gibical/argus/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -172,82 +172,95 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named irajstreamer3
+# Target rules for targets named argus
 
 # Build rule for target.
-irajstreamer3: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 irajstreamer3
-.PHONY : irajstreamer3
+argus: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 argus
+.PHONY : argus
 
 # fast build rule for target.
-irajstreamer3/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/build
-.PHONY : irajstreamer3/fast
+argus/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/build
+.PHONY : argus/fast
 
 #=============================================================================
-# Target rules for targets named irajstreamer3_runtime_manifest_test
+# Target rules for targets named argus_runtime_manifest_test
 
 # Build rule for target.
-irajstreamer3_runtime_manifest_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 irajstreamer3_runtime_manifest_test
-.PHONY : irajstreamer3_runtime_manifest_test
+argus_runtime_manifest_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 argus_runtime_manifest_test
+.PHONY : argus_runtime_manifest_test
 
 # fast build rule for target.
-irajstreamer3_runtime_manifest_test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_runtime_manifest_test.dir/build.make CMakeFiles/irajstreamer3_runtime_manifest_test.dir/build
-.PHONY : irajstreamer3_runtime_manifest_test/fast
+argus_runtime_manifest_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_runtime_manifest_test.dir/build.make CMakeFiles/argus_runtime_manifest_test.dir/build
+.PHONY : argus_runtime_manifest_test/fast
 
 #=============================================================================
-# Target rules for targets named irajstreamer3_model_path_test
+# Target rules for targets named argus_remux_muxer_test
 
 # Build rule for target.
-irajstreamer3_model_path_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 irajstreamer3_model_path_test
-.PHONY : irajstreamer3_model_path_test
+argus_remux_muxer_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 argus_remux_muxer_test
+.PHONY : argus_remux_muxer_test
 
 # fast build rule for target.
-irajstreamer3_model_path_test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_model_path_test.dir/build.make CMakeFiles/irajstreamer3_model_path_test.dir/build
-.PHONY : irajstreamer3_model_path_test/fast
+argus_remux_muxer_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_remux_muxer_test.dir/build.make CMakeFiles/argus_remux_muxer_test.dir/build
+.PHONY : argus_remux_muxer_test/fast
 
 #=============================================================================
-# Target rules for targets named irajstreamer3_clip_tokenizer_test
+# Target rules for targets named argus_model_path_test
 
 # Build rule for target.
-irajstreamer3_clip_tokenizer_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 irajstreamer3_clip_tokenizer_test
-.PHONY : irajstreamer3_clip_tokenizer_test
+argus_model_path_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 argus_model_path_test
+.PHONY : argus_model_path_test
 
 # fast build rule for target.
-irajstreamer3_clip_tokenizer_test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_clip_tokenizer_test.dir/build.make CMakeFiles/irajstreamer3_clip_tokenizer_test.dir/build
-.PHONY : irajstreamer3_clip_tokenizer_test/fast
+argus_model_path_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_model_path_test.dir/build.make CMakeFiles/argus_model_path_test.dir/build
+.PHONY : argus_model_path_test/fast
 
 #=============================================================================
-# Target rules for targets named irajstreamer3_side_by_side_frame_test
+# Target rules for targets named argus_clip_tokenizer_test
 
 # Build rule for target.
-irajstreamer3_side_by_side_frame_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 irajstreamer3_side_by_side_frame_test
-.PHONY : irajstreamer3_side_by_side_frame_test
+argus_clip_tokenizer_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 argus_clip_tokenizer_test
+.PHONY : argus_clip_tokenizer_test
 
 # fast build rule for target.
-irajstreamer3_side_by_side_frame_test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_side_by_side_frame_test.dir/build.make CMakeFiles/irajstreamer3_side_by_side_frame_test.dir/build
-.PHONY : irajstreamer3_side_by_side_frame_test/fast
+argus_clip_tokenizer_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_clip_tokenizer_test.dir/build.make CMakeFiles/argus_clip_tokenizer_test.dir/build
+.PHONY : argus_clip_tokenizer_test/fast
 
 #=============================================================================
-# Target rules for targets named irajstreamer3_packet_adapter_test
+# Target rules for targets named argus_side_by_side_frame_test
 
 # Build rule for target.
-irajstreamer3_packet_adapter_test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 irajstreamer3_packet_adapter_test
-.PHONY : irajstreamer3_packet_adapter_test
+argus_side_by_side_frame_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 argus_side_by_side_frame_test
+.PHONY : argus_side_by_side_frame_test
 
 # fast build rule for target.
-irajstreamer3_packet_adapter_test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_packet_adapter_test.dir/build.make CMakeFiles/irajstreamer3_packet_adapter_test.dir/build
-.PHONY : irajstreamer3_packet_adapter_test/fast
+argus_side_by_side_frame_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_side_by_side_frame_test.dir/build.make CMakeFiles/argus_side_by_side_frame_test.dir/build
+.PHONY : argus_side_by_side_frame_test/fast
+
+#=============================================================================
+# Target rules for targets named argus_packet_adapter_test
+
+# Build rule for target.
+argus_packet_adapter_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 argus_packet_adapter_test
+.PHONY : argus_packet_adapter_test
+
+# fast build rule for target.
+argus_packet_adapter_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_packet_adapter_test.dir/build.make CMakeFiles/argus_packet_adapter_test.dir/build
+.PHONY : argus_packet_adapter_test/fast
 
 #=============================================================================
 # Target rules for targets named datachannel
@@ -457,61 +470,36 @@ juice-static/fast:
 	$(MAKE) $(MAKESILENT) -f libdatachannel/deps/libjuice/CMakeFiles/juice-static.dir/build.make libdatachannel/deps/libjuice/CMakeFiles/juice-static.dir/build
 .PHONY : juice-static/fast
 
-cmd/irajstreamer3/main.o: cmd/irajstreamer3/main.cpp.o
-.PHONY : cmd/irajstreamer3/main.o
+cmd/argus/main.o: cmd/argus/main.cpp.o
+.PHONY : cmd/argus/main.o
 
 # target to build an object file
-cmd/irajstreamer3/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/cmd/irajstreamer3/main.cpp.o
-.PHONY : cmd/irajstreamer3/main.cpp.o
+cmd/argus/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/cmd/argus/main.cpp.o
+.PHONY : cmd/argus/main.cpp.o
 
-cmd/irajstreamer3/main.i: cmd/irajstreamer3/main.cpp.i
-.PHONY : cmd/irajstreamer3/main.i
-
-# target to preprocess a source file
-cmd/irajstreamer3/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/cmd/irajstreamer3/main.cpp.i
-.PHONY : cmd/irajstreamer3/main.cpp.i
-
-cmd/irajstreamer3/main.s: cmd/irajstreamer3/main.cpp.s
-.PHONY : cmd/irajstreamer3/main.s
-
-# target to generate assembly for a file
-cmd/irajstreamer3/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/cmd/irajstreamer3/main.cpp.s
-.PHONY : cmd/irajstreamer3/main.cpp.s
-
-core/compose/clip_prompt/clip_prompt_compose.o: core/compose/clip_prompt/clip_prompt_compose.cpp.o
-.PHONY : core/compose/clip_prompt/clip_prompt_compose.o
-
-# target to build an object file
-core/compose/clip_prompt/clip_prompt_compose.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/clip_prompt/clip_prompt_compose.cpp.o
-.PHONY : core/compose/clip_prompt/clip_prompt_compose.cpp.o
-
-core/compose/clip_prompt/clip_prompt_compose.i: core/compose/clip_prompt/clip_prompt_compose.cpp.i
-.PHONY : core/compose/clip_prompt/clip_prompt_compose.i
+cmd/argus/main.i: cmd/argus/main.cpp.i
+.PHONY : cmd/argus/main.i
 
 # target to preprocess a source file
-core/compose/clip_prompt/clip_prompt_compose.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/clip_prompt/clip_prompt_compose.cpp.i
-.PHONY : core/compose/clip_prompt/clip_prompt_compose.cpp.i
+cmd/argus/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/cmd/argus/main.cpp.i
+.PHONY : cmd/argus/main.cpp.i
 
-core/compose/clip_prompt/clip_prompt_compose.s: core/compose/clip_prompt/clip_prompt_compose.cpp.s
-.PHONY : core/compose/clip_prompt/clip_prompt_compose.s
+cmd/argus/main.s: cmd/argus/main.cpp.s
+.PHONY : cmd/argus/main.s
 
 # target to generate assembly for a file
-core/compose/clip_prompt/clip_prompt_compose.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/clip_prompt/clip_prompt_compose.cpp.s
-.PHONY : core/compose/clip_prompt/clip_prompt_compose.cpp.s
+cmd/argus/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/cmd/argus/main.cpp.s
+.PHONY : cmd/argus/main.cpp.s
 
 core/compose/clip_prompt/clip_tokenizer.o: core/compose/clip_prompt/clip_tokenizer.cpp.o
 .PHONY : core/compose/clip_prompt/clip_tokenizer.o
 
 # target to build an object file
 core/compose/clip_prompt/clip_tokenizer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/clip_prompt/clip_tokenizer.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_clip_tokenizer_test.dir/build.make CMakeFiles/irajstreamer3_clip_tokenizer_test.dir/core/compose/clip_prompt/clip_tokenizer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_clip_tokenizer_test.dir/build.make CMakeFiles/argus_clip_tokenizer_test.dir/core/compose/clip_prompt/clip_tokenizer.cpp.o
 .PHONY : core/compose/clip_prompt/clip_tokenizer.cpp.o
 
 core/compose/clip_prompt/clip_tokenizer.i: core/compose/clip_prompt/clip_tokenizer.cpp.i
@@ -519,8 +507,7 @@ core/compose/clip_prompt/clip_tokenizer.i: core/compose/clip_prompt/clip_tokeniz
 
 # target to preprocess a source file
 core/compose/clip_prompt/clip_tokenizer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/clip_prompt/clip_tokenizer.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_clip_tokenizer_test.dir/build.make CMakeFiles/irajstreamer3_clip_tokenizer_test.dir/core/compose/clip_prompt/clip_tokenizer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_clip_tokenizer_test.dir/build.make CMakeFiles/argus_clip_tokenizer_test.dir/core/compose/clip_prompt/clip_tokenizer.cpp.i
 .PHONY : core/compose/clip_prompt/clip_tokenizer.cpp.i
 
 core/compose/clip_prompt/clip_tokenizer.s: core/compose/clip_prompt/clip_tokenizer.cpp.s
@@ -528,41 +515,15 @@ core/compose/clip_prompt/clip_tokenizer.s: core/compose/clip_prompt/clip_tokeniz
 
 # target to generate assembly for a file
 core/compose/clip_prompt/clip_tokenizer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/clip_prompt/clip_tokenizer.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_clip_tokenizer_test.dir/build.make CMakeFiles/irajstreamer3_clip_tokenizer_test.dir/core/compose/clip_prompt/clip_tokenizer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_clip_tokenizer_test.dir/build.make CMakeFiles/argus_clip_tokenizer_test.dir/core/compose/clip_prompt/clip_tokenizer.cpp.s
 .PHONY : core/compose/clip_prompt/clip_tokenizer.cpp.s
-
-core/compose/clip_prompt/mobileclip2_s2_engine.o: core/compose/clip_prompt/mobileclip2_s2_engine.cpp.o
-.PHONY : core/compose/clip_prompt/mobileclip2_s2_engine.o
-
-# target to build an object file
-core/compose/clip_prompt/mobileclip2_s2_engine.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/clip_prompt/mobileclip2_s2_engine.cpp.o
-.PHONY : core/compose/clip_prompt/mobileclip2_s2_engine.cpp.o
-
-core/compose/clip_prompt/mobileclip2_s2_engine.i: core/compose/clip_prompt/mobileclip2_s2_engine.cpp.i
-.PHONY : core/compose/clip_prompt/mobileclip2_s2_engine.i
-
-# target to preprocess a source file
-core/compose/clip_prompt/mobileclip2_s2_engine.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/clip_prompt/mobileclip2_s2_engine.cpp.i
-.PHONY : core/compose/clip_prompt/mobileclip2_s2_engine.cpp.i
-
-core/compose/clip_prompt/mobileclip2_s2_engine.s: core/compose/clip_prompt/mobileclip2_s2_engine.cpp.s
-.PHONY : core/compose/clip_prompt/mobileclip2_s2_engine.s
-
-# target to generate assembly for a file
-core/compose/clip_prompt/mobileclip2_s2_engine.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/clip_prompt/mobileclip2_s2_engine.cpp.s
-.PHONY : core/compose/clip_prompt/mobileclip2_s2_engine.cpp.s
 
 core/compose/clip_prompt/model_path.o: core/compose/clip_prompt/model_path.cpp.o
 .PHONY : core/compose/clip_prompt/model_path.o
 
 # target to build an object file
 core/compose/clip_prompt/model_path.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/clip_prompt/model_path.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_model_path_test.dir/build.make CMakeFiles/irajstreamer3_model_path_test.dir/core/compose/clip_prompt/model_path.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_model_path_test.dir/build.make CMakeFiles/argus_model_path_test.dir/core/compose/clip_prompt/model_path.cpp.o
 .PHONY : core/compose/clip_prompt/model_path.cpp.o
 
 core/compose/clip_prompt/model_path.i: core/compose/clip_prompt/model_path.cpp.i
@@ -570,8 +531,7 @@ core/compose/clip_prompt/model_path.i: core/compose/clip_prompt/model_path.cpp.i
 
 # target to preprocess a source file
 core/compose/clip_prompt/model_path.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/clip_prompt/model_path.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_model_path_test.dir/build.make CMakeFiles/irajstreamer3_model_path_test.dir/core/compose/clip_prompt/model_path.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_model_path_test.dir/build.make CMakeFiles/argus_model_path_test.dir/core/compose/clip_prompt/model_path.cpp.i
 .PHONY : core/compose/clip_prompt/model_path.cpp.i
 
 core/compose/clip_prompt/model_path.s: core/compose/clip_prompt/model_path.cpp.s
@@ -579,140 +539,15 @@ core/compose/clip_prompt/model_path.s: core/compose/clip_prompt/model_path.cpp.s
 
 # target to generate assembly for a file
 core/compose/clip_prompt/model_path.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/clip_prompt/model_path.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_model_path_test.dir/build.make CMakeFiles/irajstreamer3_model_path_test.dir/core/compose/clip_prompt/model_path.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_model_path_test.dir/build.make CMakeFiles/argus_model_path_test.dir/core/compose/clip_prompt/model_path.cpp.s
 .PHONY : core/compose/clip_prompt/model_path.cpp.s
-
-core/compose/common/jpg_writer.o: core/compose/common/jpg_writer.cpp.o
-.PHONY : core/compose/common/jpg_writer.o
-
-# target to build an object file
-core/compose/common/jpg_writer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/common/jpg_writer.cpp.o
-.PHONY : core/compose/common/jpg_writer.cpp.o
-
-core/compose/common/jpg_writer.i: core/compose/common/jpg_writer.cpp.i
-.PHONY : core/compose/common/jpg_writer.i
-
-# target to preprocess a source file
-core/compose/common/jpg_writer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/common/jpg_writer.cpp.i
-.PHONY : core/compose/common/jpg_writer.cpp.i
-
-core/compose/common/jpg_writer.s: core/compose/common/jpg_writer.cpp.s
-.PHONY : core/compose/common/jpg_writer.s
-
-# target to generate assembly for a file
-core/compose/common/jpg_writer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/common/jpg_writer.cpp.s
-.PHONY : core/compose/common/jpg_writer.cpp.s
-
-core/compose/compose_handle.o: core/compose/compose_handle.cpp.o
-.PHONY : core/compose/compose_handle.o
-
-# target to build an object file
-core/compose/compose_handle.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/compose_handle.cpp.o
-.PHONY : core/compose/compose_handle.cpp.o
-
-core/compose/compose_handle.i: core/compose/compose_handle.cpp.i
-.PHONY : core/compose/compose_handle.i
-
-# target to preprocess a source file
-core/compose/compose_handle.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/compose_handle.cpp.i
-.PHONY : core/compose/compose_handle.cpp.i
-
-core/compose/compose_handle.s: core/compose/compose_handle.cpp.s
-.PHONY : core/compose/compose_handle.s
-
-# target to generate assembly for a file
-core/compose/compose_handle.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/compose_handle.cpp.s
-.PHONY : core/compose/compose_handle.cpp.s
-
-core/compose/compose_type.o: core/compose/compose_type.cpp.o
-.PHONY : core/compose/compose_type.o
-
-# target to build an object file
-core/compose/compose_type.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/compose_type.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_runtime_manifest_test.dir/build.make CMakeFiles/irajstreamer3_runtime_manifest_test.dir/core/compose/compose_type.cpp.o
-.PHONY : core/compose/compose_type.cpp.o
-
-core/compose/compose_type.i: core/compose/compose_type.cpp.i
-.PHONY : core/compose/compose_type.i
-
-# target to preprocess a source file
-core/compose/compose_type.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/compose_type.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_runtime_manifest_test.dir/build.make CMakeFiles/irajstreamer3_runtime_manifest_test.dir/core/compose/compose_type.cpp.i
-.PHONY : core/compose/compose_type.cpp.i
-
-core/compose/compose_type.s: core/compose/compose_type.cpp.s
-.PHONY : core/compose/compose_type.s
-
-# target to generate assembly for a file
-core/compose/compose_type.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/compose_type.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_runtime_manifest_test.dir/build.make CMakeFiles/irajstreamer3_runtime_manifest_test.dir/core/compose/compose_type.cpp.s
-.PHONY : core/compose/compose_type.cpp.s
-
-core/compose/jpg_snapshot/jpg_snapshot_compose.o: core/compose/jpg_snapshot/jpg_snapshot_compose.cpp.o
-.PHONY : core/compose/jpg_snapshot/jpg_snapshot_compose.o
-
-# target to build an object file
-core/compose/jpg_snapshot/jpg_snapshot_compose.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/jpg_snapshot/jpg_snapshot_compose.cpp.o
-.PHONY : core/compose/jpg_snapshot/jpg_snapshot_compose.cpp.o
-
-core/compose/jpg_snapshot/jpg_snapshot_compose.i: core/compose/jpg_snapshot/jpg_snapshot_compose.cpp.i
-.PHONY : core/compose/jpg_snapshot/jpg_snapshot_compose.i
-
-# target to preprocess a source file
-core/compose/jpg_snapshot/jpg_snapshot_compose.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/jpg_snapshot/jpg_snapshot_compose.cpp.i
-.PHONY : core/compose/jpg_snapshot/jpg_snapshot_compose.cpp.i
-
-core/compose/jpg_snapshot/jpg_snapshot_compose.s: core/compose/jpg_snapshot/jpg_snapshot_compose.cpp.s
-.PHONY : core/compose/jpg_snapshot/jpg_snapshot_compose.s
-
-# target to generate assembly for a file
-core/compose/jpg_snapshot/jpg_snapshot_compose.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/jpg_snapshot/jpg_snapshot_compose.cpp.s
-.PHONY : core/compose/jpg_snapshot/jpg_snapshot_compose.cpp.s
-
-core/compose/side_by_side/side_by_side_compose.o: core/compose/side_by_side/side_by_side_compose.cpp.o
-.PHONY : core/compose/side_by_side/side_by_side_compose.o
-
-# target to build an object file
-core/compose/side_by_side/side_by_side_compose.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/side_by_side/side_by_side_compose.cpp.o
-.PHONY : core/compose/side_by_side/side_by_side_compose.cpp.o
-
-core/compose/side_by_side/side_by_side_compose.i: core/compose/side_by_side/side_by_side_compose.cpp.i
-.PHONY : core/compose/side_by_side/side_by_side_compose.i
-
-# target to preprocess a source file
-core/compose/side_by_side/side_by_side_compose.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/side_by_side/side_by_side_compose.cpp.i
-.PHONY : core/compose/side_by_side/side_by_side_compose.cpp.i
-
-core/compose/side_by_side/side_by_side_compose.s: core/compose/side_by_side/side_by_side_compose.cpp.s
-.PHONY : core/compose/side_by_side/side_by_side_compose.s
-
-# target to generate assembly for a file
-core/compose/side_by_side/side_by_side_compose.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/side_by_side/side_by_side_compose.cpp.s
-.PHONY : core/compose/side_by_side/side_by_side_compose.cpp.s
 
 core/compose/side_by_side/side_by_side_frame.o: core/compose/side_by_side/side_by_side_frame.cpp.o
 .PHONY : core/compose/side_by_side/side_by_side_frame.o
 
 # target to build an object file
 core/compose/side_by_side/side_by_side_frame.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/side_by_side/side_by_side_frame.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_side_by_side_frame_test.dir/build.make CMakeFiles/irajstreamer3_side_by_side_frame_test.dir/core/compose/side_by_side/side_by_side_frame.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_side_by_side_frame_test.dir/build.make CMakeFiles/argus_side_by_side_frame_test.dir/core/compose/side_by_side/side_by_side_frame.cpp.o
 .PHONY : core/compose/side_by_side/side_by_side_frame.cpp.o
 
 core/compose/side_by_side/side_by_side_frame.i: core/compose/side_by_side/side_by_side_frame.cpp.i
@@ -720,8 +555,7 @@ core/compose/side_by_side/side_by_side_frame.i: core/compose/side_by_side/side_b
 
 # target to preprocess a source file
 core/compose/side_by_side/side_by_side_frame.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/side_by_side/side_by_side_frame.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_side_by_side_frame_test.dir/build.make CMakeFiles/irajstreamer3_side_by_side_frame_test.dir/core/compose/side_by_side/side_by_side_frame.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_side_by_side_frame_test.dir/build.make CMakeFiles/argus_side_by_side_frame_test.dir/core/compose/side_by_side/side_by_side_frame.cpp.i
 .PHONY : core/compose/side_by_side/side_by_side_frame.cpp.i
 
 core/compose/side_by_side/side_by_side_frame.s: core/compose/side_by_side/side_by_side_frame.cpp.s
@@ -729,89 +563,15 @@ core/compose/side_by_side/side_by_side_frame.s: core/compose/side_by_side/side_b
 
 # target to generate assembly for a file
 core/compose/side_by_side/side_by_side_frame.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/compose/side_by_side/side_by_side_frame.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_side_by_side_frame_test.dir/build.make CMakeFiles/irajstreamer3_side_by_side_frame_test.dir/core/compose/side_by_side/side_by_side_frame.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_side_by_side_frame_test.dir/build.make CMakeFiles/argus_side_by_side_frame_test.dir/core/compose/side_by_side/side_by_side_frame.cpp.s
 .PHONY : core/compose/side_by_side/side_by_side_frame.cpp.s
-
-core/decoder/decoder_handle.o: core/decoder/decoder_handle.cpp.o
-.PHONY : core/decoder/decoder_handle.o
-
-# target to build an object file
-core/decoder/decoder_handle.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/decoder/decoder_handle.cpp.o
-.PHONY : core/decoder/decoder_handle.cpp.o
-
-core/decoder/decoder_handle.i: core/decoder/decoder_handle.cpp.i
-.PHONY : core/decoder/decoder_handle.i
-
-# target to preprocess a source file
-core/decoder/decoder_handle.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/decoder/decoder_handle.cpp.i
-.PHONY : core/decoder/decoder_handle.cpp.i
-
-core/decoder/decoder_handle.s: core/decoder/decoder_handle.cpp.s
-.PHONY : core/decoder/decoder_handle.s
-
-# target to generate assembly for a file
-core/decoder/decoder_handle.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/decoder/decoder_handle.cpp.s
-.PHONY : core/decoder/decoder_handle.cpp.s
-
-core/decoder/decoder_runner.o: core/decoder/decoder_runner.cpp.o
-.PHONY : core/decoder/decoder_runner.o
-
-# target to build an object file
-core/decoder/decoder_runner.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/decoder/decoder_runner.cpp.o
-.PHONY : core/decoder/decoder_runner.cpp.o
-
-core/decoder/decoder_runner.i: core/decoder/decoder_runner.cpp.i
-.PHONY : core/decoder/decoder_runner.i
-
-# target to preprocess a source file
-core/decoder/decoder_runner.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/decoder/decoder_runner.cpp.i
-.PHONY : core/decoder/decoder_runner.cpp.i
-
-core/decoder/decoder_runner.s: core/decoder/decoder_runner.cpp.s
-.PHONY : core/decoder/decoder_runner.s
-
-# target to generate assembly for a file
-core/decoder/decoder_runner.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/decoder/decoder_runner.cpp.s
-.PHONY : core/decoder/decoder_runner.cpp.s
-
-core/decoder/h264_decoder.o: core/decoder/h264_decoder.cpp.o
-.PHONY : core/decoder/h264_decoder.o
-
-# target to build an object file
-core/decoder/h264_decoder.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/decoder/h264_decoder.cpp.o
-.PHONY : core/decoder/h264_decoder.cpp.o
-
-core/decoder/h264_decoder.i: core/decoder/h264_decoder.cpp.i
-.PHONY : core/decoder/h264_decoder.i
-
-# target to preprocess a source file
-core/decoder/h264_decoder.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/decoder/h264_decoder.cpp.i
-.PHONY : core/decoder/h264_decoder.cpp.i
-
-core/decoder/h264_decoder.s: core/decoder/h264_decoder.cpp.s
-.PHONY : core/decoder/h264_decoder.s
-
-# target to generate assembly for a file
-core/decoder/h264_decoder.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/decoder/h264_decoder.cpp.s
-.PHONY : core/decoder/h264_decoder.cpp.s
 
 core/decoder/packet_adapter.o: core/decoder/packet_adapter.cpp.o
 .PHONY : core/decoder/packet_adapter.o
 
 # target to build an object file
 core/decoder/packet_adapter.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/decoder/packet_adapter.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_packet_adapter_test.dir/build.make CMakeFiles/irajstreamer3_packet_adapter_test.dir/core/decoder/packet_adapter.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_packet_adapter_test.dir/build.make CMakeFiles/argus_packet_adapter_test.dir/core/decoder/packet_adapter.cpp.o
 .PHONY : core/decoder/packet_adapter.cpp.o
 
 core/decoder/packet_adapter.i: core/decoder/packet_adapter.cpp.i
@@ -819,8 +579,7 @@ core/decoder/packet_adapter.i: core/decoder/packet_adapter.cpp.i
 
 # target to preprocess a source file
 core/decoder/packet_adapter.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/decoder/packet_adapter.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_packet_adapter_test.dir/build.make CMakeFiles/irajstreamer3_packet_adapter_test.dir/core/decoder/packet_adapter.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_packet_adapter_test.dir/build.make CMakeFiles/argus_packet_adapter_test.dir/core/decoder/packet_adapter.cpp.i
 .PHONY : core/decoder/packet_adapter.cpp.i
 
 core/decoder/packet_adapter.s: core/decoder/packet_adapter.cpp.s
@@ -828,40 +587,42 @@ core/decoder/packet_adapter.s: core/decoder/packet_adapter.cpp.s
 
 # target to generate assembly for a file
 core/decoder/packet_adapter.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/decoder/packet_adapter.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_packet_adapter_test.dir/build.make CMakeFiles/irajstreamer3_packet_adapter_test.dir/core/decoder/packet_adapter.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_packet_adapter_test.dir/build.make CMakeFiles/argus_packet_adapter_test.dir/core/decoder/packet_adapter.cpp.s
 .PHONY : core/decoder/packet_adapter.cpp.s
 
-core/decoder/video_frame_utils.o: core/decoder/video_frame_utils.cpp.o
-.PHONY : core/decoder/video_frame_utils.o
+core/mux/remux_muxer.o: core/mux/remux_muxer.cpp.o
+.PHONY : core/mux/remux_muxer.o
 
 # target to build an object file
-core/decoder/video_frame_utils.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/decoder/video_frame_utils.cpp.o
-.PHONY : core/decoder/video_frame_utils.cpp.o
+core/mux/remux_muxer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/mux/remux_muxer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_remux_muxer_test.dir/build.make CMakeFiles/argus_remux_muxer_test.dir/core/mux/remux_muxer.cpp.o
+.PHONY : core/mux/remux_muxer.cpp.o
 
-core/decoder/video_frame_utils.i: core/decoder/video_frame_utils.cpp.i
-.PHONY : core/decoder/video_frame_utils.i
+core/mux/remux_muxer.i: core/mux/remux_muxer.cpp.i
+.PHONY : core/mux/remux_muxer.i
 
 # target to preprocess a source file
-core/decoder/video_frame_utils.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/decoder/video_frame_utils.cpp.i
-.PHONY : core/decoder/video_frame_utils.cpp.i
+core/mux/remux_muxer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/mux/remux_muxer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_remux_muxer_test.dir/build.make CMakeFiles/argus_remux_muxer_test.dir/core/mux/remux_muxer.cpp.i
+.PHONY : core/mux/remux_muxer.cpp.i
 
-core/decoder/video_frame_utils.s: core/decoder/video_frame_utils.cpp.s
-.PHONY : core/decoder/video_frame_utils.s
+core/mux/remux_muxer.s: core/mux/remux_muxer.cpp.s
+.PHONY : core/mux/remux_muxer.s
 
 # target to generate assembly for a file
-core/decoder/video_frame_utils.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/decoder/video_frame_utils.cpp.s
-.PHONY : core/decoder/video_frame_utils.cpp.s
+core/mux/remux_muxer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/mux/remux_muxer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_remux_muxer_test.dir/build.make CMakeFiles/argus_remux_muxer_test.dir/core/mux/remux_muxer.cpp.s
+.PHONY : core/mux/remux_muxer.cpp.s
 
 core/runtime/runtime.o: core/runtime/runtime.cpp.o
 .PHONY : core/runtime/runtime.o
 
 # target to build an object file
 core/runtime/runtime.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/runtime/runtime.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/runtime/runtime.cpp.o
 .PHONY : core/runtime/runtime.cpp.o
 
 core/runtime/runtime.i: core/runtime/runtime.cpp.i
@@ -869,7 +630,7 @@ core/runtime/runtime.i: core/runtime/runtime.cpp.i
 
 # target to preprocess a source file
 core/runtime/runtime.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/runtime/runtime.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/runtime/runtime.cpp.i
 .PHONY : core/runtime/runtime.cpp.i
 
 core/runtime/runtime.s: core/runtime/runtime.cpp.s
@@ -877,7 +638,7 @@ core/runtime/runtime.s: core/runtime/runtime.cpp.s
 
 # target to generate assembly for a file
 core/runtime/runtime.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/runtime/runtime.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/runtime/runtime.cpp.s
 .PHONY : core/runtime/runtime.cpp.s
 
 core/runtime/runtime_http.o: core/runtime/runtime_http.cpp.o
@@ -885,7 +646,7 @@ core/runtime/runtime_http.o: core/runtime/runtime_http.cpp.o
 
 # target to build an object file
 core/runtime/runtime_http.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/runtime/runtime_http.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/runtime/runtime_http.cpp.o
 .PHONY : core/runtime/runtime_http.cpp.o
 
 core/runtime/runtime_http.i: core/runtime/runtime_http.cpp.i
@@ -893,7 +654,7 @@ core/runtime/runtime_http.i: core/runtime/runtime_http.cpp.i
 
 # target to preprocess a source file
 core/runtime/runtime_http.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/runtime/runtime_http.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/runtime/runtime_http.cpp.i
 .PHONY : core/runtime/runtime_http.cpp.i
 
 core/runtime/runtime_http.s: core/runtime/runtime_http.cpp.s
@@ -901,7 +662,7 @@ core/runtime/runtime_http.s: core/runtime/runtime_http.cpp.s
 
 # target to generate assembly for a file
 core/runtime/runtime_http.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/runtime/runtime_http.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/runtime/runtime_http.cpp.s
 .PHONY : core/runtime/runtime_http.cpp.s
 
 core/runtime/runtime_manifest.o: core/runtime/runtime_manifest.cpp.o
@@ -909,8 +670,8 @@ core/runtime/runtime_manifest.o: core/runtime/runtime_manifest.cpp.o
 
 # target to build an object file
 core/runtime/runtime_manifest.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/runtime/runtime_manifest.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_runtime_manifest_test.dir/build.make CMakeFiles/irajstreamer3_runtime_manifest_test.dir/core/runtime/runtime_manifest.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/runtime/runtime_manifest.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_runtime_manifest_test.dir/build.make CMakeFiles/argus_runtime_manifest_test.dir/core/runtime/runtime_manifest.cpp.o
 .PHONY : core/runtime/runtime_manifest.cpp.o
 
 core/runtime/runtime_manifest.i: core/runtime/runtime_manifest.cpp.i
@@ -918,8 +679,8 @@ core/runtime/runtime_manifest.i: core/runtime/runtime_manifest.cpp.i
 
 # target to preprocess a source file
 core/runtime/runtime_manifest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/runtime/runtime_manifest.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_runtime_manifest_test.dir/build.make CMakeFiles/irajstreamer3_runtime_manifest_test.dir/core/runtime/runtime_manifest.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/runtime/runtime_manifest.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_runtime_manifest_test.dir/build.make CMakeFiles/argus_runtime_manifest_test.dir/core/runtime/runtime_manifest.cpp.i
 .PHONY : core/runtime/runtime_manifest.cpp.i
 
 core/runtime/runtime_manifest.s: core/runtime/runtime_manifest.cpp.s
@@ -927,8 +688,8 @@ core/runtime/runtime_manifest.s: core/runtime/runtime_manifest.cpp.s
 
 # target to generate assembly for a file
 core/runtime/runtime_manifest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/runtime/runtime_manifest.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_runtime_manifest_test.dir/build.make CMakeFiles/irajstreamer3_runtime_manifest_test.dir/core/runtime/runtime_manifest.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/runtime/runtime_manifest.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_runtime_manifest_test.dir/build.make CMakeFiles/argus_runtime_manifest_test.dir/core/runtime/runtime_manifest.cpp.s
 .PHONY : core/runtime/runtime_manifest.cpp.s
 
 core/runtime/sink_handle.o: core/runtime/sink_handle.cpp.o
@@ -936,7 +697,7 @@ core/runtime/sink_handle.o: core/runtime/sink_handle.cpp.o
 
 # target to build an object file
 core/runtime/sink_handle.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/runtime/sink_handle.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/runtime/sink_handle.cpp.o
 .PHONY : core/runtime/sink_handle.cpp.o
 
 core/runtime/sink_handle.i: core/runtime/sink_handle.cpp.i
@@ -944,7 +705,7 @@ core/runtime/sink_handle.i: core/runtime/sink_handle.cpp.i
 
 # target to preprocess a source file
 core/runtime/sink_handle.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/runtime/sink_handle.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/runtime/sink_handle.cpp.i
 .PHONY : core/runtime/sink_handle.cpp.i
 
 core/runtime/sink_handle.s: core/runtime/sink_handle.cpp.s
@@ -952,7 +713,7 @@ core/runtime/sink_handle.s: core/runtime/sink_handle.cpp.s
 
 # target to generate assembly for a file
 core/runtime/sink_handle.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/runtime/sink_handle.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/runtime/sink_handle.cpp.s
 .PHONY : core/runtime/sink_handle.cpp.s
 
 core/servers/rtmp/rtmp_amf0.o: core/servers/rtmp/rtmp_amf0.c.o
@@ -960,7 +721,7 @@ core/servers/rtmp/rtmp_amf0.o: core/servers/rtmp/rtmp_amf0.c.o
 
 # target to build an object file
 core/servers/rtmp/rtmp_amf0.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/servers/rtmp/rtmp_amf0.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/servers/rtmp/rtmp_amf0.c.o
 .PHONY : core/servers/rtmp/rtmp_amf0.c.o
 
 core/servers/rtmp/rtmp_amf0.i: core/servers/rtmp/rtmp_amf0.c.i
@@ -968,7 +729,7 @@ core/servers/rtmp/rtmp_amf0.i: core/servers/rtmp/rtmp_amf0.c.i
 
 # target to preprocess a source file
 core/servers/rtmp/rtmp_amf0.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/servers/rtmp/rtmp_amf0.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/servers/rtmp/rtmp_amf0.c.i
 .PHONY : core/servers/rtmp/rtmp_amf0.c.i
 
 core/servers/rtmp/rtmp_amf0.s: core/servers/rtmp/rtmp_amf0.c.s
@@ -976,7 +737,7 @@ core/servers/rtmp/rtmp_amf0.s: core/servers/rtmp/rtmp_amf0.c.s
 
 # target to generate assembly for a file
 core/servers/rtmp/rtmp_amf0.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/servers/rtmp/rtmp_amf0.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/servers/rtmp/rtmp_amf0.c.s
 .PHONY : core/servers/rtmp/rtmp_amf0.c.s
 
 core/servers/rtmp/rtmp_chunk.o: core/servers/rtmp/rtmp_chunk.c.o
@@ -984,7 +745,7 @@ core/servers/rtmp/rtmp_chunk.o: core/servers/rtmp/rtmp_chunk.c.o
 
 # target to build an object file
 core/servers/rtmp/rtmp_chunk.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/servers/rtmp/rtmp_chunk.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/servers/rtmp/rtmp_chunk.c.o
 .PHONY : core/servers/rtmp/rtmp_chunk.c.o
 
 core/servers/rtmp/rtmp_chunk.i: core/servers/rtmp/rtmp_chunk.c.i
@@ -992,7 +753,7 @@ core/servers/rtmp/rtmp_chunk.i: core/servers/rtmp/rtmp_chunk.c.i
 
 # target to preprocess a source file
 core/servers/rtmp/rtmp_chunk.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/servers/rtmp/rtmp_chunk.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/servers/rtmp/rtmp_chunk.c.i
 .PHONY : core/servers/rtmp/rtmp_chunk.c.i
 
 core/servers/rtmp/rtmp_chunk.s: core/servers/rtmp/rtmp_chunk.c.s
@@ -1000,7 +761,7 @@ core/servers/rtmp/rtmp_chunk.s: core/servers/rtmp/rtmp_chunk.c.s
 
 # target to generate assembly for a file
 core/servers/rtmp/rtmp_chunk.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/servers/rtmp/rtmp_chunk.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/servers/rtmp/rtmp_chunk.c.s
 .PHONY : core/servers/rtmp/rtmp_chunk.c.s
 
 core/servers/rtmp/rtmp_handshake.o: core/servers/rtmp/rtmp_handshake.c.o
@@ -1008,7 +769,7 @@ core/servers/rtmp/rtmp_handshake.o: core/servers/rtmp/rtmp_handshake.c.o
 
 # target to build an object file
 core/servers/rtmp/rtmp_handshake.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/servers/rtmp/rtmp_handshake.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/servers/rtmp/rtmp_handshake.c.o
 .PHONY : core/servers/rtmp/rtmp_handshake.c.o
 
 core/servers/rtmp/rtmp_handshake.i: core/servers/rtmp/rtmp_handshake.c.i
@@ -1016,7 +777,7 @@ core/servers/rtmp/rtmp_handshake.i: core/servers/rtmp/rtmp_handshake.c.i
 
 # target to preprocess a source file
 core/servers/rtmp/rtmp_handshake.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/servers/rtmp/rtmp_handshake.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/servers/rtmp/rtmp_handshake.c.i
 .PHONY : core/servers/rtmp/rtmp_handshake.c.i
 
 core/servers/rtmp/rtmp_handshake.s: core/servers/rtmp/rtmp_handshake.c.s
@@ -1024,7 +785,7 @@ core/servers/rtmp/rtmp_handshake.s: core/servers/rtmp/rtmp_handshake.c.s
 
 # target to generate assembly for a file
 core/servers/rtmp/rtmp_handshake.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/servers/rtmp/rtmp_handshake.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/servers/rtmp/rtmp_handshake.c.s
 .PHONY : core/servers/rtmp/rtmp_handshake.c.s
 
 core/servers/rtmp/rtmp_server.o: core/servers/rtmp/rtmp_server.cpp.o
@@ -1032,7 +793,7 @@ core/servers/rtmp/rtmp_server.o: core/servers/rtmp/rtmp_server.cpp.o
 
 # target to build an object file
 core/servers/rtmp/rtmp_server.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/servers/rtmp/rtmp_server.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/servers/rtmp/rtmp_server.cpp.o
 .PHONY : core/servers/rtmp/rtmp_server.cpp.o
 
 core/servers/rtmp/rtmp_server.i: core/servers/rtmp/rtmp_server.cpp.i
@@ -1040,7 +801,7 @@ core/servers/rtmp/rtmp_server.i: core/servers/rtmp/rtmp_server.cpp.i
 
 # target to preprocess a source file
 core/servers/rtmp/rtmp_server.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/servers/rtmp/rtmp_server.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/servers/rtmp/rtmp_server.cpp.i
 .PHONY : core/servers/rtmp/rtmp_server.cpp.i
 
 core/servers/rtmp/rtmp_server.s: core/servers/rtmp/rtmp_server.cpp.s
@@ -1048,7 +809,7 @@ core/servers/rtmp/rtmp_server.s: core/servers/rtmp/rtmp_server.cpp.s
 
 # target to generate assembly for a file
 core/servers/rtmp/rtmp_server.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/servers/rtmp/rtmp_server.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/servers/rtmp/rtmp_server.cpp.s
 .PHONY : core/servers/rtmp/rtmp_server.cpp.s
 
 core/servers/rtmp/rtmp_session.o: core/servers/rtmp/rtmp_session.cpp.o
@@ -1056,7 +817,7 @@ core/servers/rtmp/rtmp_session.o: core/servers/rtmp/rtmp_session.cpp.o
 
 # target to build an object file
 core/servers/rtmp/rtmp_session.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/servers/rtmp/rtmp_session.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/servers/rtmp/rtmp_session.cpp.o
 .PHONY : core/servers/rtmp/rtmp_session.cpp.o
 
 core/servers/rtmp/rtmp_session.i: core/servers/rtmp/rtmp_session.cpp.i
@@ -1064,7 +825,7 @@ core/servers/rtmp/rtmp_session.i: core/servers/rtmp/rtmp_session.cpp.i
 
 # target to preprocess a source file
 core/servers/rtmp/rtmp_session.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/servers/rtmp/rtmp_session.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/servers/rtmp/rtmp_session.cpp.i
 .PHONY : core/servers/rtmp/rtmp_session.cpp.i
 
 core/servers/rtmp/rtmp_session.s: core/servers/rtmp/rtmp_session.cpp.s
@@ -1072,7 +833,7 @@ core/servers/rtmp/rtmp_session.s: core/servers/rtmp/rtmp_session.cpp.s
 
 # target to generate assembly for a file
 core/servers/rtmp/rtmp_session.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/servers/rtmp/rtmp_session.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/servers/rtmp/rtmp_session.cpp.s
 .PHONY : core/servers/rtmp/rtmp_session.cpp.s
 
 core/servers/webrtc/webrtc_server.o: core/servers/webrtc/webrtc_server.cpp.o
@@ -1080,7 +841,7 @@ core/servers/webrtc/webrtc_server.o: core/servers/webrtc/webrtc_server.cpp.o
 
 # target to build an object file
 core/servers/webrtc/webrtc_server.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/servers/webrtc/webrtc_server.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/servers/webrtc/webrtc_server.cpp.o
 .PHONY : core/servers/webrtc/webrtc_server.cpp.o
 
 core/servers/webrtc/webrtc_server.i: core/servers/webrtc/webrtc_server.cpp.i
@@ -1088,7 +849,7 @@ core/servers/webrtc/webrtc_server.i: core/servers/webrtc/webrtc_server.cpp.i
 
 # target to preprocess a source file
 core/servers/webrtc/webrtc_server.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/servers/webrtc/webrtc_server.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/servers/webrtc/webrtc_server.cpp.i
 .PHONY : core/servers/webrtc/webrtc_server.cpp.i
 
 core/servers/webrtc/webrtc_server.s: core/servers/webrtc/webrtc_server.cpp.s
@@ -1096,7 +857,7 @@ core/servers/webrtc/webrtc_server.s: core/servers/webrtc/webrtc_server.cpp.s
 
 # target to generate assembly for a file
 core/servers/webrtc/webrtc_server.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/servers/webrtc/webrtc_server.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/servers/webrtc/webrtc_server.cpp.s
 .PHONY : core/servers/webrtc/webrtc_server.cpp.s
 
 core/sinks/hls_sink.o: core/sinks/hls_sink.cpp.o
@@ -1104,7 +865,7 @@ core/sinks/hls_sink.o: core/sinks/hls_sink.cpp.o
 
 # target to build an object file
 core/sinks/hls_sink.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/sinks/hls_sink.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/sinks/hls_sink.cpp.o
 .PHONY : core/sinks/hls_sink.cpp.o
 
 core/sinks/hls_sink.i: core/sinks/hls_sink.cpp.i
@@ -1112,7 +873,7 @@ core/sinks/hls_sink.i: core/sinks/hls_sink.cpp.i
 
 # target to preprocess a source file
 core/sinks/hls_sink.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/sinks/hls_sink.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/sinks/hls_sink.cpp.i
 .PHONY : core/sinks/hls_sink.cpp.i
 
 core/sinks/hls_sink.s: core/sinks/hls_sink.cpp.s
@@ -1120,39 +881,114 @@ core/sinks/hls_sink.s: core/sinks/hls_sink.cpp.s
 
 # target to generate assembly for a file
 core/sinks/hls_sink.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/sinks/hls_sink.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/sinks/hls_sink.cpp.s
 .PHONY : core/sinks/hls_sink.cpp.s
 
-core/sinks/hls_sink_runner.o: core/sinks/hls_sink_runner.cpp.o
-.PHONY : core/sinks/hls_sink_runner.o
+core/sinks/remux_sink_runner.o: core/sinks/remux_sink_runner.cpp.o
+.PHONY : core/sinks/remux_sink_runner.o
 
 # target to build an object file
-core/sinks/hls_sink_runner.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/sinks/hls_sink_runner.cpp.o
-.PHONY : core/sinks/hls_sink_runner.cpp.o
+core/sinks/remux_sink_runner.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/sinks/remux_sink_runner.cpp.o
+.PHONY : core/sinks/remux_sink_runner.cpp.o
 
-core/sinks/hls_sink_runner.i: core/sinks/hls_sink_runner.cpp.i
-.PHONY : core/sinks/hls_sink_runner.i
+core/sinks/remux_sink_runner.i: core/sinks/remux_sink_runner.cpp.i
+.PHONY : core/sinks/remux_sink_runner.i
 
 # target to preprocess a source file
-core/sinks/hls_sink_runner.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/sinks/hls_sink_runner.cpp.i
-.PHONY : core/sinks/hls_sink_runner.cpp.i
+core/sinks/remux_sink_runner.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/sinks/remux_sink_runner.cpp.i
+.PHONY : core/sinks/remux_sink_runner.cpp.i
 
-core/sinks/hls_sink_runner.s: core/sinks/hls_sink_runner.cpp.s
-.PHONY : core/sinks/hls_sink_runner.s
+core/sinks/remux_sink_runner.s: core/sinks/remux_sink_runner.cpp.s
+.PHONY : core/sinks/remux_sink_runner.s
 
 # target to generate assembly for a file
-core/sinks/hls_sink_runner.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3.dir/build.make CMakeFiles/irajstreamer3.dir/core/sinks/hls_sink_runner.cpp.s
-.PHONY : core/sinks/hls_sink_runner.cpp.s
+core/sinks/remux_sink_runner.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/sinks/remux_sink_runner.cpp.s
+.PHONY : core/sinks/remux_sink_runner.cpp.s
+
+core/sources/buffered_source.o: core/sources/buffered_source.cpp.o
+.PHONY : core/sources/buffered_source.o
+
+# target to build an object file
+core/sources/buffered_source.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/sources/buffered_source.cpp.o
+.PHONY : core/sources/buffered_source.cpp.o
+
+core/sources/buffered_source.i: core/sources/buffered_source.cpp.i
+.PHONY : core/sources/buffered_source.i
+
+# target to preprocess a source file
+core/sources/buffered_source.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/sources/buffered_source.cpp.i
+.PHONY : core/sources/buffered_source.cpp.i
+
+core/sources/buffered_source.s: core/sources/buffered_source.cpp.s
+.PHONY : core/sources/buffered_source.s
+
+# target to generate assembly for a file
+core/sources/buffered_source.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/sources/buffered_source.cpp.s
+.PHONY : core/sources/buffered_source.cpp.s
+
+core/sources/packet_typing.o: core/sources/packet_typing.cpp.o
+.PHONY : core/sources/packet_typing.o
+
+# target to build an object file
+core/sources/packet_typing.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/sources/packet_typing.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_runtime_manifest_test.dir/build.make CMakeFiles/argus_runtime_manifest_test.dir/core/sources/packet_typing.cpp.o
+.PHONY : core/sources/packet_typing.cpp.o
+
+core/sources/packet_typing.i: core/sources/packet_typing.cpp.i
+.PHONY : core/sources/packet_typing.i
+
+# target to preprocess a source file
+core/sources/packet_typing.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/sources/packet_typing.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_runtime_manifest_test.dir/build.make CMakeFiles/argus_runtime_manifest_test.dir/core/sources/packet_typing.cpp.i
+.PHONY : core/sources/packet_typing.cpp.i
+
+core/sources/packet_typing.s: core/sources/packet_typing.cpp.s
+.PHONY : core/sources/packet_typing.s
+
+# target to generate assembly for a file
+core/sources/packet_typing.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/sources/packet_typing.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_runtime_manifest_test.dir/build.make CMakeFiles/argus_runtime_manifest_test.dir/core/sources/packet_typing.cpp.s
+.PHONY : core/sources/packet_typing.cpp.s
+
+core/sources/subscription_packet_reader.o: core/sources/subscription_packet_reader.cpp.o
+.PHONY : core/sources/subscription_packet_reader.o
+
+# target to build an object file
+core/sources/subscription_packet_reader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/sources/subscription_packet_reader.cpp.o
+.PHONY : core/sources/subscription_packet_reader.cpp.o
+
+core/sources/subscription_packet_reader.i: core/sources/subscription_packet_reader.cpp.i
+.PHONY : core/sources/subscription_packet_reader.i
+
+# target to preprocess a source file
+core/sources/subscription_packet_reader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/sources/subscription_packet_reader.cpp.i
+.PHONY : core/sources/subscription_packet_reader.cpp.i
+
+core/sources/subscription_packet_reader.s: core/sources/subscription_packet_reader.cpp.s
+.PHONY : core/sources/subscription_packet_reader.s
+
+# target to generate assembly for a file
+core/sources/subscription_packet_reader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus.dir/build.make CMakeFiles/argus.dir/core/sources/subscription_packet_reader.cpp.s
+.PHONY : core/sources/subscription_packet_reader.cpp.s
 
 core/tests/clip_tokenizer_test.o: core/tests/clip_tokenizer_test.cpp.o
 .PHONY : core/tests/clip_tokenizer_test.o
 
 # target to build an object file
 core/tests/clip_tokenizer_test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_clip_tokenizer_test.dir/build.make CMakeFiles/irajstreamer3_clip_tokenizer_test.dir/core/tests/clip_tokenizer_test.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_clip_tokenizer_test.dir/build.make CMakeFiles/argus_clip_tokenizer_test.dir/core/tests/clip_tokenizer_test.cpp.o
 .PHONY : core/tests/clip_tokenizer_test.cpp.o
 
 core/tests/clip_tokenizer_test.i: core/tests/clip_tokenizer_test.cpp.i
@@ -1160,7 +996,7 @@ core/tests/clip_tokenizer_test.i: core/tests/clip_tokenizer_test.cpp.i
 
 # target to preprocess a source file
 core/tests/clip_tokenizer_test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_clip_tokenizer_test.dir/build.make CMakeFiles/irajstreamer3_clip_tokenizer_test.dir/core/tests/clip_tokenizer_test.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_clip_tokenizer_test.dir/build.make CMakeFiles/argus_clip_tokenizer_test.dir/core/tests/clip_tokenizer_test.cpp.i
 .PHONY : core/tests/clip_tokenizer_test.cpp.i
 
 core/tests/clip_tokenizer_test.s: core/tests/clip_tokenizer_test.cpp.s
@@ -1168,7 +1004,7 @@ core/tests/clip_tokenizer_test.s: core/tests/clip_tokenizer_test.cpp.s
 
 # target to generate assembly for a file
 core/tests/clip_tokenizer_test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_clip_tokenizer_test.dir/build.make CMakeFiles/irajstreamer3_clip_tokenizer_test.dir/core/tests/clip_tokenizer_test.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_clip_tokenizer_test.dir/build.make CMakeFiles/argus_clip_tokenizer_test.dir/core/tests/clip_tokenizer_test.cpp.s
 .PHONY : core/tests/clip_tokenizer_test.cpp.s
 
 core/tests/model_path_test.o: core/tests/model_path_test.cpp.o
@@ -1176,7 +1012,7 @@ core/tests/model_path_test.o: core/tests/model_path_test.cpp.o
 
 # target to build an object file
 core/tests/model_path_test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_model_path_test.dir/build.make CMakeFiles/irajstreamer3_model_path_test.dir/core/tests/model_path_test.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_model_path_test.dir/build.make CMakeFiles/argus_model_path_test.dir/core/tests/model_path_test.cpp.o
 .PHONY : core/tests/model_path_test.cpp.o
 
 core/tests/model_path_test.i: core/tests/model_path_test.cpp.i
@@ -1184,7 +1020,7 @@ core/tests/model_path_test.i: core/tests/model_path_test.cpp.i
 
 # target to preprocess a source file
 core/tests/model_path_test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_model_path_test.dir/build.make CMakeFiles/irajstreamer3_model_path_test.dir/core/tests/model_path_test.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_model_path_test.dir/build.make CMakeFiles/argus_model_path_test.dir/core/tests/model_path_test.cpp.i
 .PHONY : core/tests/model_path_test.cpp.i
 
 core/tests/model_path_test.s: core/tests/model_path_test.cpp.s
@@ -1192,7 +1028,7 @@ core/tests/model_path_test.s: core/tests/model_path_test.cpp.s
 
 # target to generate assembly for a file
 core/tests/model_path_test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_model_path_test.dir/build.make CMakeFiles/irajstreamer3_model_path_test.dir/core/tests/model_path_test.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_model_path_test.dir/build.make CMakeFiles/argus_model_path_test.dir/core/tests/model_path_test.cpp.s
 .PHONY : core/tests/model_path_test.cpp.s
 
 core/tests/packet_adapter_test.o: core/tests/packet_adapter_test.cpp.o
@@ -1200,7 +1036,7 @@ core/tests/packet_adapter_test.o: core/tests/packet_adapter_test.cpp.o
 
 # target to build an object file
 core/tests/packet_adapter_test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_packet_adapter_test.dir/build.make CMakeFiles/irajstreamer3_packet_adapter_test.dir/core/tests/packet_adapter_test.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_packet_adapter_test.dir/build.make CMakeFiles/argus_packet_adapter_test.dir/core/tests/packet_adapter_test.cpp.o
 .PHONY : core/tests/packet_adapter_test.cpp.o
 
 core/tests/packet_adapter_test.i: core/tests/packet_adapter_test.cpp.i
@@ -1208,7 +1044,7 @@ core/tests/packet_adapter_test.i: core/tests/packet_adapter_test.cpp.i
 
 # target to preprocess a source file
 core/tests/packet_adapter_test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_packet_adapter_test.dir/build.make CMakeFiles/irajstreamer3_packet_adapter_test.dir/core/tests/packet_adapter_test.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_packet_adapter_test.dir/build.make CMakeFiles/argus_packet_adapter_test.dir/core/tests/packet_adapter_test.cpp.i
 .PHONY : core/tests/packet_adapter_test.cpp.i
 
 core/tests/packet_adapter_test.s: core/tests/packet_adapter_test.cpp.s
@@ -1216,15 +1052,39 @@ core/tests/packet_adapter_test.s: core/tests/packet_adapter_test.cpp.s
 
 # target to generate assembly for a file
 core/tests/packet_adapter_test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_packet_adapter_test.dir/build.make CMakeFiles/irajstreamer3_packet_adapter_test.dir/core/tests/packet_adapter_test.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_packet_adapter_test.dir/build.make CMakeFiles/argus_packet_adapter_test.dir/core/tests/packet_adapter_test.cpp.s
 .PHONY : core/tests/packet_adapter_test.cpp.s
+
+core/tests/remux_muxer_test.o: core/tests/remux_muxer_test.cpp.o
+.PHONY : core/tests/remux_muxer_test.o
+
+# target to build an object file
+core/tests/remux_muxer_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_remux_muxer_test.dir/build.make CMakeFiles/argus_remux_muxer_test.dir/core/tests/remux_muxer_test.cpp.o
+.PHONY : core/tests/remux_muxer_test.cpp.o
+
+core/tests/remux_muxer_test.i: core/tests/remux_muxer_test.cpp.i
+.PHONY : core/tests/remux_muxer_test.i
+
+# target to preprocess a source file
+core/tests/remux_muxer_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_remux_muxer_test.dir/build.make CMakeFiles/argus_remux_muxer_test.dir/core/tests/remux_muxer_test.cpp.i
+.PHONY : core/tests/remux_muxer_test.cpp.i
+
+core/tests/remux_muxer_test.s: core/tests/remux_muxer_test.cpp.s
+.PHONY : core/tests/remux_muxer_test.s
+
+# target to generate assembly for a file
+core/tests/remux_muxer_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_remux_muxer_test.dir/build.make CMakeFiles/argus_remux_muxer_test.dir/core/tests/remux_muxer_test.cpp.s
+.PHONY : core/tests/remux_muxer_test.cpp.s
 
 core/tests/runtime_manifest_test.o: core/tests/runtime_manifest_test.cpp.o
 .PHONY : core/tests/runtime_manifest_test.o
 
 # target to build an object file
 core/tests/runtime_manifest_test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_runtime_manifest_test.dir/build.make CMakeFiles/irajstreamer3_runtime_manifest_test.dir/core/tests/runtime_manifest_test.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_runtime_manifest_test.dir/build.make CMakeFiles/argus_runtime_manifest_test.dir/core/tests/runtime_manifest_test.cpp.o
 .PHONY : core/tests/runtime_manifest_test.cpp.o
 
 core/tests/runtime_manifest_test.i: core/tests/runtime_manifest_test.cpp.i
@@ -1232,7 +1092,7 @@ core/tests/runtime_manifest_test.i: core/tests/runtime_manifest_test.cpp.i
 
 # target to preprocess a source file
 core/tests/runtime_manifest_test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_runtime_manifest_test.dir/build.make CMakeFiles/irajstreamer3_runtime_manifest_test.dir/core/tests/runtime_manifest_test.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_runtime_manifest_test.dir/build.make CMakeFiles/argus_runtime_manifest_test.dir/core/tests/runtime_manifest_test.cpp.i
 .PHONY : core/tests/runtime_manifest_test.cpp.i
 
 core/tests/runtime_manifest_test.s: core/tests/runtime_manifest_test.cpp.s
@@ -1240,7 +1100,7 @@ core/tests/runtime_manifest_test.s: core/tests/runtime_manifest_test.cpp.s
 
 # target to generate assembly for a file
 core/tests/runtime_manifest_test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_runtime_manifest_test.dir/build.make CMakeFiles/irajstreamer3_runtime_manifest_test.dir/core/tests/runtime_manifest_test.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_runtime_manifest_test.dir/build.make CMakeFiles/argus_runtime_manifest_test.dir/core/tests/runtime_manifest_test.cpp.s
 .PHONY : core/tests/runtime_manifest_test.cpp.s
 
 core/tests/side_by_side_frame_test.o: core/tests/side_by_side_frame_test.cpp.o
@@ -1248,7 +1108,7 @@ core/tests/side_by_side_frame_test.o: core/tests/side_by_side_frame_test.cpp.o
 
 # target to build an object file
 core/tests/side_by_side_frame_test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_side_by_side_frame_test.dir/build.make CMakeFiles/irajstreamer3_side_by_side_frame_test.dir/core/tests/side_by_side_frame_test.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_side_by_side_frame_test.dir/build.make CMakeFiles/argus_side_by_side_frame_test.dir/core/tests/side_by_side_frame_test.cpp.o
 .PHONY : core/tests/side_by_side_frame_test.cpp.o
 
 core/tests/side_by_side_frame_test.i: core/tests/side_by_side_frame_test.cpp.i
@@ -1256,7 +1116,7 @@ core/tests/side_by_side_frame_test.i: core/tests/side_by_side_frame_test.cpp.i
 
 # target to preprocess a source file
 core/tests/side_by_side_frame_test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_side_by_side_frame_test.dir/build.make CMakeFiles/irajstreamer3_side_by_side_frame_test.dir/core/tests/side_by_side_frame_test.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_side_by_side_frame_test.dir/build.make CMakeFiles/argus_side_by_side_frame_test.dir/core/tests/side_by_side_frame_test.cpp.i
 .PHONY : core/tests/side_by_side_frame_test.cpp.i
 
 core/tests/side_by_side_frame_test.s: core/tests/side_by_side_frame_test.cpp.s
@@ -1264,7 +1124,7 @@ core/tests/side_by_side_frame_test.s: core/tests/side_by_side_frame_test.cpp.s
 
 # target to generate assembly for a file
 core/tests/side_by_side_frame_test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/irajstreamer3_side_by_side_frame_test.dir/build.make CMakeFiles/irajstreamer3_side_by_side_frame_test.dir/core/tests/side_by_side_frame_test.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/argus_side_by_side_frame_test.dir/build.make CMakeFiles/argus_side_by_side_frame_test.dir/core/tests/side_by_side_frame_test.cpp.s
 .PHONY : core/tests/side_by_side_frame_test.cpp.s
 
 # Help Target
@@ -1280,16 +1140,17 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... argus"
+	@echo "... argus_clip_tokenizer_test"
+	@echo "... argus_model_path_test"
+	@echo "... argus_packet_adapter_test"
+	@echo "... argus_remux_muxer_test"
+	@echo "... argus_runtime_manifest_test"
+	@echo "... argus_side_by_side_frame_test"
 	@echo "... cipher_driver"
 	@echo "... datachannel"
 	@echo "... datachannel-static"
 	@echo "... datatypes_driver"
-	@echo "... irajstreamer3"
-	@echo "... irajstreamer3_clip_tokenizer_test"
-	@echo "... irajstreamer3_model_path_test"
-	@echo "... irajstreamer3_packet_adapter_test"
-	@echo "... irajstreamer3_runtime_manifest_test"
-	@echo "... irajstreamer3_side_by_side_frame_test"
 	@echo "... juice"
 	@echo "... juice-static"
 	@echo "... kernel_driver"
@@ -1302,54 +1163,24 @@ help:
 	@echo "... srtp_driver"
 	@echo "... test_srtp"
 	@echo "... usrsctp"
-	@echo "... cmd/irajstreamer3/main.o"
-	@echo "... cmd/irajstreamer3/main.i"
-	@echo "... cmd/irajstreamer3/main.s"
-	@echo "... core/compose/clip_prompt/clip_prompt_compose.o"
-	@echo "... core/compose/clip_prompt/clip_prompt_compose.i"
-	@echo "... core/compose/clip_prompt/clip_prompt_compose.s"
+	@echo "... cmd/argus/main.o"
+	@echo "... cmd/argus/main.i"
+	@echo "... cmd/argus/main.s"
 	@echo "... core/compose/clip_prompt/clip_tokenizer.o"
 	@echo "... core/compose/clip_prompt/clip_tokenizer.i"
 	@echo "... core/compose/clip_prompt/clip_tokenizer.s"
-	@echo "... core/compose/clip_prompt/mobileclip2_s2_engine.o"
-	@echo "... core/compose/clip_prompt/mobileclip2_s2_engine.i"
-	@echo "... core/compose/clip_prompt/mobileclip2_s2_engine.s"
 	@echo "... core/compose/clip_prompt/model_path.o"
 	@echo "... core/compose/clip_prompt/model_path.i"
 	@echo "... core/compose/clip_prompt/model_path.s"
-	@echo "... core/compose/common/jpg_writer.o"
-	@echo "... core/compose/common/jpg_writer.i"
-	@echo "... core/compose/common/jpg_writer.s"
-	@echo "... core/compose/compose_handle.o"
-	@echo "... core/compose/compose_handle.i"
-	@echo "... core/compose/compose_handle.s"
-	@echo "... core/compose/compose_type.o"
-	@echo "... core/compose/compose_type.i"
-	@echo "... core/compose/compose_type.s"
-	@echo "... core/compose/jpg_snapshot/jpg_snapshot_compose.o"
-	@echo "... core/compose/jpg_snapshot/jpg_snapshot_compose.i"
-	@echo "... core/compose/jpg_snapshot/jpg_snapshot_compose.s"
-	@echo "... core/compose/side_by_side/side_by_side_compose.o"
-	@echo "... core/compose/side_by_side/side_by_side_compose.i"
-	@echo "... core/compose/side_by_side/side_by_side_compose.s"
 	@echo "... core/compose/side_by_side/side_by_side_frame.o"
 	@echo "... core/compose/side_by_side/side_by_side_frame.i"
 	@echo "... core/compose/side_by_side/side_by_side_frame.s"
-	@echo "... core/decoder/decoder_handle.o"
-	@echo "... core/decoder/decoder_handle.i"
-	@echo "... core/decoder/decoder_handle.s"
-	@echo "... core/decoder/decoder_runner.o"
-	@echo "... core/decoder/decoder_runner.i"
-	@echo "... core/decoder/decoder_runner.s"
-	@echo "... core/decoder/h264_decoder.o"
-	@echo "... core/decoder/h264_decoder.i"
-	@echo "... core/decoder/h264_decoder.s"
 	@echo "... core/decoder/packet_adapter.o"
 	@echo "... core/decoder/packet_adapter.i"
 	@echo "... core/decoder/packet_adapter.s"
-	@echo "... core/decoder/video_frame_utils.o"
-	@echo "... core/decoder/video_frame_utils.i"
-	@echo "... core/decoder/video_frame_utils.s"
+	@echo "... core/mux/remux_muxer.o"
+	@echo "... core/mux/remux_muxer.i"
+	@echo "... core/mux/remux_muxer.s"
 	@echo "... core/runtime/runtime.o"
 	@echo "... core/runtime/runtime.i"
 	@echo "... core/runtime/runtime.s"
@@ -1383,9 +1214,18 @@ help:
 	@echo "... core/sinks/hls_sink.o"
 	@echo "... core/sinks/hls_sink.i"
 	@echo "... core/sinks/hls_sink.s"
-	@echo "... core/sinks/hls_sink_runner.o"
-	@echo "... core/sinks/hls_sink_runner.i"
-	@echo "... core/sinks/hls_sink_runner.s"
+	@echo "... core/sinks/remux_sink_runner.o"
+	@echo "... core/sinks/remux_sink_runner.i"
+	@echo "... core/sinks/remux_sink_runner.s"
+	@echo "... core/sources/buffered_source.o"
+	@echo "... core/sources/buffered_source.i"
+	@echo "... core/sources/buffered_source.s"
+	@echo "... core/sources/packet_typing.o"
+	@echo "... core/sources/packet_typing.i"
+	@echo "... core/sources/packet_typing.s"
+	@echo "... core/sources/subscription_packet_reader.o"
+	@echo "... core/sources/subscription_packet_reader.i"
+	@echo "... core/sources/subscription_packet_reader.s"
 	@echo "... core/tests/clip_tokenizer_test.o"
 	@echo "... core/tests/clip_tokenizer_test.i"
 	@echo "... core/tests/clip_tokenizer_test.s"
@@ -1395,6 +1235,9 @@ help:
 	@echo "... core/tests/packet_adapter_test.o"
 	@echo "... core/tests/packet_adapter_test.i"
 	@echo "... core/tests/packet_adapter_test.s"
+	@echo "... core/tests/remux_muxer_test.o"
+	@echo "... core/tests/remux_muxer_test.i"
+	@echo "... core/tests/remux_muxer_test.s"
 	@echo "... core/tests/runtime_manifest_test.o"
 	@echo "... core/tests/runtime_manifest_test.i"
 	@echo "... core/tests/runtime_manifest_test.s"

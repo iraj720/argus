@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/test/getopt_s.c" "libdatachannel/deps/libsrtp/CMakeFiles/rtp_decoder.dir/test/getopt_s.c.o" "gcc" "libdatachannel/deps/libsrtp/CMakeFiles/rtp_decoder.dir/test/getopt_s.c.o.d"
-  "/Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/test/rtp_decoder.c" "libdatachannel/deps/libsrtp/CMakeFiles/rtp_decoder.dir/test/rtp_decoder.c.o" "gcc" "libdatachannel/deps/libsrtp/CMakeFiles/rtp_decoder.dir/test/rtp_decoder.c.o.d"
-  "/Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/test/util.c" "libdatachannel/deps/libsrtp/CMakeFiles/rtp_decoder.dir/test/util.c.o" "gcc" "libdatachannel/deps/libsrtp/CMakeFiles/rtp_decoder.dir/test/util.c.o.d"
+  "/Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/test/getopt_s.c" "libdatachannel/deps/libsrtp/CMakeFiles/rtp_decoder.dir/test/getopt_s.c.o" "gcc" "libdatachannel/deps/libsrtp/CMakeFiles/rtp_decoder.dir/test/getopt_s.c.o.d"
+  "/Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/test/rtp_decoder.c" "libdatachannel/deps/libsrtp/CMakeFiles/rtp_decoder.dir/test/rtp_decoder.c.o" "gcc" "libdatachannel/deps/libsrtp/CMakeFiles/rtp_decoder.dir/test/rtp_decoder.c.o.d"
+  "/Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/test/util.c" "libdatachannel/deps/libsrtp/CMakeFiles/rtp_decoder.dir/test/util.c.o" "gcc" "libdatachannel/deps/libsrtp/CMakeFiles/rtp_decoder.dir/test/util.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

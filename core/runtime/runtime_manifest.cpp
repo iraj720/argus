@@ -152,7 +152,10 @@ RuntimeDesiredState BuildRuntimeDesiredState(const RuntimeManifest &manifest) {
             if (std::find(source_ids.begin(), source_ids.end(), input.id) == source_ids.end()) {
                 source_ids.push_back(input.id);
             }
-            desired.sink_ids_by_source_id[input.id].push_back(sink.sink_id);
+            auto &sink_ids = desired.sink_ids_by_source_id[input.id];
+            if (std::find(sink_ids.begin(), sink_ids.end(), sink.sink_id) == sink_ids.end()) {
+                sink_ids.push_back(sink.sink_id);
+            }
         }
         desired.source_ids_by_sink_id.emplace(sink.sink_id, std::move(source_ids));
     }

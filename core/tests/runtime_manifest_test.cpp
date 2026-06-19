@@ -1,5 +1,5 @@
 #include "core/runtime/runtime_manifest.h"
-#include "core/compose/compose_type.h"
+#include "core/sources/packet_typing.h"
 
 #include <cstdio>
 #include <unordered_set>
@@ -17,26 +17,28 @@ void expect(bool condition, const char *message) {
 
 irs3::RuntimeManifest make_valid_manifest() {
     irs3::RuntimeManifest manifest;
+    manifest.manifest_version = irs3::kRuntimeManifestVersion;
     manifest.sources.push_back(irs3::RuntimeSourceSpec{"live/test"});
-    manifest.sinks.push_back(irs3::RuntimeSinkSpec{
-        "record-a",
+
+    irs3::RuntimeSinkSpec sink;
+    sink.sink_id = "rec-a";
+    sink.output_root = "./record-a";
+    sink.output_mode = IRS3_HLS_SINK_OUTPUT_RECORD;
+    sink.inputs.push_back(irs3::RuntimeSinkInputSpec{
+        "source",
         "live/test",
-        "./record-a",
-        IRS3_HLS_SINK_OUTPUT_RECORD,
+        "video",
+        "video/h264",
+        "video/main",
     });
-    manifest.decoders.push_back(irs3::RuntimeDecoderSpec{
-        "decoder-a",
+    sink.inputs.push_back(irs3::RuntimeSinkInputSpec{
+        "source",
         "live/test",
+        "voice",
+        "voice/aac",
+        "voice/main",
     });
-    manifest.composes.push_back(irs3::RuntimeComposeSpec{
-        "compose-a",
-        "decoder-a",
-        irs3::kComposeTypeJpgSnapshot,
-        "./frames",
-        "",
-        "",
-        50,
-    });
+    manifest.sinks.push_back(std::move(sink));
     return manifest;
 }
 
@@ -48,48 +50,38 @@ int main() {
 
     irs3::RuntimeManifestValidationResult bootstrap =
         irs3::ValidateRuntimeManifest(manifest, active_sources, false);
-    expect(bootstrap.ok, "bootstrap validation should accept manifest with decoder and compose");
+    expect(bootstrap.ok, "bootstrap validation should accept v2 manifest");
 
     irs3::RuntimeManifestValidationResult strict =
         irs3::ValidateRuntimeManifest(manifest, active_sources, true);
-    expect(strict.ok, "strict validation should accept active source decoder");
+    expect(strict.ok, "strict validation should accept active source");
 
-    irs3::RuntimeManifest unknown_compose_decoder = manifest;
-    unknown_compose_decoder.composes[0].decoder_id = "missing-decoder";
-    irs3::RuntimeManifestValidationResult unknown_decoder =
-        irs3::ValidateRuntimeManifest(unknown_compose_decoder, active_sources, false);
-    expect(!unknown_decoder.ok, "compose with unknown decoder_id should be rejected");
+    irs3::RuntimeManifest wrong_version = manifest;
+    wrong_version.manifest_version = 1;
+    irs3::RuntimeManifestValidationResult version_check =
+        irs3::ValidateRuntimeManifest(wrong_version, active_sources, false);
+    expect(!version_check.ok, "manifest_version 1 should be rejected");
 
-    irs3::RuntimeManifest unknown_compose_type = manifest;
-    unknown_compose_type.composes[0].compose_type = "unknown";
-    irs3::RuntimeManifestValidationResult unknown_type =
-        irs3::ValidateRuntimeManifest(unknown_compose_type, active_sources, false);
-    expect(!unknown_type.ok, "compose with unknown compose_type should be rejected");
+    irs3::RuntimeManifest voice_only = manifest;
+    voice_only.sinks[0].inputs.erase(voice_only.sinks[0].inputs.begin());
+    irs3::RuntimeManifestValidationResult no_video =
+        irs3::ValidateRuntimeManifest(voice_only, active_sources, false);
+    expect(!no_video.ok, "sink without video input should be rejected");
 
-    irs3::RuntimeManifest clip_prompt_manifest = manifest;
-    clip_prompt_manifest.composes[0].compose_type = irs3::kComposeTypeClipPrompt;
-    clip_prompt_manifest.composes[0].prompt = "a minion character";
-    irs3::RuntimeManifestValidationResult clip_prompt =
-        irs3::ValidateRuntimeManifest(clip_prompt_manifest, active_sources, false);
-    expect(clip_prompt.ok, "clip_prompt compose with prompt should be accepted");
-
-    irs3::RuntimeManifest clip_prompt_missing = clip_prompt_manifest;
-    clip_prompt_missing.composes[0].prompt.clear();
-    irs3::RuntimeManifestValidationResult clip_prompt_invalid =
-        irs3::ValidateRuntimeManifest(clip_prompt_missing, active_sources, false);
-    expect(!clip_prompt_invalid.ok, "clip_prompt compose without prompt should be rejected");
-
-    irs3::RuntimeManifest side_by_side_manifest = manifest;
-    side_by_side_manifest.composes[0].compose_type = irs3::kComposeTypeSideBySide;
-    irs3::RuntimeManifestValidationResult side_by_side =
-        irs3::ValidateRuntimeManifest(side_by_side_manifest, active_sources, false);
-    expect(side_by_side.ok, "side_by_side compose type should be accepted");
+    irs3::RuntimeManifest bad_packet_type = manifest;
+    bad_packet_type.sinks[0].inputs[0].packet_type = "voice/aac";
+    irs3::RuntimeManifestValidationResult packet_type_mismatch =
+        irs3::ValidateRuntimeManifest(bad_packet_type, active_sources, false);
+    expect(!packet_type_mismatch.ok, "packet_type/stream_type mismatch should be rejected");
 
     irs3::RuntimeDesiredState desired = irs3::BuildRuntimeDesiredState(manifest);
-    expect(desired.decoders_by_id.size() == 1, "desired state should contain decoder");
-    expect(desired.composes_by_id.size() == 1, "desired state should contain compose");
-    expect(desired.compose_ids_by_decoder_id["decoder-a"].size() == 1, "compose route should be indexed by decoder");
-    expect(desired.routes_by_compose_id["compose-a"] == "decoder-a", "compose route should map to decoder");
+    expect(desired.sinks_by_id.size() == 1, "desired state should contain sink");
+    expect(desired.source_ids_by_sink_id["rec-a"].size() == 1, "sink should reference one source id");
+    expect(desired.sink_ids_by_source_id["live/test"].size() == 1, "source should map to sink");
+
+    expect(irs3::IsRemuxAllowedStreamType("video"), "video stream type allowed");
+    expect(!irs3::IsRemuxAllowedStreamType("text"), "text stream type not allowed for remux");
+    expect(irs3::PacketTypeMatchesStreamType("video/h264", "video"), "video/h264 matches video");
 
     if (failures != 0) {
         std::fprintf(stderr, "%d test(s) failed\n", failures);

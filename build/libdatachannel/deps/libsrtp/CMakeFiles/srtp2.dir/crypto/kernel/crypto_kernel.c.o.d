@@ -1,9 +1,9 @@
 libdatachannel/deps/libsrtp/CMakeFiles/srtp2.dir/crypto/kernel/crypto_kernel.c.o: \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/kernel/crypto_kernel.c \
-  /Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/libsrtp/config.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/alloc.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/datatypes.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/integers.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/kernel/crypto_kernel.c \
+  /Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/libsrtp/config.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/alloc.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/datatypes.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/integers.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/stdlib.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_stdlib.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/Availability.h \
@@ -157,12 +157,12 @@ libdatachannel/deps/libsrtp/CMakeFiles/srtp2.dir/crypto/kernel/crypto_kernel.c.o
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/libkern/arm/OSByteOrder.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_os_inline.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/arm/arch.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/crypto_kernel.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/cipher.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/include/srtp.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/crypto_types.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/auth.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/err.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/key.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/rdbx.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/cipher_types.h
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/crypto_kernel.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/cipher.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/include/srtp.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/crypto_types.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/auth.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/err.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/key.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/rdbx.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/cipher_types.h

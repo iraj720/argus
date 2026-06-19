@@ -1,7 +1,7 @@
 libdatachannel/deps/libjuice/CMakeFiles/juice-static.dir/src/addr.c.o: \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/addr.c \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/addr.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/socket.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/addr.c \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/addr.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/socket.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/arpa/inet.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_symbol_aliasing.h \
@@ -149,8 +149,8 @@ libdatachannel/deps/libjuice/CMakeFiles/juice-static.dir/src/addr.c.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/ifaddrs.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/os/availability.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdbool.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/src/log.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libjuice/include/juice/juice.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/src/log.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libjuice/include/juice/juice.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stddef_header_macro.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stddef_ptrdiff_t.h \

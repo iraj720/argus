@@ -48,16 +48,9 @@ private:
     void HandleSource(SourcePtr source);
     void CloseActiveState();
     void CloseRouteState(RuntimeActiveRouteState *route_state);
-    void CloseDecoderRouteState(RuntimeActiveDecoderRouteState *route_state);
-    bool StartRouteLocked(const std::string &sink_id, const RuntimeSinkSpec &sink_spec, RuntimeActiveSourceState *active_source);
-    bool StartDecoderRouteLocked(
-        const std::string &decoder_id,
-        const RuntimeDecoderSpec &decoder_spec,
-        RuntimeActiveSourceState *active_source
-    );
-    bool StartComposeRouteLocked(const std::string &compose_id, const RuntimeComposeSpec &compose_spec);
-    void CloseComposeRouteState(RuntimeActiveComposeRouteState *route_state);
-    void CloseComposeRoutesForDecoderLocked(const std::string &decoder_id);
+    bool AllSinkSourcesActiveLocked(const RuntimeSinkSpec &sink_spec) const;
+    bool StartRouteLocked(const std::string &sink_id, const RuntimeSinkSpec &sink_spec);
+    void TryStartPendingSinksLocked();
 
     RuntimeState state_;
     RuntimeConfig config_;

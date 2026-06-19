@@ -49,6 +49,8 @@ struct SourcePacket {
     std::string stream_type;
     std::string packet_type;
     std::string stream_id;
+    // Canonical presentation time in milliseconds. All ingest paths (RTMP, WHIP, ...)
+    // normalize network timestamps to this field before buffering.
     std::uint32_t timestamp_ms = 0;
     std::int64_t pts = 0;
     std::int64_t dts = 0;

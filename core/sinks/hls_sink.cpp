@@ -849,6 +849,82 @@ static void write_stats_file(irs3_hls_sink *sink) {
     fclose(fp);
 }
 
+static int sink_init_common_paths(irs3_hls_sink *sink, const char *output_dir, const char *session_label) {
+    if (output_dir == NULL || output_dir[0] == '\0') {
+        return -1;
+    }
+    snprintf(sink->session_name, sizeof(sink->session_name), "%s", session_label != NULL ? session_label : "v2");
+    snprintf(sink->output_dir, sizeof(sink->output_dir), "%s", output_dir);
+    snprintf(sink->manifest_path, sizeof(sink->manifest_path), "%s/stream.m3u8", sink->output_dir);
+    snprintf(sink->stats_path, sizeof(sink->stats_path), "%s/session.json", sink->output_dir);
+    snprintf(sink->stderr_path, sizeof(sink->stderr_path), "%s/ffmpeg.stderr.log", sink->output_dir);
+    return 0;
+}
+
+int irs3_hls_sink_init_at_dir_with_options(
+    irs3_hls_sink *sink,
+    const char *output_dir,
+    const irs3_hls_sink_options *options
+) {
+    FILE *log_file;
+
+    memset(sink, 0, sizeof(*sink));
+    if (sink_init_common_paths(sink, output_dir, "v2-remux") != 0) {
+        return -1;
+    }
+    sink->ffmpeg_exit_code = -1;
+    sink->mode = kHlsSinkModeFlv;
+    sink->packet_session_start_us = av_gettime_relative();
+    sink_options_from_input(sink, options);
+
+    if (mkdir_p(sink->output_dir) != 0) {
+        return -1;
+    }
+    log_file = fopen(sink->stderr_path, "w");
+    if (log_file != NULL) {
+        fclose(log_file);
+    }
+    if (pthread_mutex_init(&sink->mutex, NULL) != 0) {
+        return -1;
+    }
+    if (pthread_cond_init(&sink->cond, NULL) != 0) {
+        pthread_mutex_destroy(&sink->mutex);
+        return -1;
+    }
+    if (sink_start_cleaner(sink) != 0) {
+        pthread_cond_destroy(&sink->cond);
+        pthread_mutex_destroy(&sink->mutex);
+        return -1;
+    }
+    if (pthread_create(&sink->worker_thread, NULL, sink_worker_main, sink) != 0) {
+        sink_stop_cleaner(sink);
+        pthread_cond_destroy(&sink->cond);
+        pthread_mutex_destroy(&sink->mutex);
+        return -1;
+    }
+    sink->worker_running = 1;
+    sink->started = 1;
+
+    {
+        static const uint8_t header[] = {
+            'F', 'L', 'V',
+            0x01,
+            0x05,
+            0x00, 0x00, 0x00, 0x09,
+            0x00, 0x00, 0x00, 0x00
+        };
+        if (sink_queue_write(sink, header, sizeof(header)) != 0) {
+            irs3_hls_sink_close(sink);
+            return -1;
+        }
+    }
+    if (sink->worker_finished && sink->ffmpeg_exit_code != 0) {
+        irs3_hls_sink_close(sink);
+        return -1;
+    }
+    return 0;
+}
+
 int irs3_hls_sink_init_with_options(
     irs3_hls_sink *sink,
     const char *output_root,
@@ -1014,6 +1090,71 @@ int irs3_hls_sink_write_flv_tag(
     }
 
     free(tag_blob);
+    return 0;
+}
+
+int irs3_hls_sink_init_packet_mode_at_dir_with_options(
+    irs3_hls_sink *sink,
+    const char *output_dir,
+    const irs3_hls_sink_options *options,
+    const irs3_hls_sink_stream_config *streams,
+    size_t stream_count
+) {
+    FILE *log_file;
+    AVFormatContext *output_ctx;
+    size_t i;
+    int ret;
+
+    if (stream_count == 0 || stream_count > (sizeof(sink->packet_stream_kinds) / sizeof(sink->packet_stream_kinds[0]))) {
+        return -1;
+    }
+
+    memset(sink, 0, sizeof(*sink));
+    if (sink_init_common_paths(sink, output_dir, "v2-remux") != 0) {
+        return -1;
+    }
+    sink->ffmpeg_exit_code = -1;
+    sink->mode = kHlsSinkModePacket;
+    sink->packet_stream_count = (int)stream_count;
+    sink->packet_session_start_us = av_gettime_relative();
+    sink_options_from_input(sink, options);
+
+    if (mkdir_p(sink->output_dir) != 0) {
+        return -1;
+    }
+    log_file = fopen(sink->stderr_path, "w");
+    if (log_file != NULL) {
+        fclose(log_file);
+    }
+    if (pthread_mutex_init(&sink->mutex, NULL) != 0) {
+        return -1;
+    }
+    if (pthread_cond_init(&sink->cond, NULL) != 0) {
+        pthread_mutex_destroy(&sink->mutex);
+        return -1;
+    }
+    if (sink_start_cleaner(sink) != 0) {
+        pthread_cond_destroy(&sink->cond);
+        pthread_mutex_destroy(&sink->mutex);
+        return -1;
+    }
+
+    for (i = 0; i < stream_count; ++i) {
+        sink->packet_stream_kinds[i] = (int)streams[i].kind;
+        sink->packet_stream_clock_rates[i] = streams[i].clock_rate > 0 ? streams[i].clock_rate : 90000;
+    }
+
+    ret = sink_open_packet_output(sink, streams, stream_count, &output_ctx);
+    if (ret < 0) {
+        sink_stop_cleaner(sink);
+        pthread_cond_destroy(&sink->cond);
+        pthread_mutex_destroy(&sink->mutex);
+        return -1;
+    }
+
+    sink->packet_output_ctx = output_ctx;
+    sink->ffmpeg_exit_code = 0;
+    sink->started = 1;
     return 0;
 }
 

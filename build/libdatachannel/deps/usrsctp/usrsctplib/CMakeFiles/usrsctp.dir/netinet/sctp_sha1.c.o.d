@@ -1,6 +1,6 @@
 libdatachannel/deps/usrsctp/usrsctplib/CMakeFiles/usrsctp.dir/netinet/sctp_sha1.c.o: \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_sha1.c \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_sha1.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_sha1.c \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib/netinet/sctp_sha1.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/types.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/appleapiopts.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h \

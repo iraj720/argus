@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/argus.dir/cmd/argus/main.cpp.o"
+  "CMakeFiles/argus.dir/cmd/argus/main.cpp.o.d"
+  "CMakeFiles/argus.dir/core/mux/remux_muxer.cpp.o"
+  "CMakeFiles/argus.dir/core/mux/remux_muxer.cpp.o.d"
+  "CMakeFiles/argus.dir/core/runtime/runtime.cpp.o"
+  "CMakeFiles/argus.dir/core/runtime/runtime.cpp.o.d"
+  "CMakeFiles/argus.dir/core/runtime/runtime_http.cpp.o"
+  "CMakeFiles/argus.dir/core/runtime/runtime_http.cpp.o.d"
+  "CMakeFiles/argus.dir/core/runtime/runtime_manifest.cpp.o"
+  "CMakeFiles/argus.dir/core/runtime/runtime_manifest.cpp.o.d"
+  "CMakeFiles/argus.dir/core/runtime/sink_handle.cpp.o"
+  "CMakeFiles/argus.dir/core/runtime/sink_handle.cpp.o.d"
+  "CMakeFiles/argus.dir/core/servers/rtmp/rtmp_amf0.c.o"
+  "CMakeFiles/argus.dir/core/servers/rtmp/rtmp_amf0.c.o.d"
+  "CMakeFiles/argus.dir/core/servers/rtmp/rtmp_chunk.c.o"
+  "CMakeFiles/argus.dir/core/servers/rtmp/rtmp_chunk.c.o.d"
+  "CMakeFiles/argus.dir/core/servers/rtmp/rtmp_handshake.c.o"
+  "CMakeFiles/argus.dir/core/servers/rtmp/rtmp_handshake.c.o.d"
+  "CMakeFiles/argus.dir/core/servers/rtmp/rtmp_server.cpp.o"
+  "CMakeFiles/argus.dir/core/servers/rtmp/rtmp_server.cpp.o.d"
+  "CMakeFiles/argus.dir/core/servers/rtmp/rtmp_session.cpp.o"
+  "CMakeFiles/argus.dir/core/servers/rtmp/rtmp_session.cpp.o.d"
+  "CMakeFiles/argus.dir/core/servers/webrtc/webrtc_server.cpp.o"
+  "CMakeFiles/argus.dir/core/servers/webrtc/webrtc_server.cpp.o.d"
+  "CMakeFiles/argus.dir/core/sinks/hls_sink.cpp.o"
+  "CMakeFiles/argus.dir/core/sinks/hls_sink.cpp.o.d"
+  "CMakeFiles/argus.dir/core/sinks/remux_sink_runner.cpp.o"
+  "CMakeFiles/argus.dir/core/sinks/remux_sink_runner.cpp.o.d"
+  "CMakeFiles/argus.dir/core/sources/buffered_source.cpp.o"
+  "CMakeFiles/argus.dir/core/sources/buffered_source.cpp.o.d"
+  "CMakeFiles/argus.dir/core/sources/packet_typing.cpp.o"
+  "CMakeFiles/argus.dir/core/sources/packet_typing.cpp.o.d"
+  "CMakeFiles/argus.dir/core/sources/subscription_packet_reader.cpp.o"
+  "CMakeFiles/argus.dir/core/sources/subscription_packet_reader.cpp.o.d"
+  "argus"
+  "argus.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C CXX)
+  include(CMakeFiles/argus.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

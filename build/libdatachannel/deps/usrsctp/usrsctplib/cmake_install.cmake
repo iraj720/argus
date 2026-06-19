@@ -1,4 +1,4 @@
-# Install script for directory: /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib
+# Install script for directory: /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,7 +38,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/usrsctp/usrsctplib/libusrsctp.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/usrsctp/usrsctplib/libusrsctp.a")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libusrsctp.a" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libusrsctp.a")
     execute_process(COMMAND "/usr/bin/ranlib" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libusrsctp.a")
@@ -46,20 +46,20 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/usrsctp/usrsctplib/CMakeFiles/usrsctp.dir/install-cxx-module-bmi-DEBUG.cmake" OPTIONAL)
+  include("/Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/usrsctp/usrsctplib/CMakeFiles/usrsctp.dir/install-cxx-module-bmi-DEBUG.cmake" OPTIONAL)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "/Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/usrsctp/usrsctplib/usrsctp.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "/Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/usrsctp/usrsctplib/usrsctp.h")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/usrsctp/usrsctplib/usrsctp.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/usrsctp/usrsctplib/usrsctp.pc")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/usrsctp/usrsctplib/install_local_manifest.txt"
+  file(WRITE "/Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/usrsctp/usrsctplib/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

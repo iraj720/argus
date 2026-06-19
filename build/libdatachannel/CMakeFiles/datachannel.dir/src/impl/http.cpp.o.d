@@ -1,9 +1,9 @@
 libdatachannel/CMakeFiles/datachannel.dir/src/impl/http.cpp.o: \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/src/impl/http.cpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/src/impl/http.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/common.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/rtc.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/version.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/src/impl/http.cpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/src/impl/http.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/common.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/rtc.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/version.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/stdbool.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__config_site \
@@ -30,7 +30,7 @@ libdatachannel/CMakeFiles/datachannel.dir/src/impl/http.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_uintptr_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_intmax_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_uintmax_t.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/utils.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/utils.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/algorithm \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assertion_handler \

@@ -1,9 +1,9 @@
 libdatachannel/CMakeFiles/datachannel-static.dir/src/global.cpp.o: \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/src/global.cpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/plog/include/plog/Appenders/ColorConsoleAppender.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/plog/include/plog/Appenders/ConsoleAppender.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/plog/include/plog/Appenders/IAppender.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/plog/include/plog/Record.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/src/global.cpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/plog/include/plog/Appenders/ColorConsoleAppender.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/plog/include/plog/Appenders/ConsoleAppender.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/plog/include/plog/Appenders/IAppender.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/plog/include/plog/Record.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cstdarg \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__assertion_handler \
@@ -18,7 +18,7 @@ libdatachannel/CMakeFiles/datachannel-static.dir/src/global.cpp.o: \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg_va_arg.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg___va_copy.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg_va_copy.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/plog/include/plog/Severity.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/plog/include/plog/Severity.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cctype \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/ctype.h \
@@ -37,7 +37,7 @@ libdatachannel/CMakeFiles/datachannel-static.dir/src/global.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_rune_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_wchar_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_wint_t.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/plog/include/plog/Util.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/plog/include/plog/Util.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cassert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/assert.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/stdlib.h \
@@ -980,22 +980,22 @@ libdatachannel/CMakeFiles/datachannel-static.dir/src/global.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/gethostuuid.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_timeval64.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/plog/include/plog/WinApi.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/plog/include/plog/WinApi.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/plog/include/plog/Converters/UTF8Converter.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/plog/include/plog/Formatters/FuncMessageFormatter.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/plog/include/plog/Formatters/TxtFormatter.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/plog/include/plog/Converters/UTF8Converter.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/plog/include/plog/Formatters/FuncMessageFormatter.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/plog/include/plog/Formatters/TxtFormatter.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iomanip \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/plog/include/plog/Init.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/plog/include/plog/Logger.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/plog/include/plog/Log.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/global.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/common.hpp \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/rtc.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/version.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/plog/include/plog/Init.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/plog/include/plog/Logger.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/plog/include/plog/Log.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/global.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/common.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/rtc.h \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/version.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/stdbool.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/stdbool.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/include/rtc/utils.hpp \
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/include/rtc/utils.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/chrono \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__chrono/calendar.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__chrono/convert_to_tm.h \
@@ -1025,4 +1025,4 @@ libdatachannel/CMakeFiles/datachannel-static.dir/src/global.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__stop_token/stop_token.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__thread/thread.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__thread/this_thread.h \
-  /Users/nimarafieimehr/gibical/cgo/libdatachannel/src/impl/init.hpp
+  /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/src/impl/init.hpp

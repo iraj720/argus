@@ -53,10 +53,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/nimarafieimehr/gibical/cgo/irajstreamer3
+CMAKE_SOURCE_DIR = /Users/nimarafieimehr/gibical/argus
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/nimarafieimehr/gibical/cgo/irajstreamer3/build
+CMAKE_BINARY_DIR = /Users/nimarafieimehr/gibical/argus/build
 
 # Include any dependencies generated for this target.
 include libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/depend.make
@@ -73,18 +73,18 @@ libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/codegen:
 .PHONY : libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/codegen
 
 libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/test/test_srtp.c.o: libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/flags.make
-libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/test/test_srtp.c.o: /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/test/test_srtp.c
+libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/test/test_srtp.c.o: /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/test/test_srtp.c
 libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/test/test_srtp.c.o: libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/test/test_srtp.c.o"
-	cd /Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/libsrtp && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/test/test_srtp.c.o -MF CMakeFiles/test_srtp.dir/test/test_srtp.c.o.d -o CMakeFiles/test_srtp.dir/test/test_srtp.c.o -c /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/test/test_srtp.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/nimarafieimehr/gibical/argus/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/test/test_srtp.c.o"
+	cd /Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/libsrtp && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/test/test_srtp.c.o -MF CMakeFiles/test_srtp.dir/test/test_srtp.c.o.d -o CMakeFiles/test_srtp.dir/test/test_srtp.c.o -c /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/test/test_srtp.c
 
 libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/test/test_srtp.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/test_srtp.dir/test/test_srtp.c.i"
-	cd /Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/libsrtp && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/test/test_srtp.c > CMakeFiles/test_srtp.dir/test/test_srtp.c.i
+	cd /Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/libsrtp && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/test/test_srtp.c > CMakeFiles/test_srtp.dir/test/test_srtp.c.i
 
 libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/test/test_srtp.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/test_srtp.dir/test/test_srtp.c.s"
-	cd /Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/libsrtp && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/test/test_srtp.c -o CMakeFiles/test_srtp.dir/test/test_srtp.c.s
+	cd /Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/libsrtp && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/test/test_srtp.c -o CMakeFiles/test_srtp.dir/test/test_srtp.c.s
 
 # Object files for target test_srtp
 test_srtp_OBJECTS = \
@@ -98,18 +98,18 @@ libdatachannel/deps/libsrtp/test_srtp: libdatachannel/deps/libsrtp/CMakeFiles/te
 libdatachannel/deps/libsrtp/test_srtp: libdatachannel/deps/libsrtp/libsrtp2.a
 libdatachannel/deps/libsrtp/test_srtp: /opt/homebrew/Cellar/openssl@3/3.6.2/lib/libcrypto.dylib
 libdatachannel/deps/libsrtp/test_srtp: libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable test_srtp"
-	cd /Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/libsrtp && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_srtp.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/nimarafieimehr/gibical/argus/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable test_srtp"
+	cd /Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/libsrtp && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_srtp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/build: libdatachannel/deps/libsrtp/test_srtp
 .PHONY : libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/build
 
 libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/clean:
-	cd /Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/libsrtp && $(CMAKE_COMMAND) -P CMakeFiles/test_srtp.dir/cmake_clean.cmake
+	cd /Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/libsrtp && $(CMAKE_COMMAND) -P CMakeFiles/test_srtp.dir/cmake_clean.cmake
 .PHONY : libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/clean
 
 libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/depend:
-	cd /Users/nimarafieimehr/gibical/cgo/irajstreamer3/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/nimarafieimehr/gibical/cgo/irajstreamer3 /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp /Users/nimarafieimehr/gibical/cgo/irajstreamer3/build /Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/libsrtp /Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/DependInfo.cmake "--color=$(COLOR)" test_srtp
+	cd /Users/nimarafieimehr/gibical/argus/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/nimarafieimehr/gibical/argus /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp /Users/nimarafieimehr/gibical/argus/build /Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/libsrtp /Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/DependInfo.cmake "--color=$(COLOR)" test_srtp
 .PHONY : libdatachannel/deps/libsrtp/CMakeFiles/test_srtp.dir/depend
 

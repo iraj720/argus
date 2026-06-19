@@ -1,13 +1,13 @@
 {
 	"InstallScripts" : 
 	[
-		"/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/cmake_install.cmake",
-		"/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/cmake_install.cmake",
-		"/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/plog/cmake_install.cmake",
-		"/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/usrsctp/cmake_install.cmake",
-		"/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/usrsctp/usrsctplib/cmake_install.cmake",
-		"/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/libsrtp/cmake_install.cmake",
-		"/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/libjuice/cmake_install.cmake"
+		"/Users/nimarafieimehr/gibical/argus/build/cmake_install.cmake",
+		"/Users/nimarafieimehr/gibical/argus/build/libdatachannel/cmake_install.cmake",
+		"/Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/plog/cmake_install.cmake",
+		"/Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/usrsctp/cmake_install.cmake",
+		"/Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/usrsctp/usrsctplib/cmake_install.cmake",
+		"/Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/libsrtp/cmake_install.cmake",
+		"/Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/libjuice/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

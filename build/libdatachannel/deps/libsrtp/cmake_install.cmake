@@ -1,4 +1,4 @@
-# Install script for directory: /Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp
+# Install script for directory: /Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,7 +38,7 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/libsrtp/libsrtp2.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/libsrtp/libsrtp2.a")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libsrtp2.a" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libsrtp2.a")
     execute_process(COMMAND "/usr/bin/ranlib" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libsrtp2.a")
@@ -46,15 +46,15 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/libsrtp/CMakeFiles/srtp2.dir/install-cxx-module-bmi-Debug.cmake" OPTIONAL)
+  include("/Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/libsrtp/CMakeFiles/srtp2.dir/install-cxx-module-bmi-Debug.cmake" OPTIONAL)
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/srtp2" TYPE FILE FILES
-    "/Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/include/srtp.h"
-    "/Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/auth.h"
-    "/Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/cipher.h"
-    "/Users/nimarafieimehr/gibical/cgo/libdatachannel/deps/libsrtp/crypto/include/crypto_types.h"
+    "/Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/include/srtp.h"
+    "/Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/auth.h"
+    "/Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/cipher.h"
+    "/Users/nimarafieimehr/gibical/argus/third_party/libdatachannel/deps/libsrtp/crypto/include/crypto_types.h"
     )
 endif()
 
@@ -62,7 +62,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/libSRTP/libSRTPTargets.cmake")
     file(DIFFERENT _cmake_export_file_changed FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/libSRTP/libSRTPTargets.cmake"
-         "/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/libsrtp/CMakeFiles/Export/4057af6c16ac9b4df3236859d5c9bdc7/libSRTPTargets.cmake")
+         "/Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/libsrtp/CMakeFiles/Export/4057af6c16ac9b4df3236859d5c9bdc7/libSRTPTargets.cmake")
     if(_cmake_export_file_changed)
       file(GLOB _cmake_old_config_files "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/libSRTP/libSRTPTargets-*.cmake")
       if(_cmake_old_config_files)
@@ -75,22 +75,22 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
     endif()
     unset(_cmake_export_file_changed)
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/libSRTP" TYPE FILE FILES "/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/libsrtp/CMakeFiles/Export/4057af6c16ac9b4df3236859d5c9bdc7/libSRTPTargets.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/libSRTP" TYPE FILE FILES "/Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/libsrtp/CMakeFiles/Export/4057af6c16ac9b4df3236859d5c9bdc7/libSRTPTargets.cmake")
   if(CMAKE_INSTALL_CONFIG_NAME MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/libSRTP" TYPE FILE FILES "/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/libsrtp/CMakeFiles/Export/4057af6c16ac9b4df3236859d5c9bdc7/libSRTPTargets-debug.cmake")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/libSRTP" TYPE FILE FILES "/Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/libsrtp/CMakeFiles/Export/4057af6c16ac9b4df3236859d5c9bdc7/libSRTPTargets-debug.cmake")
   endif()
 endif()
 
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/libSRTP" TYPE FILE FILES
-    "/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/libsrtp/libSRTPConfig.cmake"
-    "/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/libsrtp/libSRTPConfigVersion.cmake"
+    "/Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/libsrtp/libSRTPConfig.cmake"
+    "/Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/libsrtp/libSRTPConfigVersion.cmake"
     )
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/Users/nimarafieimehr/gibical/cgo/irajstreamer3/build/libdatachannel/deps/libsrtp/install_local_manifest.txt"
+  file(WRITE "/Users/nimarafieimehr/gibical/argus/build/libdatachannel/deps/libsrtp/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
