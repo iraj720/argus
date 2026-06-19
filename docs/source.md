@@ -8,6 +8,7 @@ under `core/servers/` that publish into a source.
 
 Related docs:
 
+- `docs/scenarios/complex_two_source.md` — multi-track source example
 - `docs/pipeline.md` — threading, extended pull-based nodes, encoder branch
 - `docs/execution_model.md` — startup, threads, buffer fill, close order
 - `docs/final_design.md` — typed graph, abstract streams, sync ownership
@@ -31,7 +32,7 @@ The source must:
 - preserve per-sample timestamps
 - expose a shared presentation timeline across stream types
 - let multiple downstream consumers read at independent rates and filters
-- **not** perform multi-input composition sync (that belongs to `Composer`)
+- **not** perform multi-input composition sync (that belongs to multi-input **Compose** types)
 
 ## Scheduling Model
 
@@ -50,21 +51,56 @@ Ingest (push)  →  Source storage  →  Subscription ReadPacket (pull)  →  ..
 pushes all `stream_id` values into the source.
 
 Pull gives backpressure. Pull alone does **not** synchronize streams. Sync across
-**multiple inputs** is owned by `Composer` and `Encoder` on the encode branch.
+**multiple inputs** is owned by multi-input **Compose** nodes and **Encoder** on the encode branch.
 Light interleave by timestamp for a **single publisher** can happen when walking
 the shared timeline or at mux write time.
 
-## Abstract Streams
+## Packet model and typing
 
-Each sample is tagged with:
+The **unit** moving through source storage and the processing graph is a
+**packet**.
 
-- `stream_id` — e.g. `video/main`, `audio/voice-en`, `meta/location`, `text/captions`
-- `media_type` — MIME-like string, e.g. `video/h264`, `audio/opus`, `application/json`, `text/plain`
-- `pts` / `dts` — timestamps in a session-comparable time base
-- `payload` — opaque bytes (stored in a per-stream ring)
+Each packet carries:
+
+| Field | Role | Examples |
+|-------|------|----------|
+| **`packet_type`** | Payload format (MIME-like, extensible) | `video/h264`, `voice/aac`, `location/text`, `text/plain` |
+| **`stream_type`** | Coarse family for routing and decode boundaries | `video`, `voice`, `location`, `text` |
+| **`stream_id`** | Logical track/channel within one publisher | `video/main`, `voice/en`, `meta/location` |
+| **`pts` / `dts`** | Session-comparable timestamps | |
+| **`payload`** | Opaque bytes (stored in a per-`stream_id` ring) | |
+
+Rules:
+
+- **`stream_type`** is derived from the **`packet_type`** prefix (`video/h264` →
+  `stream_type` `video`; `voice/aac` → `voice`; `location/text` → `location`).
+- **`stream_id`** distinguishes parallel tracks of the same `stream_type` (two
+  voice tracks → two `stream_id`s, same `stream_type` `voice`).
+- After decode, output packets use new **`packet_type`** values (e.g.
+  `video/h264` → `video/raw`, `voice/aac` → `voice/pcm`).
+
+Legacy docs/code may still say `media_type`; target name is **`packet_type`**.
+
+### Worked example: source A in two-source scenario
+
+Publisher `live/studio` carries five packet types on one timeline:
+
+| `stream_id` | `packet_type` | Decoder? |
+|-------------|---------------|----------|
+| `video/main` | `video/h264` | Yes |
+| `voice/main` | `voice/aac` | Yes (shared voice decoder) |
+| `voice/instruction` | `voice/aac` | Same voice decoder |
+| `meta/location` | `location/text` | No — compose reads via `kind: source` |
+| `text/prompt` | `text/prompt` | No — compose reads via `kind: source` |
+
+See `docs/scenarios/complex_two_source.md`.
+
+## Abstract streams (storage view)
+
+Each published sample is a **packet** tagged as above.
 
 `SourceFormat` / track metadata evolves into a **stream bundle**: a catalog of
-active `stream_id` + format descriptors announced via `WaitReady`.
+active `stream_id` + `packet_type` descriptors announced via `WaitReady`.
 
 ## Storage Model
 
@@ -104,7 +140,8 @@ Each `TimelineEntry` contains:
 - `pts` (primary sort key)
 - `dts` (optional; needed for encoded mux/decode ordering)
 - `stream_id`
-- `media_type`
+- `packet_type`
+- `stream_type` (redundant but stored for fast filter; must match `packet_type` prefix)
 - `ring_slot`
 - `ring_sequence`
 
@@ -163,7 +200,7 @@ Subscribers may update only:
 
 - `cursor` — next timeline index to examine
 - optional per-stream ring cursors for `ReadStream`
-- `filter` — which `stream_id` / `media_type` patterns to accept
+- `filter` — which `stream_id` / `packet_type` / `stream_type` patterns to accept
 - optional `barrier_pts` / holdback policy
 - optional `last_delivered_pts` for metrics
 
@@ -197,9 +234,10 @@ Example subscription filters:
 
 | Consumer | Filter |
 |----------|--------|
-| HLS mux | `video/*`, `audio/*` (muxable streams) |
-| Video decoder | `video/*` or direct `ReadStream("video/main")` |
-| Location sink | `meta/location` or `application/json` |
+| HLS remux sink | `inputs[]`: `video/*`, `voice/*` muxed into one output |
+| Video decoder | `stream_type` `video` or `packet_type` `video/h264` |
+| Voice decoder | `stream_type` `voice` or `packet_type` `voice/aac` |
+| Location consumer | `stream_type` `location` or `packet_type` `location/text` |
 | Full tee | accept all |
 
 ### Cursor start policy
@@ -238,9 +276,13 @@ Source
 
 Downstream processing nodes expose **typed ports** (see `docs/final_design.md`):
 
-- decoder: `encoded/video` in, `raw/video` out
-- composer: multiple `raw/*` in, `raw/*` out
+- decoder: encoded `packet_type` in → raw `packet_type` out (one **decoder node per `stream_type`** that requires decode — see `docs/compose.md`)
+- compose: raw `packet_type` in (from declared `inputs`), raw `packet_type` out
 - mux sink: `encoded` in (multiplex or filtered)
+
+Compose output fan-out uses subscriptions into a **ring buffer** on the compose
+node (extended pull-based — not push-filled like source). Decoder output
+fan-out uses subscriptions as well. See `docs/compose.md`.
 
 The source does not create separate physical ports per `stream_id`. Graph edges
 use stream filters or `ReadStream` for narrow wiring.
@@ -253,15 +295,15 @@ use stream filters or `ReadStream` for narrow wiring.
 - Output fps enforcement
 - Frame hold / stale / slate policy
 
-Those belong to `Composer`, `Encoder`, and mux sinks as described in
-`docs/result.md` and `docs/final_design.md`.
+Those belong to `Compose` (multi-input types), `Encoder`, and mux sinks as described in
+`docs/result.md`, `docs/compose.md`, and `docs/final_design.md`.
 
 ## Relation to Current Code
 
 Today `BufferedSource` uses a single interleaved deque and per-subscription
 sequence cursors (`core/sources/buffered_source.h`). Migration path:
 
-1. Introduce `StreamId`, `media_type`, and ring storage per stream.
+1. Introduce `StreamId`, `packet_type`, `stream_type`, and ring storage per `stream_id`.
 2. Add shared `timeline` insert on publish; inserter maintains PTS order.
 3. Change subscriptions to timeline cursor + filter skip.
 4. Keep `ReadStream` compatibility for video-only decoder path.

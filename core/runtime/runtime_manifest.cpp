@@ -1,8 +1,46 @@
 #include "core/runtime/runtime_manifest.h"
 
+#include "core/sources/packet_typing.h"
+
+#include <sstream>
 #include <utility>
 
 namespace irs3 {
+
+namespace {
+
+bool has_duplicate_input(const RuntimeSinkSpec &sink) {
+    for (std::size_t i = 0; i < sink.inputs.size(); ++i) {
+        for (std::size_t j = i + 1; j < sink.inputs.size(); ++j) {
+            const RuntimeSinkInputSpec &a = sink.inputs[i];
+            const RuntimeSinkInputSpec &b = sink.inputs[j];
+            if (a.id == b.id && a.stream_id == b.stream_id && a.packet_type == b.packet_type) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+} // namespace
+
+bool SinkSpecsEqual(const RuntimeSinkSpec &left, const RuntimeSinkSpec &right) {
+    if (left.sink_id != right.sink_id ||
+        left.output_root != right.output_root ||
+        left.output_mode != right.output_mode ||
+        left.inputs.size() != right.inputs.size()) {
+        return false;
+    }
+    for (std::size_t i = 0; i < left.inputs.size(); ++i) {
+        const RuntimeSinkInputSpec &a = left.inputs[i];
+        const RuntimeSinkInputSpec &b = right.inputs[i];
+        if (a.kind != b.kind || a.id != b.id || a.stream_type != b.stream_type ||
+            a.packet_type != b.packet_type || a.stream_id != b.stream_id) {
+            return false;
+        }
+    }
+    return true;
+}
 
 RuntimeManifestValidationResult ValidateRuntimeManifest(
     const RuntimeManifest &manifest,
@@ -10,10 +48,14 @@ RuntimeManifestValidationResult ValidateRuntimeManifest(
     bool require_active_sources
 ) {
     RuntimeManifestValidationResult result;
+
+    if (manifest.manifest_version != kRuntimeManifestVersion) {
+        result.error = "manifest_version must be 2";
+        return result;
+    }
+
     std::unordered_set<std::string> source_ids;
     std::unordered_set<std::string> sink_ids;
-    std::unordered_set<std::string> decoder_ids;
-    std::unordered_set<std::string> compose_ids;
 
     for (const RuntimeSourceSpec &source : manifest.sources) {
         if (source.source_id.empty()) {
@@ -35,10 +77,6 @@ RuntimeManifestValidationResult ValidateRuntimeManifest(
             result.error = "duplicate sink_id: " + sink.sink_id;
             return result;
         }
-        if (sink.source_id.empty()) {
-            result.error = "sink source_id must not be empty for sink_id: " + sink.sink_id;
-            return result;
-        }
         if (sink.output_root.empty()) {
             result.error = "sink output_root must not be empty for sink_id: " + sink.sink_id;
             return result;
@@ -48,72 +86,49 @@ RuntimeManifestValidationResult ValidateRuntimeManifest(
             result.error = "unsupported sink output mode for sink_id: " + sink.sink_id;
             return result;
         }
-        if (source_ids.find(sink.source_id) == source_ids.end()) {
-            result.error = "sink references unknown source_id in manifest: " + sink.source_id;
+        if (sink.inputs.empty()) {
+            result.error = "sink inputs must not be empty for sink_id: " + sink.sink_id;
             return result;
         }
-        if (require_active_sources &&
-            active_source_ids.find(sink.source_id) == active_source_ids.end()) {
-            result.error = "sink references inactive source_id: " + sink.source_id;
+        if (has_duplicate_input(sink)) {
+            result.error = "duplicate sink input for sink_id: " + sink.sink_id;
             return result;
         }
-    }
 
-    for (const RuntimeDecoderSpec &decoder : manifest.decoders) {
-        if (decoder.decoder_id.empty()) {
-            result.error = "decoder_id must not be empty";
-            return result;
+        bool has_video = false;
+        for (const RuntimeSinkInputSpec &input : sink.inputs) {
+            if (input.kind != "source") {
+                result.error = "sink input kind must be source for sink_id: " + sink.sink_id;
+                return result;
+            }
+            if (input.id.empty() || input.stream_type.empty() || input.packet_type.empty() ||
+                input.stream_id.empty()) {
+                result.error = "sink input requires kind, id, stream_type, packet_type, stream_id for sink_id: " + sink.sink_id;
+                return result;
+            }
+            if (source_ids.find(input.id) == source_ids.end()) {
+                result.error = "sink input references unknown source id: " + input.id;
+                return result;
+            }
+            if (!IsRemuxAllowedStreamType(input.stream_type)) {
+                result.error = "sink input stream_type must be video or voice for sink_id: " + sink.sink_id;
+                return result;
+            }
+            if (!PacketTypeMatchesStreamType(input.packet_type, input.stream_type)) {
+                result.error = "sink input packet_type does not match stream_type for sink_id: " + sink.sink_id;
+                return result;
+            }
+            if (input.stream_type == "video") {
+                has_video = true;
+            }
+            if (require_active_sources &&
+                active_source_ids.find(input.id) == active_source_ids.end()) {
+                result.error = "sink input references inactive source id: " + input.id;
+                return result;
+            }
         }
-        if (!decoder_ids.insert(decoder.decoder_id).second) {
-            result.error = "duplicate decoder_id: " + decoder.decoder_id;
-            return result;
-        }
-        if (decoder.source_id.empty()) {
-            result.error = "decoder source_id must not be empty for decoder_id: " + decoder.decoder_id;
-            return result;
-        }
-        if (source_ids.find(decoder.source_id) == source_ids.end()) {
-            result.error = "decoder references unknown source_id in manifest: " + decoder.source_id;
-            return result;
-        }
-        if (require_active_sources &&
-            active_source_ids.find(decoder.source_id) == active_source_ids.end()) {
-            result.error = "decoder references inactive source_id: " + decoder.source_id;
-            return result;
-        }
-    }
-
-    for (const RuntimeComposeSpec &compose : manifest.composes) {
-        if (compose.compose_id.empty()) {
-            result.error = "compose_id must not be empty";
-            return result;
-        }
-        if (!compose_ids.insert(compose.compose_id).second) {
-            result.error = "duplicate compose_id: " + compose.compose_id;
-            return result;
-        }
-        if (compose.decoder_id.empty()) {
-            result.error = "compose decoder_id must not be empty for compose_id: " + compose.compose_id;
-            return result;
-        }
-        if (compose.output_root.empty()) {
-            result.error = "compose output_root must not be empty for compose_id: " + compose.compose_id;
-            return result;
-        }
-        if (compose.snapshot_interval == 0) {
-            result.error = "compose snapshot_interval must be greater than zero for compose_id: " + compose.compose_id;
-            return result;
-        }
-        if (!IsKnownComposeType(compose.compose_type)) {
-            result.error = "compose references unknown compose_type for compose_id: " + compose.compose_id;
-            return result;
-        }
-        if (compose.compose_type == kComposeTypeClipPrompt && compose.prompt.empty()) {
-            result.error = "clip_prompt compose requires prompt for compose_id: " + compose.compose_id;
-            return result;
-        }
-        if (decoder_ids.find(compose.decoder_id) == decoder_ids.end()) {
-            result.error = "compose references unknown decoder_id in manifest: " + compose.decoder_id;
+        if (!has_video) {
+            result.error = "sink must include at least one video input for sink_id: " + sink.sink_id;
             return result;
         }
     }
@@ -128,26 +143,18 @@ RuntimeDesiredState BuildRuntimeDesiredState(const RuntimeManifest &manifest) {
     for (const RuntimeSourceSpec &source : manifest.sources) {
         desired.sources_by_id.emplace(source.source_id, source);
         desired.sink_ids_by_source_id.try_emplace(source.source_id, std::vector<std::string>{});
-        desired.decoder_ids_by_source_id.try_emplace(source.source_id, std::vector<std::string>{});
     }
 
     for (const RuntimeSinkSpec &sink : manifest.sinks) {
         desired.sinks_by_id.emplace(sink.sink_id, sink);
-        desired.routes_by_sink_id.emplace(sink.sink_id, sink.source_id);
-        desired.sink_ids_by_source_id[sink.source_id].push_back(sink.sink_id);
-    }
-
-    for (const RuntimeDecoderSpec &decoder : manifest.decoders) {
-        desired.decoders_by_id.emplace(decoder.decoder_id, decoder);
-        desired.routes_by_decoder_id.emplace(decoder.decoder_id, decoder.source_id);
-        desired.decoder_ids_by_source_id[decoder.source_id].push_back(decoder.decoder_id);
-        desired.compose_ids_by_decoder_id.try_emplace(decoder.decoder_id, std::vector<std::string>{});
-    }
-
-    for (const RuntimeComposeSpec &compose : manifest.composes) {
-        desired.composes_by_id.emplace(compose.compose_id, compose);
-        desired.routes_by_compose_id.emplace(compose.compose_id, compose.decoder_id);
-        desired.compose_ids_by_decoder_id[compose.decoder_id].push_back(compose.compose_id);
+        std::vector<std::string> source_ids;
+        for (const RuntimeSinkInputSpec &input : sink.inputs) {
+            if (std::find(source_ids.begin(), source_ids.end(), input.id) == source_ids.end()) {
+                source_ids.push_back(input.id);
+            }
+            desired.sink_ids_by_source_id[input.id].push_back(sink.sink_id);
+        }
+        desired.source_ids_by_sink_id.emplace(sink.sink_id, std::move(source_ids));
     }
 
     return desired;

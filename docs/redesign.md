@@ -52,7 +52,7 @@ The current target abstraction set is:
 - `Sink`
 - `Decoder`
 - `Encoder`
-- `Composer`
+- `Compose`
 
 These should be implemented as our own interfaces, not as wrappers that leak:
 
@@ -79,13 +79,13 @@ These are processing nodes in the media path:
 
 - `Decoder`
 - `Encoder`
-- `Composer`
+- `Compose`
 
-`Decoder` and `Composer` are **extended pull-based** (no background thread, no
-`Start()` — `Close()` only for now). See `docs/pipeline.md`.
+`Decoder` and `Compose` are **extended pull-based** (no background thread, no
+`Start()` — `Close()` only for now). See `docs/pipeline.md` and `docs/compose.md`.
 
-`Encoder` is queue-based with a **runner thread**, raw inputs, encoded output,
-and subscriptions for multiple sinks.
+`Encoder` is queue-based with a **runner thread**, raw inputs declared in its
+own `inputs`, encoded output, and subscriptions for multiple sinks.
 
 This distinction matters because autonomous components manage sessions, state,
 buffers, and shutdown, while extended pull-based components fill buffers on
@@ -244,7 +244,8 @@ It should:
 - expose **no `Start()`** lifecycle for now — only `Close()`
 - run **without a background thread**
 
-Decoder fan-out (multiple readers) is deferred. See `docs/pipeline.md`.
+Decoder fan-out to multiple compose readers is via independent pull
+subscriptions. See `docs/compose.md` and `docs/pipeline.md`.
 
 ## Encoder
 
@@ -253,7 +254,7 @@ Decoder fan-out (multiple readers) is deferred. See `docs/pipeline.md`.
 It should:
 
 - pull **raw** input only (video frames, text, location, audio PCM, any
-  non-encoded `media_type`) from one or more composer/upstream branches
+  non-encoded `media_type`) from compose node(s) listed in the encoder's **`inputs`**
 - synchronize inputs that arrive at different rates
 - encode / remux into encoded output packets
 - enforce output cadence and monotonic output timestamps when configured
@@ -263,22 +264,26 @@ It should:
 Sinks on the encode branch only read encoded packets from encoder subscriptions;
 they do not encode. See `docs/pipeline.md`.
 
-## Composer
+## Compose
 
-`Composer` is an **extended pull-based** raw-domain node.
+`Compose` is an **extended pull-based** raw-domain node. Concrete behavior is
+selected by `compose_type` (`jpg_snapshot`, `side_by_side`, `clip_prompt`, ...).
 
 It should:
 
-- pull raw packets from decoder (via `ReadPacket`) and eventually multiple inputs
-- emit raw packets via `ReadPacket`
+- declare **`inputs`** only (`decoder` and/or `compose`) — never downstream
+- pull raw packets from declared inputs via `ReadPacket`
+- emit raw packets via `ReadPacket` for readers that reference this compose in
+  their own `inputs` (fan-out via subscriptions)
 - own multi-input composition and raw-domain synchronization **inside `ReadPacket`**
+  for multi-input types only
 - maintain an internal packet-count buffer with the same fill policy as decoder
 - expose **no `Start()`** lifecycle for now — only `Close()`
 - run **without a background thread**
 
 It should not leak renderer or backend specifics into the control layer.
 
-See `docs/pipeline.md` and `docs/result.md`.
+See `docs/compose.md`, `docs/pipeline.md`, and `docs/result.md`.
 ## Typed Ports
 
 Queues, buffering, and connectivity should be represented through typed ports.
@@ -368,7 +373,7 @@ That means:
 4. define `ISource`
 5. define `IServer`
 6. move current RTMP/WebRTC code onto `Server` -> `Source` boundaries
-7. then define `Decoder`, `Encoder`, and `Composer`
+7. then define `Decoder`, `Encoder`, and `Compose`
 8. finally introduce explicit typed port connections between processing components
 
 ## Open Questions
@@ -387,8 +392,8 @@ The redesign direction is:
 - first move sinks to C++
 - make C++ the main stack of `argus`
 - treat `Server`, `Source`, `Encoder`, and `Sink` as autonomous runtime abstractions
-- treat `Decoder` and `Composer` as **extended pull-based** nodes (`ReadPacket`, fill-on-read, no thread)
-- connect components through typed ports with explicit buffer ownership
+- treat `Decoder` and `Compose` as **extended pull-based** nodes (`ReadPacket`, fill-on-read, no thread)
+- connect components through typed ports with explicit buffer ownership; compose graph uses **inputs-only** wiring (`docs/compose.md`)
 - see `docs/pipeline.md` for threading, buffer fill policy, and encode branch layout
 - see `docs/execution_model.md` for startup, update, and shutdown ordering
 

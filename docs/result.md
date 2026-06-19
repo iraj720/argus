@@ -24,7 +24,7 @@ It also compares the custom design against `FFmpeg`, `GStreamer`, `MLT`, and `li
   - packet-domain switch
   - raw-frame/domain-aware switch
 - Inputs and packet switches do not solve drift.
-- The composer owns multi-input AV timing in the raw domain.
+- Multi-input compose types own multi-input AV timing in the raw domain.
 - The encoder can duplicate or reuse the latest frame to maintain output cadence.
 - Graph updates are applied as atomic graph-generation changes.
 - Resource exhaustion can be handled by the application layer if the library exposes enough resource information early.
@@ -59,7 +59,7 @@ The custom design is a hybrid runtime:
 - inputs can behave pull-based
 - packet-level routing can remain relatively cheap
 - decode moves media into the raw domain
-- composer owns raw-domain synchronization and layout
+- multi-input compose owns raw-domain synchronization and layout
 - inference runs in the raw domain
 - encoder enforces final output cadence
 - outputs are queue-based sinks
@@ -120,14 +120,14 @@ These domains should not be blurred together.
 - `Decoder`
   - packet to raw frames
 
-- `Composer`
-  - raw-domain timing authority
-  - AV drift handling
-  - input liveness tracking
-  - scene layout/composition
+- `Compose` (abstract; `compose_type` selects concrete behavior)
+  - raw-domain timing authority for **multi-input** types
+  - AV drift handling, input liveness, scene layout/composition
+  - 1-in-1-out types transform only (no multi-input sync)
+  - examples: `side_by_side`, `jpg_snapshot`, `clip_prompt` — see `docs/compose.md`
 
-- `InferenceNode`
-  - raw-frame processing or metadata generation
+- `InferenceNode` (scene-spec concept; in C++ runtime, inference may be a
+  `compose_type` such as `clip_prompt`)
 
 - `Encoder`
   - final cadence enforcement
@@ -138,8 +138,9 @@ These domains should not be blurred together.
 The design becomes internally coherent with this ownership model:
 
 - `Input` and `PacketSwitch` do not solve drift.
-- `Composer` is the presentation-clock owner for multi-input raw composition.
-- `Composer` decides how to align or hold each input.
+- `Compose` (multi-input types) is the presentation-clock owner for multi-input raw composition.
+- `Compose` (multi-input types) decides how to align or hold each input.
+- 1-in-1-out compose chain stages do not re-run multi-input sync.
 - `Encoder` enforces output cadence and can duplicate frames if needed.
 - `Output` only writes what upstream delivers, subject to queue policy.
 
@@ -191,25 +192,25 @@ Tradeoff:
 
 ## Timing, Drift, and Stale Inputs
 
-### Composer Timing
+### Compose Timing
 
-The composer should:
+Multi-input compose types should:
 
 - own a presentation clock for multi-input raw composition
-- know the target output fps for its branch
+- know the target output fps for their branch
 - track liveness per input
 - decide whether to wait, reuse the last frame, or mark input stale
 - solve drift between multiple raw inputs
 
-In `argus`, composer is **extended pull-based** (no background thread). The
-above policy runs **inside `ReadPacket`** when pulling from decoder and other
-raw inputs. See `docs/pipeline.md`.
+In `argus`, compose nodes are **extended pull-based** (no background thread). The
+above policy runs **inside `ReadPacket`** when pulling declared `inputs`. See
+`docs/pipeline.md` and `docs/compose.md`.
 
 ### Encoder Timing
 
 The encoder should:
 
-- accept already-timed raw packets from composer or upstream raw paths
+- accept already-timed raw packets from compose nodes listed in the encoder's `inputs`
 - enforce final cadence on encoded output
 - generate monotonic output timestamps
 - reuse/duplicate the latest valid frame only under explicit policy
@@ -605,7 +606,7 @@ The best-fit option from the discussion is:
 - build a custom runtime
 - outsource encode/decode/mux/demux/protocol/filter basics to `FFmpeg`
 - keep packet-domain and raw-domain switching separate
-- let the composer own raw-domain sync
+- let multi-input compose types own raw-domain sync
 - let the encoder enforce final cadence
 - use atomic graph generations for live updates
 

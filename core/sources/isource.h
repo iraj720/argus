@@ -3,8 +3,10 @@
 
 #include "core/sources/isource_subscription.h"
 #include "core/sources/source_packet.h"
+#include "core/sources/subscription_filter.h"
 
 #include <memory>
+#include <optional>
 #include <string>
 
 namespace irs3 {
@@ -29,6 +31,7 @@ public:
     virtual const SourceDescriptor &Descriptor() const = 0;
     virtual bool WaitReady(SourceFormat *out) = 0;
     virtual SourceSubscriptionPtr Subscribe() = 0;
+    virtual SourceSubscriptionPtr Subscribe(const SubscriptionFilter &filter) = 0;
     virtual void Close() = 0;
 };
 

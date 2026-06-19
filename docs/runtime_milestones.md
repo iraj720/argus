@@ -458,11 +458,13 @@ The runtime step is complete when:
 
 These should not be mixed into the milestones above unless we decide to expand scope:
 
-- decoder abstraction
-- encoder abstraction
-- compose nodes
-- transcoding
+- compose DAG with `inputs[]` and pull/subscription fan-out (`docs/compose.md`)
+- full two-source scenario manifest (`docs/scenarios/complex_two_source.md`)
+- encoder abstraction and encode-branch sinks
 - warm swap graph changes
 - partial manifest updates
 - creating sources directly from the manifest
 - WebRTC transcoding-specific runtime logic
+
+Basic compose nodes exist today with legacy `decoder_id` and push wiring; target
+model is documented in `docs/compose.md`.

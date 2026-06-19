@@ -17,12 +17,13 @@ class BufferedSource;
 
 class BufferedSourceSubscription : public ISourceSubscription {
 public:
-    explicit BufferedSourceSubscription(const std::shared_ptr<BufferedSource> &source);
+    BufferedSourceSubscription(const std::shared_ptr<BufferedSource> &source, SubscriptionFilter filter);
     bool Read(SourcePacket *out) override;
     void Close() override;
 
 private:
     std::weak_ptr<BufferedSource> source_;
+    SubscriptionFilter filter_;
     std::uint64_t next_sequence_ = 0;
     bool next_sequence_initialized_ = false;
     bool closed_ = false;
@@ -57,7 +58,11 @@ public:
     }
 
     SourceSubscriptionPtr Subscribe() override {
-        return std::make_shared<BufferedSourceSubscription>(shared_from_this());
+        return Subscribe(SubscriptionFilter{});
+    }
+
+    SourceSubscriptionPtr Subscribe(const SubscriptionFilter &filter) override {
+        return std::make_shared<BufferedSourceSubscription>(shared_from_this(), filter);
     }
 
     void Close() override {
@@ -117,7 +122,13 @@ private:
             }
 
             if (subscription->prefix_index_ < prefix_packets_.size()) {
-                *out = *prefix_packets_[subscription->prefix_index_++];
+                const SourcePacket &candidate = *prefix_packets_[subscription->prefix_index_];
+                if (!subscription->filter_.IsEmpty() && !subscription->filter_.Matches(candidate)) {
+                    subscription->prefix_index_++;
+                    continue;
+                }
+                *out = candidate;
+                subscription->prefix_index_++;
                 return true;
             }
 
@@ -131,8 +142,12 @@ private:
                 subscription->next_sequence_ >= packets_.front()->sequence &&
                 subscription->next_sequence_ <= packets_.back()->sequence) {
                 std::size_t index = static_cast<std::size_t>(subscription->next_sequence_ - packets_.front()->sequence);
-                *out = *packets_[index];
+                const SourcePacket &candidate = *packets_[index];
                 subscription->next_sequence_ = packets_[index]->sequence + 1;
+                if (!subscription->filter_.IsEmpty() && !subscription->filter_.Matches(candidate)) {
+                    continue;
+                }
+                *out = candidate;
                 return true;
             }
 
@@ -171,8 +186,12 @@ private:
     friend class BufferedSourceSubscription;
 };
 
-inline BufferedSourceSubscription::BufferedSourceSubscription(const std::shared_ptr<BufferedSource> &source)
-    : source_(source) {
+inline BufferedSourceSubscription::BufferedSourceSubscription(
+    const std::shared_ptr<BufferedSource> &source,
+    SubscriptionFilter filter
+)
+    : source_(source),
+      filter_(std::move(filter)) {
 }
 
 inline bool BufferedSourceSubscription::Read(SourcePacket *out) {

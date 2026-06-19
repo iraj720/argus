@@ -132,7 +132,12 @@ If validation fails, the runtime rejects the request and keeps the previous grap
 
 ## Manifest Shape
 
-The initial manifest shape should be simple:
+Related docs:
+
+- `docs/scenarios/complex_two_source.md` — multi-source manifest stress case
+- `docs/compose.md` — compose graph, `kind: source` inputs
+
+The initial remux-only shape:
 
 ```json
 {
@@ -161,18 +166,90 @@ Notes:
 
 - `sources` declares the set of logical sources expected by the pipeline
 - `sinks` both declare sink nodes and declare the route through `source_id`
-- separate explicit edge objects are unnecessary for this first graph
+- remux-branch sinks bind to `source_id`; encode-branch sinks bind to `encoder_id` **(target)**
+
+### Decoders **(target)**
+
+One decoder per **`stream_type` per source** that requires decode:
+
+```json
+{
+  "decoder_id": "voice-dec-a",
+  "source_id": "live/studio",
+  "stream_type": "voice",
+  "packet_type": "voice/aac"
+}
+```
+
+Multiple voice **`stream_id`s** on one source (main + instruction mic) share one
+voice decoder; composes filter by `stream_id` on inputs.
+
+### Sink kinds **(target)**
+
+| Branch | Manifest binding | Pulls / muxes |
+|--------|------------------|---------------|
+| **Remux** | `source_id` + **`inputs[]`** | Encoded packets from source subscription; **muxes** selected streams into **one** output (HLS/file) |
+| **Encode output** | `encoder_id` | Encoded packets from encoder subscription (already encoded/muxed by encoder) |
+
+Remux sinks do **not** use one sink per `packet_type`. One sink declares **two or
+more** (or fewer) encoded inputs and remuxes them:
+
+```json
+{
+  "sink_id": "rec-a",
+  "source_id": "live/studio",
+  "output_root": "./record/studio",
+  "mode": "record",
+  "inputs": [
+    { "packet_type": "video/h264", "stream_id": "video/main" },
+    { "packet_type": "voice/aac", "stream_id": "voice/main" }
+  ]
+}
+```
+
+Each `inputs[]` entry filters which packets from the source timeline the sink
+includes in the mux. Optional `stream_id` narrows to one track.
+
+Encode-branch sinks bind to **`encoder_id`** only — no `inputs[]` on the sink;
+the encoder already produced the encoded program.
+
+A single process may run **both** branches for the same source (one remux record
++ decode/compose/encode path). See `docs/scenarios/complex_two_source.md`.
+
+### Compose and encode branch **(target)**
+
+Compose nodes, encoders, and encode-branch sinks use **inputs-only** wiring.
+See `docs/compose.md` for the full model.
+
+Summary:
+
+- `composes[].inputs[]` — `{ "kind": "source"|"decoder"|"compose", "id": "...", ...filters }`
+- `encoders[].inputs[]` — references compose node(s) the encoder pulls from
+- encode-branch sinks use **`encoder_id`** (not `source_id`)
+- **no node declares downstream**
+- compose graph must be a DAG; fan-out is allowed (many readers reference the same upstream id)
+- **current code** may still accept legacy `decoder_id` on composes until migration
+
+Full two-source example manifest: `docs/scenarios/complex_two_source.md`.
 
 ## Validation Rules
 
 Before reconciliation, the runtime should validate:
 
-- duplicate `source_id` values are rejected
-- duplicate `sink_id` values are rejected
-- each sink references a non-empty `source_id`
-- each sink has a non-empty `output_root`
-- each sink mode is supported
-- each `source_id` referenced by a sink is currently active in runtime state
+- duplicate `source_id`, `sink_id`, `decoder_id`, `compose_id`, and `encoder_id` values are rejected
+- remux sinks: `source_id`, non-empty `output_root`, non-empty **`inputs[]`**
+  (each entry filters `packet_type` / optional `stream_id`) **(target)**
+- encode sinks: each references `encoder_id` and non-empty `output_root` **(target)**
+- each sink has a supported `mode`
+- each `source_id` referenced by a sink or decoder is active in runtime state (strict upsert)
+
+Compose / encoder validation **(target)** — see `docs/compose.md`:
+
+- each compose has non-empty `inputs`
+- each `inputs[].kind` is `source`, `decoder`, or `compose`; `id` resolves in manifest
+- decoders declare `source_id`, `stream_type`, and `packet_type`
+- no cycles in compose references
+- per-`compose_type` params validated independently
 
 Important:
 
@@ -373,19 +450,27 @@ Short form:
 - servers are always process-level config and are not manifest-managed
 - the first runtime layer will continue to use the existing HLS sink runner and current source abstractions
 - target pipeline threading and pull models are specified in `docs/pipeline.md`
+- compose nodes are extended pull-based; wiring is inputs-only (`docs/compose.md`)
 - on the encode branch, sinks read encoded packets from encoder subscriptions; encoder owns encode/remux
-- decoder and composer are extended pull-based (no worker threads); encoder has a runner thread
+- decoder and compose are extended pull-based (no worker threads); encoder has a runner thread
 
 ## Non-Goals For This Phase
 
-The following are intentionally out of scope for the first runtime step:
+The following remain deferred or partial:
 
-- decoders
-- encoders
-- compose nodes
-- transcoding
+- full compose DAG with `inputs[]` in HTTP manifest (legacy `decoder_id` in current code)
+- encoder integration on the encode branch
+- warm replacement of active routes
+- partial manifest merge semantics
+- source creation through the manifest itself
+
+Implemented today (outside the original first runtime step):
+
+- decoders and compose nodes (legacy push wiring)
+- CLI compose flags
+
+Still out of scope:
+
+- transcoding policy beyond initial encode branch
 - protocol-specific graph ids
 - sink-to-sink or source-to-source graph edges
-- partial manifest merge semantics
-- warm replacement of active routes
-- source creation through the manifest itself

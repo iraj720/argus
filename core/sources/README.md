@@ -2,7 +2,9 @@ Media source abstractions and the default in-process buffered source implementat
 
 Design docs:
 
+- `docs/scenarios/complex_two_source.md` — two-source packet inventory example
 - `docs/source.md` — rings, timeline, subscriptions
+- `docs/compose.md` — compose graph; output fan-out mirrors source subscriptions
 - `docs/pipeline.md` — pull models, extended pull-based nodes
 - `docs/execution_model.md` — threads, startup, buffer fill, close order
 

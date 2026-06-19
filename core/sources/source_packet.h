@@ -46,6 +46,9 @@ struct SourcePacket {
     std::size_t stream_index = 0;
     SourceTrackKind track_kind = SourceTrackKind::kData;
     int tag_type = 0;
+    std::string stream_type;
+    std::string packet_type;
+    std::string stream_id;
     std::uint32_t timestamp_ms = 0;
     std::int64_t pts = 0;
     std::int64_t dts = 0;

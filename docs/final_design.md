@@ -155,10 +155,8 @@ const (
 )
 ```
 
-In `argus`, encoded and raw ports also carry **abstract streams** identified by
-`stream_id` and extensible `media_type` strings (for example `video/h264`,
-`application/json`). See **argus C++ Pipeline Model** at the end of this doc and
-`docs/source.md`.
+In `argus`, encoded and raw ports carry **packets** tagged with `packet_type`,
+`stream_type`, and `stream_id`. See **Packet model** in `docs/source.md`.
 
 ### NodeKind
 
@@ -170,7 +168,7 @@ const (
     NodeFanout     NodeKind = "fanout"
     NodeSwitch     NodeKind = "switch"
     NodeDecoder    NodeKind = "decoder"
-    NodeComposer   NodeKind = "composer"
+    NodeComposer   NodeKind = "composer"   // C++ runtime: concrete Compose nodes with compose_type
     NodeEncoder    NodeKind = "encoder"
     NodeMux        NodeKind = "mux"
     NodeOutput     NodeKind = "output"
@@ -698,7 +696,10 @@ the implementation language and first backend differ.
 
 See also:
 
+- `docs/compose.md` — compose graph, inputs-only wiring, fan-in/fan-out
+- `docs/scenarios/complex_two_source.md` — two-source stress case
 - `docs/source.md` — source rings, shared timeline, subscriptions
+- `docs/compose.md` — compose graph, inputs-only wiring, fan-in/fan-out
 - `docs/pipeline.md` — threading, extended pull-based nodes, encoder branch
 - `docs/execution_model.md` — startup, threads, buffer fill, close order
 - `docs/redesign.md` — `Server`, `Source`, `Sink`, typed ports
@@ -712,36 +713,37 @@ The graph is still **typed**, not a weak generic pipe. A port declares the
 streams** may flow in parallel:
 
 ```text
-stream_id        media_type
-video/main       video/h264
-audio/voice-en   audio/opus
-meta/location    application/json
-text/captions    text/plain
+stream_id        packet_type       stream_type
+video/main       video/h264        video
+voice/en         voice/aac         voice
+meta/location    location/text     location
+text/captions    text/plain        text
 ```
 
-Typed ports answer: “what kind of connection is this?” (`Encoded`, `Raw`,
-`Events`). Abstract streams answer: “which logical channel and payload format?”
+Typed ports answer: “what **domain** is this connection?” (`Encoded`, `Raw`).
+**`packet_type`** answers: “what format is this **packet**?” **`stream_type`**
+answers: “which decode/route family?”
 
-This extends the `MediaType` model with extensible `media_type` strings and
-stable `stream_id` values. Graph validation checks port domain compatibility;
-stream filters check payload compatibility.
+Graph validation checks port domain compatibility, `packet_type` compatibility,
+and optional `stream_id` filters.
 
 ### Port and Connection Model
 
 | Component | Typical ports | Threading |
 |-----------|----------------|-----------|
 | `Source` | `out:encoded` — multiplexed bundle | No (ingest pushes) |
-| `Decoder` | `in:encoded`, `out:raw` | Extended pull-based, no thread |
-| `Composer` | `in:raw/*`, `out:raw/*` | Extended pull-based, no thread |
-| `Encoder` | `in:raw/*`, `out:encoded` | Runner thread, subscriptions |
+| `Decoder` | `in:encoded packet_type`, `out:raw packet_type` | One node per `stream_type` per source; extended pull-based |
+| `Compose` | `in:raw/*`, `out:raw/*` | Extended pull-based, no thread; inputs-only wiring |
+| `Encoder` | `in:raw/*`, `out:encoded` | Runner thread; declares compose inputs in manifest |
 | Mux sink | `in:encoded` | Runner thread, `ReadPacket` from encoder or source |
 
 Rules:
 
 - **Source** emits one encoded bundle; it does not expose a physical port per
   `stream_id`.
-- **Encode branch:** `Composer → Encoder (thread) → Sink` — encoder remuxes/encodes;
-  sink only reads encoded packets. See `docs/pipeline.md`.
+- **Encode branch:** compose DAG → `Encoder (thread) → Sink` — encoder remuxes/encodes;
+  sink only reads encoded packets. Each compose/encoder declares **`inputs`** only.
+  See `docs/compose.md` and `docs/pipeline.md`.
 - **Direct remux:** `Source → Sink` for pass-through HLS without transcoding.
 - **Narrow consumers** (decoder) use `ReadStream` or a stream filter on source.
 
@@ -749,12 +751,15 @@ Rules:
 
 ```text
 Direct remux:  ingest (push) → Source → Sink thread (ReadPacket) → write
-Encode branch: ingest (push) → Source → Decoder → Composer → Encoder thread → Sink thread (ReadPacket) → write
+Encode branch: ingest (push) → Source → Decoder → Compose* → Encoder thread → Sink thread (ReadPacket) → write
 ```
 
 - Ingest **pushes** into source storage.
-- **Decoder** and **Composer** are **extended pull-based** — no background thread;
+- **Decoder** and **Compose** are **extended pull-based** — no background thread;
   `ReadPacket` triggers upstream fill per `docs/pipeline.md`.
+- **Compose graph** supports chains, fan-in (multi-input types), and fan-out
+  (multiple readers reference the same compose in their `inputs`). See
+  `docs/compose.md`.
 - **Encoder** has a runner thread, pulls raw, outputs encoded queue with
   subscriptions for multiple sinks.
 - **Sink** has a runner thread; on the encode branch it only **reads encoded**
@@ -771,7 +776,8 @@ Sync is **not** uniform across the graph. Each layer has a narrow job:
 | `Source` | Store samples, PTS order in timeline, bounded retention |
 | Subscription `ReadPacket` | Deliver next matching sample; no cross-stream alignment |
 | `Decoder` | Decode only; extended pull-based, no multi-input sync |
-| `Composer` | Multi-input raw alignment **inside `ReadPacket`** |
+| `Compose` (multi-input) | Multi-input raw alignment **inside `ReadPacket`** |
+| `Compose` (1-in-1-out) | Transform only; no multi-input sync |
 | `Encoder` | Raw input sync (different rates), output cadence, encoded timestamps; fan-out to sinks |
 | `Sink` | Write encoded packets from encoder or source subscription |
 
@@ -786,7 +792,7 @@ on write; composer/encoder sync when multiple inputs or output cadence matter.
 **Sporadic metadata** (location, text, inference): correlated by timestamp, not
 frame lockstep; consumers attach events to the timeline without blocking video.
 
-**Multi-publisher scenes**: `Composer` owns the presentation clock; sources only
+**Multi-publisher scenes**: multi-input **Compose** nodes own the presentation clock; sources only
 provide per-publisher timelines.
 
 ### Source Summary
@@ -804,11 +810,15 @@ The source design is specified in `docs/source.md`. Key points:
 An edge is valid when:
 
 1. Port domains match (`Encoded` → `Encoded`, `Raw` → `Raw`, ...).
-2. The downstream node accepts the upstream `media_type` pattern.
+2. The downstream node accepts the upstream `packet_type` / `stream_type`.
 3. Optional `stream_id` filters are satisfiable from the upstream bundle.
 
-Manifest routing evolves from flat `source_id → sink_id` toward explicit port
-edges and stream filters. See `docs/runtime.md` for the current manifest shape.
+Manifest routing uses **`inputs`** on compose and encoder nodes (consumer declares
+upstream). See `docs/compose.md` and `docs/runtime.md`. Explicit port edge
+objects may follow the `EdgeSpec` model later.
+
+**Stress case:** `docs/scenarios/complex_two_source.md` — two sources, remux +
+encode branches, four decoders, compose DAG, dual encoders, three encode sinks.
 
 ### Implementation Order (argus)
 
@@ -817,15 +827,16 @@ edges and stream filters. See `docs/runtime.md` for the current manifest shape.
 2. Implement rings + shared timeline in source (`docs/source.md`).
 3. Add subscription filters and dual read modes.
 4. Introduce typed port descriptors on processing nodes.
-5. Extend manifest with port edges and stream filters when runtime graph grows.
+5. Extend manifest with compose `inputs[]`, encoder `inputs[]`, and stream filters.
 
 ### argus Assumptions
 
 - first source implementation targets single-publisher sessions (RTMP/WHIP)
 - timeline inserter normalizes PTS to one session clock at publish time
 - universal pull API at component boundaries is `ReadPacket`
-- decoder and composer are extended pull-based (no thread, `Close()` only)
+- decoder and compose are extended pull-based (no thread, `Close()` only)
+- compose nodes declare `inputs` only; no upstream downstream fields
 - encoder has a thread, raw in / encoded out, subscriptions for sink fan-out
-- decoder fan-out is deferred; encoder fan-out to sinks is in scope
-- composer and encoder sync semantics follow `docs/result.md` and `docs/pipeline.md`
+- compose fan-out to multiple readers is in scope via subscriptions
+- compose and encoder sync semantics follow `docs/result.md`, `docs/pipeline.md`, and `docs/compose.md`
 - multi-input composition is out of scope for the source layer

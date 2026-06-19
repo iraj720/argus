@@ -6,6 +6,8 @@ updating, and closing the runtime.
 
 Related docs:
 
+- `docs/scenarios/complex_two_source.md` — multi-source startup/shutdown case
+- `docs/compose.md` — compose graph, inputs-only wiring
 - `docs/pipeline.md` — pull models, extended pull-based nodes, encoder branch
 - `docs/source.md` — source rings, timeline, subscriptions
 - `docs/runtime.md` — manifest, reconcile, HTTP control
@@ -34,7 +36,7 @@ This document covers **process and runtime orchestration**. It describes both:
 | **Runtime source loop** | `Runtime::Start()` on main thread | `source_queue_.Pop()` → `HandleSource()` |
 | **Ingest session** (one per publisher connection) | Server on accept | Protocol read loop; `Publish()` into `BufferedSource` |
 | **Sink runner** (one per active sink route) | `SinkHandle::Start()` | Pull loop → HLS write (**current**: from source subscription) |
-| **Encoder runner** (one per encoder) | `Encoder::Start()` **(target)** | Pull raw from composer(s), encode, fill encoded queue |
+| **Encoder runner** (one per encoder) | `Encoder::Start()` **(target)** | Pull raw from compose node(s) in encoder `inputs`, encode, fill encoded queue |
 | **Decoder runner** | `DecoderHandle::Start()` **(current legacy)** | Background decode thread; **removed in target** |
 
 ### What has no thread
@@ -43,7 +45,7 @@ This document covers **process and runtime orchestration**. It describes both:
 |-----------|-------------------|
 | `Source` | Rings + shared timeline; written by ingest session thread only |
 | `Decoder` **(target)** | Packet-count buffer; fills on `ReadPacket` |
-| `Composer` **(target)** | Packet-count buffer; fills on `ReadPacket` |
+| `Compose` **(target)** | Packet-count buffer; fills on `ReadPacket`; output via reader subscriptions |
 | Subscriptions | Cursor + filter only; never mutate shared buffers |
 
 **N streams in one source does not mean N threads.** One ingest session thread
@@ -67,10 +69,13 @@ Per active source
 └── ComposeHandle                (target: no thread; current: callback on decoder thread)
 
 Per encoder (target)
-├── raw input pull from composer(s)
+├── inputs[] resolved to compose/decoder pull endpoints
 ├── encoded output queue
 └── encoder subscription(s)      (one per sink on encode branch)
 ```
+
+Compose nodes are wired from each node's **`inputs`** only — no upstream
+downstream fields. See `docs/compose.md`.
 
 ## Process Bootstrap
 
@@ -108,6 +113,31 @@ Per encoder (target)
 Until a publisher connects, **no sink or decoder buffers fill**. Servers listen;
 desired routes wait in `state_.desired`.
 
+## Multi-source graphs **(target)**
+
+When the manifest declares multiple `source_id` values (e.g. `live/studio` and
+`live/guest`), each publisher connects independently:
+
+```text
+Watcher → source_queue → HandleSource(live/studio) → start A routes
+Watcher → source_queue → HandleSource(live/guest)  → start B routes
+```
+
+Per source, under `state_.desired`:
+
+- remux sinks filtered to that `source_id`
+- decoders bound to that `source_id`
+- composes whose `inputs` reference those decoders or that source (transitively)
+
+Compose nodes that **fan in** decoders from **two sources** (e.g. `layout-a`
+reading studio watermark + guest video) wire only when **both** sources are
+active — strict upsert rejects the manifest otherwise.
+
+Shared encoders (`enc-live`, `enc-record`) start when their compose inputs are
+live; encode sinks start with encoder subscriptions.
+
+See `docs/scenarios/complex_two_source.md`.
+
 ## Publisher Connects — What Starts
 
 When a watcher delivers a new `SourcePtr`, `HandleSource()`:
@@ -119,7 +149,8 @@ When a watcher delivers a new `SourcePtr`, `HandleSource()`:
 4. Start routes in order (under state_.mutex):
      a. sinks     → StartRouteLocked()      # subscribe + SinkHandle::Start()
      b. decoders  → StartDecoderRouteLocked()
-     c. composes  → StartComposeRouteLocked()  # requires decoder route active
+     c. composes  → StartComposeRouteLocked()  # wire each compose inputs[] **(target)**
+     d. encoders  → StartEncoderRouteLocked()  **(target)**
 ```
 
 ### Direct remux branch (current default)
@@ -146,9 +177,9 @@ Data flow begins when **both** ingest pushes packets **and** sink thread pulls.
 When encoder is in the graph:
 
 ```text
-1. Construct Decoder + Composer objects (no Start)
-2. Wire: composer → decoder → source subscription
-3. encoder->Start()                    # encoder thread begins
+1. Construct Decoder + Compose objects (no Start) from manifest inputs[]
+2. Wire pull endpoints: each compose resolves inputs[] to decoder/compose readers
+3. encoder->Start()                    # encoder pulls compose(s) listed in its inputs
 4. For each sink on encode branch:
      subscription = encoder->Subscribe()
      sink_handle->Start()              # sink thread reads encoded only
@@ -157,7 +188,7 @@ When encoder is in the graph:
 Start order for a full encode path:
 
 ```text
-source registered → decoder/composer wired → encoder Start → sink Start(s)
+source registered → decoder wired → compose graph wired → encoder Start → sink Start(s)
 ```
 
 Sinks on the encode branch **never** subscribe directly to source.
@@ -189,22 +220,22 @@ Sink thread:
     ← encoded queue (encoder thread fills)
 
 Encoder thread loop:
-  composer.ReadPacket()
-    ← composer buffer (fills from decoder on demand)
+  compose.ReadPacket()                 # may pull a chain of composes
+    ← compose buffer (fills from inputs on demand)
   encode → push encoded queue
 
-Composer ReadPacket (called from encoder thread):
-  decoder.ReadPacket()
-    ← decoder buffer (fills from source on demand)
+Compose ReadPacket (called from encoder or another compose reader):
+  pull each entry in inputs[] (decoder and/or upstream compose)
+  ← local buffer per extended pull policy
 
-Decoder ReadPacket (called from composer):
+Decoder ReadPacket (called from compose):
   source_subscription.ReadPacket()
     ← source timeline / rings
 ```
 
 ### Extended pull-based fill policy
 
-When `ReadPacket` runs on decoder or composer and buffered count
+When `ReadPacket` runs on decoder or compose and buffered count
 `< buffer_threshold` (packet count, default example 50):
 
 ```text
@@ -215,7 +246,7 @@ return one packet to caller
 ```
 
 First fill happens on the **first** `ReadPacket` at each layer, triggered by
-the layer above (encoder thread for compose, compose for decoder).
+the reader above (encoder thread, downstream compose, or terminal compose).
 
 ## Runtime Graph Update (`ApplyManifest`)
 
@@ -232,21 +263,23 @@ HTTP `POST /upsert_manifest` or bootstrap calls `ApplyManifestWithMode`.
 ### Reconcile order (inside lock)
 
 ```text
-1. Compute routes to remove (sinks, composes, decoders whose spec changed or absent)
-2. For decoder removal: CloseComposeRoutesForDecoderLocked() first
+1. Compute routes to remove (sinks, encoders, composes, decoders whose spec changed or absent)
+2. Close compose subtrees whose inputs reference removed nodes **(target)**
 3. state_.desired = new_desired
 4. Start new routes for already-active sources:
      a. new sink routes      → StartRouteLocked()
      b. new decoder routes   → StartDecoderRouteLocked()
-     c. new compose routes   → StartComposeRouteLocked()
+     c. new compose routes   → StartComposeRouteLocked()   # topo order by inputs **(target)**
+     d. new encoder routes   → StartEncoderRouteLocked() **(target)**
 ```
 
 ### Close removed routes (outside lock, after state update)
 
 ```text
 1. CloseRouteState()          per removed sink (joins sink thread)
-2. CloseComposeRouteState()   per removed compose
-3. CloseDecoderRouteState()   per removed decoder
+2. CloseEncoderRouteState()   per removed encoder **(target)**
+3. CloseComposeRouteState()   per removed compose (readers stopped first) **(target)**
+4. CloseDecoderRouteState()   per removed decoder
 ```
 
 **Update principle:** tear down removed/changed downstream routes before relying
@@ -317,16 +350,16 @@ Sink/encoder threads stop
 
 | Phase | Order |
 |-------|-------|
-| **Start graph on source accept** | source → sinks → decoders → composes → encoder **(target)** |
-| **Stop graph** | sinks → composes → decoders → encoder **(target)** → sources |
-| **Manifest remove** | compose (if decoder removed) → decoder → sink (close handles after state swap) |
+| **Start graph on source accept** | per source: remux sinks → decoders → composes (topo) → shared encoders when inputs ready **(target)** |
+| **Stop graph** | encode sinks → encoders → composes (reverse topo) → decoders → remux sinks → sources **(target)** |
+| **Manifest remove** | stop readers first; close nodes no longer referenced **(target)** |
 
 ## Legacy vs Target
 
 | Area | Current | Target |
 |------|---------|--------|
 | Decoder | `DecoderRunner` thread, push `OnVideoFrame` to compose | Extended pull-based, `ReadPacket`, no thread |
-| Compose | `IDecodedVideoConsumer` callback | `ReadPacket` pulls decoder |
+| Compose | `IDecodedVideoConsumer` callback; `decoder_id` in manifest | Extended pull-based; `inputs[]`; fan-out via subscriptions |
 | Sink input | Source subscription (encoded) | Encoder subscription on encode branch; source on remux branch |
 | Encoder | Not integrated | Thread + queue + subscriptions |
 
@@ -340,6 +373,7 @@ describe the **target** column.
 - Servers are created at startup from process config, not from manifest
 - Each sink route has its own runner thread
 - Each encoder has its own runner thread **(target)**
-- Decoder and composer have no `Start()` and no runner thread **(target)**
+- Decoder and compose have no `Start()` and no runner thread **(target)**
+- Compose nodes declare `inputs` only; graph is a DAG **(target)** — see `docs/compose.md`
 - Buffers do not pre-fill at component construction; first pull starts the chain
 - Manifest updates are full-replace; partial merge is deferred
